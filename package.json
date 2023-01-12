@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Nexters 22nd - interaction page",
   "main": "src/App.tsx",
+  "packageManager": "yarn@3.3.1",
   "repository": "https://github.com/Nexters/who-really-wants-to-play.git",
   "author": "1ilsang <1ilsang@naver.com>",
   "license": "MIT",
