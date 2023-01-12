@@ -8,5 +8,6 @@
 2. yarn (for zero-install link)
 3. yarn prepare (for husky;pre-commit)
 4. Set typescript sdk
-   - open ts file > cmd + shift + p > TypeScript: Select Typescript version... > 4.9.4-SDK
+   - "Allow" vscode alert
+   - or open ts file > cmd + shift + p > TypeScript: Select Typescript version... > 4.9.4-SDK
 5. yarn dev (for HAPPY HACK!)
