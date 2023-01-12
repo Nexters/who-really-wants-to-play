@@ -11,7 +11,8 @@ module.exports = merge(common, {
     static: {
       directory: path.join(__dirname, './src/assets'),
     },
-    port: 8080,
+    port: 3000,
+    open: true,
     historyApiFallback: true,
     hot: true,
   },
