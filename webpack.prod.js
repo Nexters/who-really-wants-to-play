@@ -7,7 +7,7 @@ const productionOption = {
 };
 
 console.info(
-  `###########################[${new Date()}]##########################\n\n\n[INFO] Production build start!\n#####################################################\n`,
+  `\n#######[${new Date()}]##############\n\n[INFO] Production build start!\n\n#########################################################\n`,
 );
 
 module.exports = merge(common, productionOption);
