@@ -7,6 +7,7 @@ runs:
   steps:
     - name: Get yarn cache directory path as "$GITHUB_OUTPUT"
       id: yarn-config
+      shell: bash
       run: echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
     - name: Restore yarn cache
@@ -29,6 +30,7 @@ runs:
           ${{ runner.os }}-yarn-install-state-cache-
 
     - name: Install dependencies
+      shell: bash
       if: steps.yarn-download-cache.cache-hit != 'true'
       run: yarn install --immutable --immutable-cache
       env:
