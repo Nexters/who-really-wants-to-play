@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+defaults:
+  run:
+    working-directory: ./
+
+jobs:
+  Continuous-Integration:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Dependency Install
+        uses: ./.github/actions/yarn-install
+
+      - name: Check lint validation
+        run: yarn lint
+        if: ${{ always() }}

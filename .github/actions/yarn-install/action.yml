@@ -1,0 +1,38 @@
+name: 'Dependency install (yarn)'
+description: 'Run yarn install(yarn3, Zero-Install)'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Get yarn cache directory path as "$GITHUB_OUTPUT"
+      id: yarn-config
+      shell: bash
+      run: echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+    - name: Restore yarn cache
+      uses: actions/cache@v3
+      id: yarn-download-cache
+      with:
+        path: ${{ steps.yarn-config.outputs.CACHE_FOLDER }}
+        key: ${{ runner.os }}-yarn-download-cache-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-download-cache-
+
+    # Invalidated on yarn.lock changes
+    - name: Restore yarn install state
+      id: yarn-install-state-cache
+      uses: actions/cache@v3
+      with:
+        path: .yarn/ci-cache/
+        key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-install-state-cache-
+
+    - name: Install dependencies
+      shell: bash
+      if: steps.yarn-download-cache.outputs.cache-hit != 'true'
+      run: yarn install --immutable --immutable-cache
+      env:
+        YARN_ENABLE_GLOBAL_CACHE: 'false' # Use local cache folder to keep downloaded archives
+        YARN_INSTALL_STATE_PATH: .yarn/ci-cache/install-state.gz # Very small speedup when lock does not change
