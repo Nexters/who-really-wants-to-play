@@ -1,0 +1,47 @@
+#landing {
+  &.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title {
+    color: white;
+    font-size: 25vw;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .background {
+    position: absolute;
+    left: 50%;
+    bottom: -10%;
+    transform: translate(-50%, 0);
+    min-width: 700px;
+  }
+
+  .scroll-to-enter {
+    &::before,
+    &::after {
+      display: block;
+      content: '';
+      width: 1px;
+      height: 45px;
+      background: #d9d9d9;
+    }
+
+    position: absolute;
+    bottom: 20px;
+    font-family: Rantera, 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
