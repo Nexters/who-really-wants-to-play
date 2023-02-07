@@ -15,6 +15,27 @@
     font-size: 25vw;
     text-align: center;
     z-index: 1;
+    animation: 2.5s ease-out 0s 1 title-wait, 1s ease-in 2.5s title-slide-top-in;
+
+    @keyframes title-wait {
+      from {
+        transform: translateY(-80vh);
+      }
+
+      to {
+        transform: translateY(-80vh);
+      }
+    }
+
+    @keyframes title-slide-top-in {
+      from {
+        transform: translateY(-80vh);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
   }
 
   .background {
@@ -23,6 +44,17 @@
     bottom: -10%;
     transform: translate(-50%, 0);
     min-width: 700px;
+    animation: 2s ease-out bg-slide-bottom-in;
+
+    @keyframes bg-slide-bottom-in {
+      from {
+        bottom: -100%;
+      }
+
+      to {
+        bottom: -10%;
+      }
+    }
   }
 
   .scroll-to-enter {
@@ -36,21 +68,42 @@
     }
 
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     font-family: Rantera, 'Noto Sans KR', sans-serif;
     font-size: 20px;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    animation: floating;
-    animation-iteration-count: infinite;
-    animation-duration: 3.5s;
+    animation:
+      scroll-wait 5s ease-out 1,
+      scroll-slide-top-in 1s ease-out 5s 1,
+      floating 3.5s 6.5s infinite;
+
+    @keyframes scroll-wait {
+      from {
+        bottom: -150px;
+      }
+
+      to {
+        bottom: -150px;
+      }
+    }
+
+    @keyframes scroll-slide-top-in {
+      from {
+        bottom: -150px;
+      }
+
+      to {
+        bottom: 15px;
+      }
+    }
   }
 
   @keyframes floating {
     10% {
-      bottom: 10px;
+      bottom: 15px;
     }
 
     40% {
@@ -62,7 +115,7 @@
     }
 
     90% {
-      bottom: 10px;
+      bottom: 15px;
     }
   }
 }
