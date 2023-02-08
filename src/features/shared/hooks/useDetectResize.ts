@@ -1,5 +1,6 @@
-import { debounce } from '~/features/shared/utils/debounce';
 import { useEffect, useState } from 'react';
+
+import { debounce } from '~/features/shared/utils/debounce';
 
 export default function useWindowResize(delay: number) {
   const [size, setSize] = useState([window.innerWidth, window.innerHeight]);

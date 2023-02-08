@@ -1,7 +1,8 @@
-@import './global.scss';
-@import './_color.scss';
-h1 {
-  font-family: 'Rantera', 'Noto Sans KR';
+@import './global';
+@import './color';
+
+body {
+  font-family: Rantera, 'Noto Sans KR', sans-serif;
 }
 
 .gallery {
@@ -24,9 +25,10 @@ h1 {
   .grid-item {
     height: fit-content;
     transition: all 0.2s ease-in-out;
+
     &:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 0.5rem rgba(0 0 0 / 50%);
     }
   }
 

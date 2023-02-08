@@ -1,5 +1,6 @@
-import { StyleProps } from '~/types';
 import classnames from 'classnames';
+
+import { StyleProps } from '~/types';
 
 type Props = {
   title: string;

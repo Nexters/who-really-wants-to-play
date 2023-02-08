@@ -1,8 +1,9 @@
+import { FunctionComponent } from 'react';
+
 import SubTitle from '../shared/components/SubTitle';
 
 import MasonryLayout from './components/MasonryLayout';
 
-import { FunctionComponent } from 'react';
 import { GalleryMockImgList } from '~/mocks/gallery';
 
 const Gallery: FunctionComponent = () => {

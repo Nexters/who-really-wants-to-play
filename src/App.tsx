@@ -1,7 +1,7 @@
-import Gallery from './features/gallery';
-
 import { FunctionComponent } from 'react';
 import { createRoot } from 'react-dom/client';
+
+import Gallery from './features/gallery';
 import './style/index.scss';
 
 const App: FunctionComponent = () => {

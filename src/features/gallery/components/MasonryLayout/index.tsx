@@ -1,10 +1,11 @@
 import '~/style/index.scss';
+import { useRef } from 'react';
+
 import { getGridRowEnd } from '../../utils/getGridRowEnd';
 import { useMasonryLayout } from '../../hooks/useMasonryLayout';
 
 import { ImgProps } from '~/types';
 import Image from '~/features/shared/components/Image';
-import { useRef } from 'react';
 
 interface Props {
   imgList: ImgProps[];

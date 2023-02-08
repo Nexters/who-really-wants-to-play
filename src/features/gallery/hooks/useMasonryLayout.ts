@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import useDetectResize from '~/features/shared/hooks/useDetectResize';
 
 export const useMasonryLayout = (handleLayout: () => void) => {
