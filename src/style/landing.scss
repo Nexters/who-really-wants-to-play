@@ -1,3 +1,9 @@
+$bg-slide-animation-duration: 1.2s;
+$title-slide-animation-duration: 0.8s;
+$scroll-slide-animation-duration: 1s;
+$title-animation-delay: $bg-slide-animation-duration;
+$scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-animation-duration;
+
 #landing {
   &.container {
     position: relative;
@@ -10,12 +16,33 @@
     justify-content: center;
   }
 
+  .background {
+    position: absolute;
+    left: 50%;
+    bottom: -10%;
+    transform: translate(-50%, 0);
+    min-width: 700px;
+    animation: $bg-slide-animation-duration cubic-bezier(0, 0, 0.06, 1) bg-slide-bottom-in 1;
+
+    @keyframes bg-slide-bottom-in {
+      from {
+        bottom: -100%;
+      }
+
+      to {
+        bottom: -10%;
+      }
+    }
+  }
+
   .title {
     color: white;
     font-size: 25vw;
     text-align: center;
     z-index: 1;
-    animation: 2.5s ease-out 0s 1 title-wait, 1s ease-in 2.5s title-slide-top-in;
+    animation:
+      $title-animation-delay ease-out 0s 1 title-wait,
+      $title-slide-animation-duration ease-in $title-animation-delay title-slide-top-in;
 
     @keyframes title-wait {
       from {
@@ -34,25 +61,6 @@
 
       to {
         transform: translateY(0);
-      }
-    }
-  }
-
-  .background {
-    position: absolute;
-    left: 50%;
-    bottom: -10%;
-    transform: translate(-50%, 0);
-    min-width: 700px;
-    animation: 2s ease-out bg-slide-bottom-in;
-
-    @keyframes bg-slide-bottom-in {
-      from {
-        bottom: -100%;
-      }
-
-      to {
-        bottom: -10%;
       }
     }
   }
@@ -76,9 +84,9 @@
     flex-direction: column;
     align-items: center;
     animation:
-      scroll-wait 5s ease-out 1,
-      scroll-slide-top-in 1s ease-out 5s 1,
-      floating 3.5s 6.5s infinite;
+      scroll-wait $scroll-animation-delay ease-out 1,
+      scroll-slide-top-in $scroll-slide-animation-duration cubic-bezier(0.42, 0, 0.22, 0.99) $scroll-animation-delay 1,
+      floating 3.5s ($scroll-animation-delay + $scroll-slide-animation-duration) infinite;
 
     @keyframes scroll-wait {
       from {
