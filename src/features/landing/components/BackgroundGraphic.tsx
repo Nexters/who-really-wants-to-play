@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 const BackgroundGraphic: FunctionComponent = () => {
   return (
     <svg
-      className={'background'}
+      className="background"
       width="1920"
       height="743"
       viewBox="0 0 1920 743"
