@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import BackgroundGraphic from '~/features/landing/components/BackgroundGraphic';
+import BackgroundGraphicSvg from '~/features/landing/components/svg/BackgroundGraphicSvg';
 import ScrollToEnter from '~/features/landing/components/ScrollToEnter';
 
 /**
@@ -13,7 +13,7 @@ const LandingContainer: FunctionComponent = () => {
   return (
     <div className="landing-container">
       <h1 className="landing-title">Jjin-Nolsa</h1>
-      <BackgroundGraphic />
+      <BackgroundGraphicSvg />
       <ScrollToEnter />
     </div>
   );

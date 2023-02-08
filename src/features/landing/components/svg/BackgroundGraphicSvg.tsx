@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-const BackgroundGraphic: FunctionComponent = () => {
+const BackgroundGraphicSvg: FunctionComponent = () => {
   return (
     <svg
       className="landing-background"
@@ -21,4 +21,4 @@ const BackgroundGraphic: FunctionComponent = () => {
   );
 };
 
-export default BackgroundGraphic;
+export default BackgroundGraphicSvg;
