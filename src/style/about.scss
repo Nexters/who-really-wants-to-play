@@ -29,10 +29,13 @@
 .about-selected-job {
   margin-top: -30px;
   font-family: 'Noto Sans KR';
+  opacity: 1;
+  transition: opacity 2s;
 }
 
 .about-job {
   display: none;
+  opacity: 0;
 }
 
 .about-image-box {
@@ -40,4 +43,23 @@
   position: fixed;
   top: 50%;
   left: 50%;
+  transition: background-color 1s;
+}
+.about-image-box:hover {
+  // opacity 쓰고 싶었는데 background-color랑 transition 같이 들어가면 이상하게 동작함..
+  background-color: #00000033;
+  transition: all 1s;
+}
+
+.about-selected-img {
+  // 초기 load 때는 transition 없애줘야함
+  opacity: 1;
+  transition: opacity 0.5s;
+  object-fit: cover;
+}
+
+.about-img {
+  opacity: 0;
+  transition: opacity 0.5s;
+  object-fit: cover;
 }
