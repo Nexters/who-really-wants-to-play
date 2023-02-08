@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.10"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.35"],\
             ["babel-loader", "virtual:5ca3f6433d27a4c21d1c42b801a5c1eb8e424bb58357e2342813a9b31139b5b64d1c1b6a0452f8a669701c902012af8aa93595358f7b64ba3c5897530555640b#npm:9.1.2"],\
+            ["classnames", "npm:2.3.2"],\
             ["css-loader", "virtual:5ca3f6433d27a4c21d1c42b801a5c1eb8e424bb58357e2342813a9b31139b5b64d1c1b6a0452f8a669701c902012af8aa93595358f7b64ba3c5897530555640b#npm:6.7.3"],\
             ["eslint", "npm:8.31.0"],\
             ["eslint-config-prettier", "virtual:5ca3f6433d27a4c21d1c42b801a5c1eb8e424bb58357e2342813a9b31139b5b64d1c1b6a0452f8a669701c902012af8aa93595358f7b64ba3c5897530555640b#npm:8.6.0"],\
@@ -4654,6 +4655,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["classnames", [\
+        ["npm:2.3.2", {\
+          "packageLocation": "./.yarn/cache/classnames-npm-2.3.2-d2fdae468d-2c62199789.zip/node_modules/classnames/",\
+          "packageDependencies": [\
+            ["classnames", "npm:2.3.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["clean-css", [\
         ["npm:5.3.1", {\
           "packageLocation": "./.yarn/cache/clean-css-npm-5.3.1-e052e24a9f-860696c605.zip/node_modules/clean-css/",\
@@ -7264,6 +7274,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", "npm:18.0.10"],\
             ["@yarnpkg/sdks", "npm:3.0.0-rc.35"],\
             ["babel-loader", "virtual:5ca3f6433d27a4c21d1c42b801a5c1eb8e424bb58357e2342813a9b31139b5b64d1c1b6a0452f8a669701c902012af8aa93595358f7b64ba3c5897530555640b#npm:9.1.2"],\
+            ["classnames", "npm:2.3.2"],\
             ["css-loader", "virtual:5ca3f6433d27a4c21d1c42b801a5c1eb8e424bb58357e2342813a9b31139b5b64d1c1b6a0452f8a669701c902012af8aa93595358f7b64ba3c5897530555640b#npm:6.7.3"],\
             ["eslint", "npm:8.31.0"],\
             ["eslint-config-prettier", "virtual:5ca3f6433d27a4c21d1c42b801a5c1eb8e424bb58357e2342813a9b31139b5b64d1c1b6a0452f8a669701c902012af8aa93595358f7b64ba3c5897530555640b#npm:8.6.0"],\
