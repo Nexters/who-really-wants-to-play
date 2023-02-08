@@ -1,16 +1,16 @@
-export interface StyleProps {
+export type StyleProps = {
   className?: string;
   style?: React.CSSProperties;
-}
+};
 
-export interface DefaultProps extends StyleProps {
+export type DefaultProps = {
   children?: React.ReactNode;
-}
+} & StyleProps;
 
-export interface ImgProps extends StyleProps {
+export type ImgProps = {
   id?: number;
   src: string;
   alt: string;
   width?: number;
   height?: number;
-}
+} & StyleProps;

@@ -7,10 +7,10 @@ import { useMasonryLayout } from '../../hooks/useMasonryLayout';
 import { ImgProps } from '~/types';
 import Image from '~/features/shared/components/Image';
 
-interface Props {
+type Props = {
   imgList: ImgProps[];
   gap: string;
-}
+};
 
 const MasonryLayout = (props: Props) => {
   const { gap, imgList } = props;
@@ -22,7 +22,6 @@ const MasonryLayout = (props: Props) => {
     itemRefs.current.forEach((itemRef) => {
       const container = containerRef.current;
       if (!itemRef || !container) return;
-      getGridRowEnd(container, itemRef);
       itemRef.style.gridRowEnd = getGridRowEnd(container, itemRef);
     });
   }
