@@ -1,0 +1,127 @@
+$bg-slide-animation-duration: 1.2s;
+$title-slide-animation-duration: 0.8s;
+$scroll-slide-animation-duration: 1s;
+$title-animation-delay: $bg-slide-animation-duration;
+$scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-animation-duration;
+
+.landing-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-background {
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  transform: translate(-50%, 0);
+  min-width: 700px;
+  animation: $bg-slide-animation-duration cubic-bezier(0, 0, 0.06, 1) bg-slide-bottom-in 1;
+
+  @keyframes bg-slide-bottom-in {
+    from {
+      bottom: -100%;
+    }
+
+    to {
+      bottom: -10%;
+    }
+  }
+}
+
+.landing-title {
+  color: white;
+  font-size: 25vw;
+  text-align: center;
+  z-index: 1;
+  animation:
+    $title-animation-delay ease-out 0s 1 title-wait,
+    $title-slide-animation-duration ease-in $title-animation-delay title-slide-top-in;
+
+  @keyframes title-wait {
+    from {
+      transform: translateY(-80vh);
+    }
+
+    to {
+      transform: translateY(-80vh);
+    }
+  }
+
+  @keyframes title-slide-top-in {
+    from {
+      transform: translateY(-80vh);
+    }
+
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+.landing-scroll-to-enter {
+  &::before,
+  &::after {
+    display: block;
+    content: '';
+    width: 1px;
+    height: 45px;
+    background: #d9d9d9;
+  }
+
+  position: absolute;
+  bottom: 15px;
+  font-family: Rantera, 'Noto Sans KR', sans-serif;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation:
+    scroll-wait $scroll-animation-delay ease-out 1,
+    scroll-slide-top-in $scroll-slide-animation-duration cubic-bezier(0.42, 0, 0.22, 0.99) $scroll-animation-delay 1,
+    floating 3.5s ($scroll-animation-delay + $scroll-slide-animation-duration) infinite;
+
+  @keyframes scroll-wait {
+    from {
+      bottom: -150px;
+    }
+
+    to {
+      bottom: -150px;
+    }
+  }
+
+  @keyframes scroll-slide-top-in {
+    from {
+      bottom: -150px;
+    }
+
+    to {
+      bottom: 15px;
+    }
+  }
+}
+
+@keyframes floating {
+  10% {
+    bottom: 15px;
+  }
+
+  40% {
+    bottom: 40px;
+  }
+
+  60% {
+    bottom: 40px;
+  }
+
+  90% {
+    bottom: 15px;
+  }
+}
