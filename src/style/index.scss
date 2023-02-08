@@ -1,5 +1,24 @@
-@import "./global.scss";
+@import './global.scss';
 
 h1 {
   font-family: 'Rantera', 'Noto Sans KR';
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-auto-rows: 0.5rem;
+
+  .grid-item {
+    height: fit-content;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 }
