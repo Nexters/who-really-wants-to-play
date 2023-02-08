@@ -1,17 +1,6 @@
-@import './index';
-
 .gallery {
   overflow: hidden;
   background-color: $gallery-background;
-}
-
-.sub-title {
-  font-weight: 400;
-  font-size: 400px;
-  line-height: 386px;
-  letter-spacing: -0.01rem;
-  color: $white-0;
-  white-space: nowrap;
 }
 
 .grid-container {

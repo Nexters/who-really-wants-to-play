@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react';
 
-import '~/style/gallery.scss';
 import SubTitle from '../shared/components/SubTitle';
 
 import MasonryLayout from './components/MasonryLayout';
