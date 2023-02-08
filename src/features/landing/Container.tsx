@@ -11,8 +11,8 @@ import ScrollToEnter from '~/features/landing/components/ScrollToEnter';
  */
 const LandingContainer: FunctionComponent = () => {
   return (
-    <div id="landing" className="container">
-      <h1 className="title">Jjin-Nolsa</h1>
+    <div className="landing-container">
+      <h1 className="landing-title">Jjin-Nolsa</h1>
       <BackgroundGraphic />
       <ScrollToEnter />
     </div>
