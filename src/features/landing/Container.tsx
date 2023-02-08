@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+
 import BackgroundGraphic from '~/features/landing/components/BackgroundGraphic';
 import ScrollToEnter from '~/features/landing/components/ScrollToEnter';
 
