@@ -8,9 +8,9 @@ export type DefaultProps = {
 } & StyleProps;
 
 export type ImgProps = {
-  id?: number;
   src: string;
   alt: string;
+  id?: number;
   width?: number;
   height?: number;
 } & StyleProps;

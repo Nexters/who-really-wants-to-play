@@ -5,7 +5,11 @@ import Gallery from './features/gallery';
 import './style/index.scss';
 
 const App: FunctionComponent = () => {
-  return <Gallery />;
+  return (
+    <>
+      <Gallery />
+    </>
+  );
 };
 
 const root = createRoot(document.getElementById('app') as Element);

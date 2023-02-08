@@ -1,4 +1,3 @@
-import '~/style/index.scss';
 import { useRef } from 'react';
 
 import { getGridRowEnd } from '../../utils/getGridRowEnd';
@@ -22,7 +21,7 @@ const MasonryLayout = (props: Props) => {
     itemRefs.current.forEach((itemRef) => {
       const container = containerRef.current;
       if (!itemRef || !container) return;
-      itemRef.style.gridRowEnd = getGridRowEnd(container, itemRef);
+      itemRef.style.gridRowEnd = getGridRowEnd(container, itemRef); // TODO: 사이드 이펙트 지양
     });
   }
 
