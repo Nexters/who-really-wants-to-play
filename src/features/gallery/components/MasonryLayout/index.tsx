@@ -28,7 +28,7 @@ const MasonryLayout = (props: Props) => {
   }
 
   return (
-    <div className={'grid-container'} style={{ gap: gap }} ref={containerRef}>
+    <div className="grid-container" style={{ gap: gap }} ref={containerRef}>
       {imgList.map((img, idx) => {
         const animationDurationPerImg = animationPartTime * (idx + 1);
         return (
