@@ -3,7 +3,13 @@
   background-color: $gallery-background;
 }
 
+.title-animation {
+  transition: transform 3s ease-in-out;
+}
+
 .grid-container {
+  position: relative;
+  top: calc(-63px - 80px);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   grid-auto-rows: 0.5rem;
