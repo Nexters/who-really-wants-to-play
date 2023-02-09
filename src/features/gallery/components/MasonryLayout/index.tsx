@@ -2,9 +2,10 @@ import { useRef } from 'react';
 
 import { getGridRowEnd } from '../../utils/getGridRowEnd';
 import { useMasonryLayout } from '../../hooks/useMasonryLayout';
+import { ANIMATION_DURATION } from '../../constants';
+import MasonryItem from '../MasonryItem';
 
 import { ImgProps } from '~/types';
-import Image from '~/features/shared/components/Image';
 
 type Props = {
   imgList: ImgProps[];
@@ -13,6 +14,7 @@ type Props = {
 
 const MasonryLayout = (props: Props) => {
   const { gap, imgList } = props;
+  const animationPartTime = ANIMATION_DURATION / imgList.length;
   const containerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<HTMLDivElement[]>([]);
   useMasonryLayout(handleLayout);
@@ -27,18 +29,20 @@ const MasonryLayout = (props: Props) => {
 
   return (
     <div className={'grid-container'} style={{ gap: gap }} ref={containerRef}>
-      {imgList.map((img, idx) => (
-        <div
-          className="grid-item"
-          key={img.id ?? img.alt}
-          ref={(elem) => {
-            if (!elem) return;
-            itemRefs.current[idx] = elem;
-          }}
-        >
-          <Image {...img} />
-        </div>
-      ))}
+      {imgList.map((img, idx) => {
+        const animationDurationPerImg = animationPartTime * (idx + 1);
+        return (
+          <MasonryItem
+            {...img}
+            key={img.id ?? img.alt}
+            animationDuration={`${animationDurationPerImg}s`}
+            ref={(elem) => {
+              if (!elem) return;
+              itemRefs.current[idx] = elem;
+            }}
+          />
+        );
+      })}
     </div>
   );
 };

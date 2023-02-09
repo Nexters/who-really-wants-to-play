@@ -16,7 +16,9 @@
 
   .grid-item {
     height: fit-content;
-    transition: all 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    animation-name: gallery-parallax;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
 
     &:hover {
       transform: scale(1.05);
@@ -26,5 +28,17 @@
 
   img {
     width: 100%;
+  }
+
+  @keyframes gallery-parallax {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    100% {
+      opacity: 0.99;
+      transform: translateY(0);
+    }
   }
 }
