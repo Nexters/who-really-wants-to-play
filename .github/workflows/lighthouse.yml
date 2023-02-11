@@ -43,7 +43,7 @@ jobs:
             const fs = require('fs');
             const results = JSON.parse(fs.readFileSync("./lhci_reports/manifest.json"));
             const tries = 3;
-            const triesArr = Array.from({ length: try }, (_, idx) => idx + 1);
+            const triesArr = Array.from({ length: tries }, (_, idx) => idx + 1);
             let comments = "JJINN Lighthouse 성능 측정 결과 🤾‍♀️" + "\n";
             results.forEach((result, i) => {
               const { summary, jsonPath } = result;
