@@ -18,3 +18,7 @@ tsconfig.tsbuildinfo
 !.yarn/versions
 
 .idea
+
+# lighthouse ci
+.lighthouseci
+lhci_reports
