@@ -16,6 +16,7 @@
     "lint:stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
     "lint": "FORCE_COLOR=1 npm-run-all -p --print-label \"lint:**\"",
+    "fix": "FORCE_COLOR=1 npm-run-all -p --print-label \"fix:**\"",
     "clean": "rm -rf ./node_modules ./dist",
     "prepare": "husky install"
   },
