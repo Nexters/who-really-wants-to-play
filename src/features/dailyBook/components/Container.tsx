@@ -11,12 +11,12 @@ const ContentContainer = forwardRef<HTMLDivElement, ContentContainerProps>(
   ({ title, description, customClass, id }, ref) => {
     return (
       <div
-        className={`home-content-container scroll-snap ${customClass}`}
-        data-id={id}
+        className={`dailybook-content-container scroll-snap ${customClass}`}
+        data-id={id + 1}
         ref={ref}
       >
-        <span className="home-content-title">{title}</span>
-        <span className="home-content-description">{description}</span>
+        <span className="dailybook-content-title">{title}</span>
+        <span className="dailybook-content-description">{description}</span>
       </div>
     );
   },

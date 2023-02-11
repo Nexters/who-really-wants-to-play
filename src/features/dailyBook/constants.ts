@@ -5,7 +5,7 @@ export const data = [
     description: 'Gallery of our memories that we met at Nexters 22nd',
     // TODO: 이거 Date로 처리 안하면 후회하지 않을까?
     date: '01.07',
-    customClass: 'home-first',
+    customClass: 'dailybook-first',
     coverImage: './images/23.01.07.webp',
   },
   {
@@ -13,7 +13,7 @@ export const data = [
     title: 'Haru-film',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.12',
-    customClass: 'home-second',
+    customClass: 'dailybook-second',
     coverImage: './images/23.01.12.webp',
   },
   {
@@ -21,7 +21,7 @@ export const data = [
     title: 'Network',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.14',
-    customClass: 'home-third',
+    customClass: 'dailybook-third',
     coverImage: './images/23.01.14.webp',
   },
 ];

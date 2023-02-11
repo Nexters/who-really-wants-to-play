@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
-const useHomeContainer = () => {
-  const refList = useRef<(HTMLDivElement | null)[]>([]);
+import { AppData, RefList } from '../types';
+
+const useAppContainer = (): AppData => {
+  const refList = useRef<RefList>([]);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -10,10 +12,10 @@ const useHomeContainer = () => {
     const io = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry, index) => {
+          const target = entry.target as HTMLDivElement;
+          const parsedId = Number(target.dataset.id);
+          if (isNaN(parsedId)) return;
           if (entry.isIntersecting) {
-            const target = entry.target as HTMLDivElement;
-            const parsedId = Number(target.dataset.id);
-            if (isNaN(parsedId)) return;
             setActiveIndex(parsedId);
           }
         });
@@ -35,4 +37,4 @@ const useHomeContainer = () => {
   return { refList, activeIndex };
 };
 
-export default useHomeContainer;
+export default useAppContainer;

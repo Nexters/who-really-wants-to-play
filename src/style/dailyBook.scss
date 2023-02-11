@@ -1,0 +1,124 @@
+.dailybook-image {
+  &-hover {
+    background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgba(0 0 0 / 45%));
+    box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+  }
+
+  &-cover {
+    object-fit: cover;
+    position: absolute;
+    z-index: 3;
+    top: 20%;
+    left: 35%;
+    background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
+    box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+
+    &:hover {
+      filter: grayscale(90%);
+    }
+
+    &-second {
+      object-fit: cover;
+      position: absolute;
+      z-index: 2;
+      top: 22%;
+      left: 37%;
+      background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
+      box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+    }
+
+    &-third {
+      object-fit: cover;
+      position: absolute;
+      z-index: 1;
+      top: 24%;
+      left: 39%;
+      background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
+      box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+    }
+  }
+}
+
+.dailybook-content {
+  &-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &-title {
+    position: absolute;
+    top: -110px;
+    left: 5%;
+    z-index: 1;
+    user-select: none;
+    font-family: Rantera, sans-serif;
+    font-size: 25vw;
+    line-height: 386px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    background: linear-gradient(180deg, #fff 0%, #ebebeb 100%);
+    background-clip: text;
+    /* stylelint-disable */
+    -webkit-background-clip: text;
+    /* stylelint-enable */
+    -webkit-text-fill-color: transparent;
+  }
+
+  &-description {
+    position: absolute;
+    width: 245px;
+    height: 60px;
+    left: 60%;
+    top: 50%;
+    user-select: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+}
+
+.dailybook-date-dialog {
+  position: fixed;
+  left: 0;
+  top: 35%;
+  color: #fff;
+  font-family: Rantera, sans-serif;
+  font-size: 2.5em;
+  padding-left: 15px;
+
+  &-prev {
+    transform: rotate(0.8rad);
+  }
+
+  &-cur {
+    padding-bottom: 70px;
+    transform: rotate(1.6rad);
+  }
+
+  &-next {
+    transform: rotate(2.3rad);
+  }
+}
+
+.dailybook-scroll-down-floating {
+  position: fixed;
+  bottom: 0;
+  left: 45%;
+}
+
+.dailybook-first {
+  background-color: #e0d0b0;
+}
+
+.dailybook-second {
+  background-color: #b0c9e0;
+}
+
+.dailybook-third {
+  background-color: #bcb0e0;
+}

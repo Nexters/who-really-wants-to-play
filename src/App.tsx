@@ -1,17 +1,11 @@
 import { FunctionComponent } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import HomeContainer from '~/features/home/Container';
-import LandingContainer from '~/features/landing/Container';
+import AppContainer from './features/Container';
 import './style/index.scss';
 
 const App: FunctionComponent = () => {
-  return (
-    <>
-      <LandingContainer />
-      <HomeContainer />
-    </>
-  );
+  return <AppContainer />;
 };
 
 const root = createRoot(document.getElementById('app') as Element);
