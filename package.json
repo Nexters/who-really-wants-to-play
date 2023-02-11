@@ -14,6 +14,7 @@
     "lint:prettier": "prettier --list-different \"src/**/*.{json,html}\"",
     "lint:type": "tsc --pretty",
     "lint:stylelint": "stylelint \"**/*.scss\"",
+    "stylelint:fix": "stylelint \"**/*.scss\" --fix",
     "lint": "FORCE_COLOR=1 npm-run-all -p --print-label \"lint:**\"",
     "clean": "rm -rf ./node_modules ./dist",
     "prepare": "husky install"
