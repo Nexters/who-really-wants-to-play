@@ -42,7 +42,6 @@ jobs:
           script: |
             const fs = require('fs');
             const results = JSON.parse(fs.readFileSync("./lhci_reports/manifest.json"));
-            const pages = ["main"]
             let comments = "JJINN Lighthouse 성능 측정 결과 🤾‍♀️" + "\n";
             results.forEach((result, i) => {
               const { summary, jsonPath } = result;
@@ -54,7 +53,6 @@ jobs:
               );
               const score = (res) => (res >= 90 ? "🟢" : res >= 50 ? "🟠" : "🔴");
               const comment = [
-                `${pages[i]} page`,
                 `| Category | Score |`,
                 `| --- | --- |`,
                 `| ${score(summary.performance)} Performance | ${summary.performance} |`,
