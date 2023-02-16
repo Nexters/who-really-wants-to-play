@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 
+import { PAGE_NAME } from '../constants';
 import { AppData } from '../types';
 
 import ContentContainer from './components/Container';
@@ -18,7 +19,8 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
           key={item.customClass}
           ref={(ef) => {
             if (!ef) return;
-            refList.current[index + 1] = ef;
+            const targetIndex = PAGE_NAME.DAILY_BOOK[index];
+            refList.current[targetIndex] = ef;
           }}
           {...item}
         />
