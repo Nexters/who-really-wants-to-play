@@ -1,8 +1,10 @@
 @import './global';
 @import './color';
 @import './variable';
-@import 'landing';
+@import './landing';
+@import './dailyBook';
 @import './gallery';
+@import './shared';
 
 body {
   font-family: Rantera, 'Noto Sans KR', sans-serif;

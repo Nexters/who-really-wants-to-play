@@ -35,10 +35,10 @@ $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-anim
 }
 
 .landing-title {
+  position: relative;
   color: white;
   font-size: 25vw;
   text-align: center;
-  z-index: 1;
   animation:
     $title-animation-delay ease-out 0s 1 title-wait,
     $title-slide-animation-duration ease-in $title-animation-delay title-slide-top-in;
@@ -123,5 +123,22 @@ $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-anim
 
   90% {
     bottom: 15px;
+  }
+}
+
+.expandable-circle {
+  background-color: #fac152;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.8s, height 0.8s;
+
+  &.expand {
+    width: max(150vw, 150vh);
+    height: max(150vw, 150vh);
   }
 }

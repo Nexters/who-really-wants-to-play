@@ -1,0 +1,9 @@
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+  overflow: auto;
+  height: 100vh;
+}
+
+.scroll-snap {
+  scroll-snap-align: start;
+}
