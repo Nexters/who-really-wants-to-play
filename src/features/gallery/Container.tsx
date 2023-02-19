@@ -1,6 +1,8 @@
 import { FunctionComponent } from 'react';
 
 import SubTitle from '../shared/components/SubTitle';
+import { AppData } from '../types';
+import { PAGE_NAME } from '../constants';
 
 import MasonryLayout from './components/MasonryLayout';
 import { GRID_GAP } from './constants';
@@ -9,11 +11,22 @@ import { getTranslateX } from './helpers';
 
 import { GalleryMockImgList } from '~/features/gallery/mocks/gallery';
 
-const Gallery: FunctionComponent = () => {
+type DailyBookContainerProps = AppData;
+
+const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
+  refList,
+}) => {
   const { titleRef, overflowedWidth } = useTitleAnimation(200);
 
   return (
-    <section className="gallery">
+    <section
+      className="gallery scroll-snap"
+      ref={(ef) => {
+        if (!ef) return;
+        refList.current[PAGE_NAME.GALLERY] = ef;
+      }}
+      data-id={PAGE_NAME.GALLERY}
+    >
       <SubTitle
         ref={titleRef}
         title="Our Archive"
@@ -25,4 +38,4 @@ const Gallery: FunctionComponent = () => {
   );
 };
 
-export default Gallery;
+export default GalleryContainer;
