@@ -12,6 +12,9 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
   refList,
   activeIndex,
 }) => {
+  const { LANDING, GALLERY, DAILY_BOOK } = PAGE_NAME;
+  const isDailyBook = activeIndex > LANDING && activeIndex < GALLERY;
+
   return (
     <>
       {data.map((item, index) => (
@@ -19,7 +22,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
           key={item.customClass}
           ref={(ef) => {
             if (!ef) return;
-            const targetIndex = PAGE_NAME.DAILY_BOOK[index];
+            const targetIndex = DAILY_BOOK[index];
             refList.current[targetIndex] = ef;
           }}
           {...item}
@@ -32,7 +35,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
        * 2. 애니메이션
        * 3. hover 필터 css가 아닌 돔으로 처리
        */}
-      {activeIndex > 0 && (
+      {isDailyBook && (
         <>
           <img
             className="dailybook-image-cover"
@@ -64,7 +67,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
        * 2. svg로 해야할까?
        * 3. active index 방어로직 대충 만들어놓음 처리 필요
        */}
-      {activeIndex > 0 && (
+      {isDailyBook && (
         <div className="dailybook-date-dialog">
           {activeIndex > 1 && (
             <div className="dailybook-date-dialog-prev">
@@ -87,7 +90,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
        * 1. 스크롤 중에는 안보이도록
        * 2. 이미지로 처리되어 있는데 에바임
        *  */}
-      {activeIndex > 0 && (
+      {isDailyBook && (
         <img
           className="dailybook-scroll-down-floating"
           src="./images/scroll-down.webp"

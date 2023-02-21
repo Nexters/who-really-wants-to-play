@@ -3142,6 +3142,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"classnames@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "classnames@npm:2.3.2"
+  checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
+  languageName: node
+  linkType: hard
+
 "clean-css@npm:^5.2.2":
   version: 5.3.1
   resolution: "clean-css@npm:5.3.1"
@@ -5309,6 +5316,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     "@yarnpkg/sdks": ^3.0.0-rc.35
     babel-loader: ^9.1.2
+    classnames: ^2.3.2
     css-loader: ^6.7.3
     eslint: ^8.31.0
     eslint-config-prettier: ^8.6.0
