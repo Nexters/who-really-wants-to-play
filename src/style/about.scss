@@ -1,66 +1,87 @@
-#scroll-section-about {
+.about {
   width: 100%;
-  background-color: #f584f1;
-}
-
-.about-name-box {
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 125px;
   height: 100%;
-}
+  background-color: #f584f1;
 
-.about-name {
-  font-size: 100px;
-  letter-spacing: -0.02em;
-  color: #fff;
-  transition: color 1s;
-}
+  &-title {
+    position: absolute;
+    font-size: 250px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    z-index: -1;
+  }
 
-.about-selected-name {
-  font-size: 100px;
-  letter-spacing: -0.02em;
-  color: #000;
-  transition: color 1s;
-}
+  &-profile-box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 125px;
+    height: 100vh;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    padding-top: 75px;
 
-.about-selected-job {
-  margin-top: -30px;
-  font-family: 'Noto Sans KR', sans-serif;
-  opacity: 1;
-  transition: opacity 2s;
-}
+    // & > div {
+    //   scroll-snap-align: start;
+    // }
+  }
 
-.about-job {
-  display: none;
-  opacity: 0;
-}
+  &-name-box {
+    border: 1px solid black;
+    height: 150px;
+    scroll-snap-align: center;
+  }
 
-.about-image-box {
-  transform: translate(-50%, -50%);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transition: background-color 1s;
-}
+  &-name {
+    font-size: 100px;
+    letter-spacing: -0.02em;
+    color: #fff;
+    transition: color 1s;
+  }
 
-.about-image-box:hover {
-  // opacity 쓰고 싶었는데 background-color랑 transition 같이 들어가면 이상하게 동작함..
-  background-color: #0003;
-  transition: all 1s;
-}
+  &-selected-name {
+    font-size: 100px;
+    letter-spacing: -0.02em;
+    color: #000;
+    transition: color 1s;
+  }
 
-.about-selected-img {
-  // 초기 load 때는 transition 없애줘야함
-  opacity: 1;
-  transition: opacity 0.5s;
-  object-fit: cover;
-}
+  &-selected-job {
+    margin-top: -30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    opacity: 1;
+    transition: opacity 2s;
+  }
 
-.about-img {
-  opacity: 0;
-  transition: opacity 0.5s;
-  object-fit: cover;
+  &-job {
+    display: none;
+    opacity: 0;
+  }
+
+  &-image-box {
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transition: background-color 1s;
+  }
+
+  &-image-box:hover {
+    // opacity 쓰고 싶었는데 background-color랑 transition 같이 들어가면 이상하게 동작함..
+    background-color: #0003;
+    transition: all 1s;
+  }
+
+  &-selected-img {
+    // 초기 load 때는 transition 없애줘야함
+    opacity: 1;
+    transition: opacity 0.5s;
+    object-fit: cover;
+  }
+
+  &-img {
+    opacity: 0;
+    transition: opacity 0.5s;
+    object-fit: cover;
+  }
 }
