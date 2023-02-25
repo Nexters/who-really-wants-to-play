@@ -4,6 +4,7 @@ import { PAGE_NAME } from '../constants';
 import { AppData } from '../types';
 
 import ContentContainer from './components/Container';
+import DateDial from './components/DateDial';
 import { data } from './constants';
 
 type DailyBookContainerProps = AppData;
@@ -14,12 +15,13 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
 }) => {
   const { LANDING, GALLERY, DAILY_BOOK } = PAGE_NAME;
   const isDailyBook = activeIndex > LANDING && activeIndex < GALLERY;
+  const dailyBookIndex = activeIndex - 1;
 
   return (
     <>
       {data.map((item, index) => (
         <ContentContainer
-          key={item.customClass}
+          key={item.id}
           ref={(ef) => {
             if (!ef) return;
             const targetIndex = DAILY_BOOK[index];
@@ -61,29 +63,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
         </>
       )}
 
-      {/**
-       * TODO:
-       * 1. 다이얼 돌아가게 해야함.
-       * 2. svg로 해야할까?
-       * 3. active index 방어로직 대충 만들어놓음 처리 필요
-       */}
-      {isDailyBook && (
-        <div className="dailybook-date-dialog">
-          {activeIndex > 1 && (
-            <div className="dailybook-date-dialog-prev">
-              {data[activeIndex - 2].date}
-            </div>
-          )}
-          <div className="dailybook-date-dialog-cur">
-            {data[activeIndex - 1].date}
-          </div>
-          {activeIndex < data.length && (
-            <div className="dailybook-date-dialog-next">
-              {data[activeIndex].date}
-            </div>
-          )}
-        </div>
-      )}
+      {isDailyBook && <DateDial dailyBookIndex={dailyBookIndex} />}
 
       {/**
        * TODO:

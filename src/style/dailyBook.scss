@@ -84,25 +84,24 @@
 
 .dailybook-date-dialog {
   position: fixed;
-  left: 0;
+  left: -100px;
   top: 35%;
   color: #fff;
   font-family: Rantera, sans-serif;
   font-size: 2.5em;
-  padding-left: 15px;
+  width: 250px;
+  height: 250px;
 
-  &-prev {
-    transform: rotate(0.8rad);
+  &-text {
+    visibility: hidden;
+    padding-bottom: 300px;
+    position: absolute;
+    transition: transform 1s;
   }
+}
 
-  &-cur {
-    padding-bottom: 70px;
-    transform: rotate(1.6rad);
-  }
-
-  &-next {
-    transform: rotate(2.3rad);
-  }
+.visible {
+  visibility: visible;
 }
 
 .dailybook-scroll-down-floating {
