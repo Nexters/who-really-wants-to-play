@@ -26,16 +26,17 @@ const DetailContainer: FunctionComponent<DetailContainerProps> = ({
   return (
     <>
       <Cover
-        bgColor={bgColor}
         date={date}
         title={coverTitle}
         imgSrc={imgSrcs[0]}
+        bgColor={bgColor}
       />
       <KeywordList bgColor={bgColor} keywords={keywords} />
       <Description
         title={descriptionTitle}
         description={description}
         imgSrcs={imgSrcs}
+        bgColor={bgColor}
       />
       <OtherMemories keywordIds={[]} />
     </>
