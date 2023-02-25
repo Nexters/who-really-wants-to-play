@@ -3,10 +3,8 @@ import { FunctionComponent, useState } from 'react';
 import { AppData } from '../types';
 import { PAGE_NAME } from '../constants';
 
-import BackgroundGraphicSvg from '~/features/landing/components/svg/BackgroundGraphicSvg';
-import ScrollToEnter from '~/features/landing/components/ScrollToEnter';
-import ExpandableCircle from '~/features/landing/components/ExpandableCircle';
 import { LANDING_LAST_ANIMATION_NAME } from '~/features/landing/constants';
+import ImageSlide from '~/features/landing/components/ImageSlide';
 
 type LandingContainerProps = AppData;
 
@@ -29,10 +27,7 @@ const LandingContainer: FunctionComponent<LandingContainerProps> = ({
       }}
       onWheel={() => canMoveNext && setTriggeredTransition(true)}
     >
-      <BackgroundGraphicSvg />
-      <h1 className="landing-title">Jjin-Nolsa</h1>
-      <ScrollToEnter />
-      <ExpandableCircle expand={isTriggeredTransition} />
+      <ImageSlide />
     </div>
   );
 };

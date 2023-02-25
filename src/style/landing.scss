@@ -142,3 +142,9 @@ $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-anim
     height: max(150vw, 150vh);
   }
 }
+
+.image-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
