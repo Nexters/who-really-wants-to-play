@@ -8,14 +8,25 @@ type Props = {
 };
 
 const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
+  // TODO: 배경에 사진 흐리게 넣기
   return (
     <div
-      className="detail-block scroll-snap"
+      className="detail-cover-container detail-block scroll-snap"
       style={{ backgroundColor: bgColor }}
     >
-      <div>{date}</div>
-      <h1>{title}</h1>
-      <img src={imgSrc} alt={title} />
+      <div className="logo">Jjin-Nolsa</div>
+      <button className="close-button">
+        <img src="./svg/close.svg" />
+      </button>
+
+      <img className="cover-image" src={imgSrc} alt={title} />
+      <div className="contents-wrapper">
+        <div className="date">{date}</div>
+        <h1 className="title">{title}</h1>
+        <div className="scroll-down">
+          <img src="./svg/detail-scroll-down.svg" />
+        </div>
+      </div>
     </div>
   );
 };

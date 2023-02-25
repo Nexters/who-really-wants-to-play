@@ -17,7 +17,7 @@ const DetailContainer: FunctionComponent<DetailContainerProps> = ({
     <>
       <Cover
         bgColor="rgb(167,188,217)"
-        date="02. 01"
+        date="02.01"
         title="Haru Firm"
         imgSrc="./images/23.01.12.webp"
       />
