@@ -1,5 +1,7 @@
 import { FunctionComponent } from 'react';
 
+import CloseButton from '~/features/detail/components/CloseButton';
+
 type Props = {
   bgColor: string;
   date: string;
@@ -15,10 +17,7 @@ const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
       style={{ backgroundColor: bgColor }}
     >
       <div className="logo">Jjin-Nolsa</div>
-      <button className="close-button">
-        <img src="./svg/close.svg" />
-      </button>
-
+      <CloseButton onClick={() => console.log('close')} />
       <img className="cover-image" src={imgSrc} alt={title} />
       <div className="contents-wrapper">
         <div className="date">{date}</div>

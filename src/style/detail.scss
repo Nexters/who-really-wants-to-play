@@ -124,10 +124,16 @@
       animation: image-slide 20s linear infinite reverse;
     }
 
+    &:hover,
+    &.pause {
+      animation-play-state: paused;
+    }
+
     .image-slide-element {
       border-radius: 15px;
       width: 18vw;
       margin-bottom: 20px;
+      cursor: pointer;
     }
   }
 
@@ -138,6 +144,38 @@
 
     100% {
       transform: translateY(-50%);
+    }
+  }
+
+  .modal {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0 0 0 / 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    backdrop-filter: blur(5px);
+
+    .image-wrapper {
+      position: relative;
+
+      img {
+        border-radius: 10px;
+        width: 40vw;
+      }
+
+      .close-button {
+        position: absolute;
+        top: 0;
+        right: -70px;
+        width: 50px;
+        height: 50px;
+      }
     }
   }
 }
