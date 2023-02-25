@@ -1,4 +1,4 @@
-import { ACC } from '~/features/landing/constants';
+import { IMAGE_SLIDE_ACC } from '~/features/landing/constants';
 import { CanvasSize } from '~/features/landing/types';
 
 export const fetchImage = (src: string) => {
@@ -25,7 +25,7 @@ export const drawImageFrame = (
   { width, height }: CanvasSize,
 ) => {
   if (dt - delay < 0) return;
-  const dy = height - calcYDistance(dt - delay, ACC);
+  const dy = height - calcYDistance(dt - delay, IMAGE_SLIDE_ACC);
   if (dy > height) return;
   ctx.shadowColor = 'black';
   ctx.shadowBlur = 15;

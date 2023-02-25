@@ -3,9 +3,9 @@ import { FunctionComponent, useEffect, useRef } from 'react';
 import usePromises from '~/features/landing/hooks/usePromises';
 import { drawImageFrame, fetchImage } from '~/features/landing/helper';
 import {
-  DELAY,
+  IMAGE_SLIDE_DELAY,
   PHOTO_PATH_PREFIX,
-  TRANSITION_SPEED,
+  IMAGE_SLIDE_SPEED,
 } from '~/features/landing/constants';
 import { imageSlideElementList } from '~/features/landing/mocks';
 import { resizeCanvasToCoverWindow } from '~/features/shared/utils/canvas';
@@ -30,9 +30,9 @@ const ImageSlide: FunctionComponent = () => {
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       images.forEach((image, idx) =>
-        drawImageFrame(ctx, image, dy, DELAY * idx, canvasSize),
+        drawImageFrame(ctx, image, dy, IMAGE_SLIDE_DELAY * idx, canvasSize),
       );
-      requestAnimationFrame(() => drawAnimationFrame(dy + TRANSITION_SPEED));
+      requestAnimationFrame(() => drawAnimationFrame(dy + IMAGE_SLIDE_SPEED));
     };
 
     drawAnimationFrame(0);
