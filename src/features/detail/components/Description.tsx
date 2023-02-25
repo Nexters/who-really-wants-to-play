@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from 'react';
 
-import CloseButton from '~/features/detail/components/CloseButton';
+import ImageSlider from '~/features/detail/components/ImageSlider';
+import ImageModal from '~/features/detail/components/ImageModal';
 
 type Props = {
   title: string;
@@ -26,33 +27,24 @@ const Description: FunctionComponent<Props> = ({
         <hr className="short-line" />
         <p className="description">{description}</p>
       </div>
-      {/*    하단 이미지 슬라이드 - 좌우*/}
-      <div className={`image-slide up ${selectedImg ? 'pause' : ''}`}>
-        {imgSrcs.map((src) => (
-          <img
-            className="image-slide-element"
-            src={src}
-            onClick={() => setSelectedImg(src)}
-          />
-        ))}
-      </div>
-      <div className={`image-slide down ${selectedImg ? 'pause' : ''}`}>
-        {imgSrcs.map((src) => (
-          <img
-            className="image-slide-element"
-            src={src}
-            onClick={() => setSelectedImg(src)}
-          />
-        ))}
-      </div>
-      {selectedImg && (
-        <div className="modal">
-          <div className="image-wrapper">
-            <img src={selectedImg} alt={title} />
-            <CloseButton onClick={() => setSelectedImg('')} />
-          </div>
-        </div>
-      )}
+      <ImageSlider
+        imgSrcs={imgSrcs}
+        paused={!!selectedImg}
+        direction="up"
+        onClickImage={setSelectedImg}
+      />
+      <ImageSlider
+        imgSrcs={imgSrcs}
+        paused={!!selectedImg}
+        direction="down"
+        onClickImage={setSelectedImg}
+      />
+      <ImageModal
+        show={!!selectedImg}
+        src={selectedImg}
+        alt={title}
+        onClose={() => setSelectedImg('')}
+      />
     </section>
   );
 };
