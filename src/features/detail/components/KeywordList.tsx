@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 type Props = { bgColor: string; keywords: string[] };
 const KeywordList: FunctionComponent<Props> = ({ bgColor, keywords }) => {
   return (
-    <div
+    <section
       className="detail-keyword-container detail-block scroll-snap"
       style={{ backgroundColor: bgColor }}
     >
@@ -14,7 +14,7 @@ const KeywordList: FunctionComponent<Props> = ({ bgColor, keywords }) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -13,7 +13,7 @@ const Description: FunctionComponent<Props> = ({
   bgColor,
 }) => {
   return (
-    <div
+    <section
       className="detail-description-container detail-block scroll-snap"
       style={{ backgroundColor: bgColor }}
     >
@@ -33,7 +33,7 @@ const Description: FunctionComponent<Props> = ({
           <img className="image-slide-element" src={src} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

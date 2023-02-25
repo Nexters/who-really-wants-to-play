@@ -10,7 +10,7 @@ type Props = {
 const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
   // TODO: 배경에 사진 흐리게 넣기
   return (
-    <div
+    <section
       className="detail-cover-container detail-block scroll-snap"
       style={{ backgroundColor: bgColor }}
     >
@@ -27,7 +27,7 @@ const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
           <img src="./svg/detail-scroll-down.svg" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

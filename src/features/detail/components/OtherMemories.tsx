@@ -5,7 +5,7 @@ type Props = {
 };
 const OtherMemories: FunctionComponent<Props> = ({ keywordIds }) => {
   return (
-    <div className="detail-block scroll-snap">
+    <section className="detail-block scroll-snap">
       <div>
         <hr />
         <h4>Other Memories.</h4>
@@ -14,7 +14,7 @@ const OtherMemories: FunctionComponent<Props> = ({ keywordIds }) => {
           <div key={id}>id에 맞는 키워드</div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
