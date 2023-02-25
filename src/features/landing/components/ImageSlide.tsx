@@ -27,7 +27,10 @@ const ImageSlide: FunctionComponent = () => {
   }, [images]);
 
   return (
-    <canvas className="image-slider" ref={ref} width="1920" height="1080" />
+    <>
+      {!images && <p className="landing-loading">loading</p>}
+      <canvas className="image-slider" ref={ref} width="1920" height="1080" />
+    </>
   );
 };
 

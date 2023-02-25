@@ -149,3 +149,7 @@ $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-anim
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.landing-loading {
+  color: white;
+}
