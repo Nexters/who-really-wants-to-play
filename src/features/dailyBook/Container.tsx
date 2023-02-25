@@ -5,7 +5,7 @@ import { AppData } from '../types';
 
 import ContentContainer from './components/Container';
 import DateDial from './components/DateDial';
-import { data } from './constants';
+import { data, LANDING_INDEX_COUNT } from './constants';
 
 type DailyBookContainerProps = AppData;
 
@@ -15,7 +15,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
 }) => {
   const { LANDING, GALLERY, DAILY_BOOK } = PAGE_NAME;
   const isDailyBook = activeIndex > LANDING && activeIndex < GALLERY;
-  const dailyBookIndex = activeIndex - 1;
+  const dailyBookIndex = activeIndex - LANDING_INDEX_COUNT;
 
   return (
     <>

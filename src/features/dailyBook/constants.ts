@@ -1,9 +1,13 @@
+export const LANDING_INDEX_COUNT = 1;
+export const MAX_DIAL_COUNT = 6;
+export const START_DIAL_DEGREE = 90;
+export const ROTATE_DEGREE = 45;
+
 export const data = [
   {
     id: 0,
     title: 'First-Meeting',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    // TODO: 이거 Date로 처리 안하면 후회하지 않을까?
     date: '01.07',
     customClass: 'dailybook0',
     coverImage: './images/23.01.07.webp',
@@ -18,7 +22,7 @@ export const data = [
   },
   {
     id: 2,
-    title: 'Recration',
+    title: 'Recreation',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.28',
     customClass: 'dailybook2',
@@ -34,7 +38,7 @@ export const data = [
   },
   {
     id: 4,
-    title: 'Oline-Meeting',
+    title: 'Online-Meeting',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.09',
     customClass: 'dailybook4',
@@ -58,7 +62,7 @@ export const data = [
   },
   {
     id: 7,
-    title: 'Arver-Cafe',
+    title: 'Alver-Cafe',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.16',
     customClass: 'dailybook7',
