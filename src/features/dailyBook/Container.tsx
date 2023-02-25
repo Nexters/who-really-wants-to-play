@@ -1,6 +1,8 @@
 import { FunctionComponent } from 'react';
 
 import { PAGE_NAME } from '../constants';
+import ScrollToEnter from '../landing/components/ScrollToEnter';
+import Floating from '../shared/components/Floating';
 import { AppData } from '../types';
 
 import ContentContainer from './components/Container';
@@ -64,20 +66,10 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
       )}
 
       {isDailyBook && <DateDial dailyBookIndex={dailyBookIndex} />}
-
-      {/**
-       * TODO:
-       * 1. 스크롤 중에는 안보이도록
-       * 2. 이미지로 처리되어 있는데 에바임
-       *  */}
       {isDailyBook && (
-        <img
-          className="dailybook-scroll-down-floating"
-          src="./images/scroll-down.webp"
-          alt="scroll down"
-          width={49}
-          height={104}
-        />
+        <Floating>
+          <ScrollToEnter />
+        </Floating>
       )}
     </>
   );

@@ -1,5 +1,6 @@
 {
   "name": "interaction-page",
+  "homepage": "https://nexters.github.io/who-really-wants-to-play/",
   "version": "1.0.0",
   "description": "Nexters 22nd - interaction page",
   "main": "src/App.tsx",
@@ -10,6 +11,7 @@
   "scripts": {
     "dev": "webpack serve --config ./webpack.dev.js",
     "build": "rm -rf ./dist && webpack --config ./webpack.prod.js --progress",
+    "deploy": "yarn build && gh-pages -d dist",
     "lint:eslint": "eslint --ext .ts,.tsx \"src/**/*.{ts,tsx}\"",
     "lint:prettier": "prettier --list-different \"src/**/*.{json,html}\"",
     "lint:type": "tsc --pretty",
@@ -39,6 +41,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.27.4",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^8.0.3",
     "npm-run-all": "^4.1.5",
