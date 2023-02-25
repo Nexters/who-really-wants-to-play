@@ -116,12 +116,12 @@
 
     &.up {
       left: 5vw;
-      animation: image-slide 25s linear infinite;
+      animation: image-slide 20s linear infinite;
     }
 
     &.down {
       left: 25vw;
-      animation: image-slide 25s linear infinite reverse;
+      animation: image-slide 20s linear infinite reverse;
     }
 
     .image-slide-element {
