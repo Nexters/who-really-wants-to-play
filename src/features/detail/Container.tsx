@@ -31,7 +31,7 @@ const DetailContainer: FunctionComponent<DetailContainerProps> = ({
         title={coverTitle}
         imgSrc={imgSrcs[0]}
       />
-      <KeywordList keywords={keywords} />
+      <KeywordList bgColor={bgColor} keywords={keywords} />
       <Description
         title={descriptionTitle}
         description={description}

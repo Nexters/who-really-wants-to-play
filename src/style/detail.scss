@@ -67,3 +67,23 @@
     transform: translate(-50%, -50%);
   }
 }
+
+.detail-keyword-container {
+  position: relative;
+  overflow: hidden;
+
+  .keywords-wrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 7vw;
+    z-index: 1;
+
+    .keyword {
+      color: white;
+      font-size: 10vh;
+    }
+  }
+}

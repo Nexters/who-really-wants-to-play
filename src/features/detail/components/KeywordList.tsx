@@ -1,12 +1,19 @@
 import { FunctionComponent } from 'react';
 
-type Props = { keywords: string[] };
-const KeywordList: FunctionComponent<Props> = ({ keywords }) => {
+type Props = { bgColor: string; keywords: string[] };
+const KeywordList: FunctionComponent<Props> = ({ bgColor, keywords }) => {
   return (
-    <div className="detail-block scroll-snap">
-      {keywords.map((keyword) => (
-        <p>{keyword}</p>
-      ))}
+    <div
+      className="detail-keyword-container detail-block scroll-snap"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div className="keywords-wrapper">
+        {keywords.map((keyword) => (
+          <div className="keyword" key={keyword}>
+            {keyword}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
