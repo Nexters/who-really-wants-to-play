@@ -1,27 +1,95 @@
+export const LANDING_INDEX_COUNT = 1;
+export const MAX_DIAL_COUNT = 6;
+export const START_DIAL_DEGREE = 90;
+export const ROTATE_DEGREE = 45;
+
 export const data = [
   {
     id: 0,
-    title: '1st-meet',
+    title: 'First-Meeting',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    // TODO: 이거 Date로 처리 안하면 후회하지 않을까?
     date: '01.07',
-    customClass: 'dailybook-first',
+    customClass: 'dailybook0',
     coverImage: './images/23.01.07.webp',
   },
   {
     id: 1,
-    title: 'Haru-film',
+    title: 'Haru-Film',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.12',
-    customClass: 'dailybook-second',
+    customClass: 'dailybook1',
     coverImage: './images/23.01.12.webp',
   },
   {
     id: 2,
-    title: 'Network',
+    title: 'Recreation',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    date: '01.14',
-    customClass: 'dailybook-third',
+    date: '01.28',
+    customClass: 'dailybook2',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 3,
+    title: 'Climbing',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.04',
+    customClass: 'dailybook3',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 4,
+    title: 'Online-Meeting',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.09',
+    customClass: 'dailybook4',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 5,
+    title: 'Climbing',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.11',
+    customClass: 'dailybook5',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 6,
+    title: 'Zion-Coffee',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.14',
+    customClass: 'dailybook6',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 7,
+    title: 'Alver-Cafe',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.16',
+    customClass: 'dailybook7',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 8,
+    title: 'Zep-Meeting',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.18',
+    customClass: 'dailybook8',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 9,
+    title: 'Self-Photo',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.19',
+    customClass: 'dailybook9',
+    coverImage: './images/23.01.14.webp',
+  },
+  {
+    id: 10,
+    title: 'Nex-Burning',
+    description: 'Gallery of our memories that we met at Nexters 22nd',
+    date: '02.25',
+    customClass: 'dailybook10',
     coverImage: './images/23.01.14.webp',
   },
 ];
