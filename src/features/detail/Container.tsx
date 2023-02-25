@@ -5,37 +5,37 @@ import Cover from '~/features/detail/components/Cover';
 import KeywordList from '~/features/detail/components/KeywordList';
 import Description from '~/features/detail/components/Description';
 import OtherMemories from '~/features/detail/components/OtherMemories';
+import { data } from '~/features/detail/constants';
+import { DetailData } from '~/features/detail/types';
 
 type DetailContainerProps = AppData;
 
 const DetailContainer: FunctionComponent<DetailContainerProps> = ({
   refList,
 }) => {
+  const {
+    coverTitle,
+    descriptionTitle,
+    description,
+    bgColor,
+    date,
+    imgSrcs,
+    keywords,
+  }: DetailData = data.get('0')!;
+
   return (
     <>
       <Cover
-        bgColor="rgb(167,188,217)"
-        date="02.01"
-        title="Haru Firm"
-        imgSrc="./images/23.01.12.webp"
+        bgColor={bgColor}
+        date={date}
+        title={coverTitle}
+        imgSrc={imgSrcs[0]}
       />
-      <KeywordList
-        keywords={[
-          'Haru Firm',
-          'First Picture',
-          'MZ Culture',
-          'Picture Keyword 1',
-          'How We Play',
-        ]}
-      />
+      <KeywordList keywords={keywords} />
       <Description
-        title="First Meet"
-        description={
-          'We met for the first time at the orientation of the 22nd generation of\n' +
-          '        Nexters. Young-hwan was absent due to work, but the others gathered\n' +
-          '        together to greet each other.'
-        }
-        imgSrcs={[]}
+        title={descriptionTitle}
+        description={description}
+        imgSrcs={imgSrcs}
       />
       <OtherMemories keywordIds={[]} />
     </>
