@@ -16,4 +16,8 @@ module.exports = merge(common, {
     historyApiFallback: true,
     hot: true,
   },
+  output: {
+    ...common.output,
+    publicPath: '/',
+  },
 });
