@@ -42,19 +42,23 @@
 .dailybook-content {
   &-container {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &-title {
+    white-space: nowrap;
     position: absolute;
     top: -110px;
     left: 5%;
     z-index: 1;
     user-select: none;
     font-family: Rantera, sans-serif;
-    font-size: 25vw;
+    font-size: 20vw;
     line-height: 386px;
     text-align: center;
     letter-spacing: -0.01em;
@@ -88,7 +92,7 @@
   top: 35%;
   color: #fff;
   font-family: Rantera, sans-serif;
-  font-size: 2.5em;
+  font-size: 2.2em;
   width: 250px;
   height: 250px;
 
@@ -110,14 +114,46 @@
   left: 45%;
 }
 
-.dailybook-first {
+.dailybook0 {
   background-color: #e0d0b0;
 }
 
-.dailybook-second {
+.dailybook1 {
   background-color: #b0c9e0;
 }
 
-.dailybook-third {
+.dailybook2 {
   background-color: #bcb0e0;
+}
+
+.dailybook3 {
+  background-color: #b0e0d7;
+}
+
+.dailybook4 {
+  background-color: #67a6c0;
+}
+
+.dailybook5 {
+  background-color: #edb879;
+}
+
+.dailybook6 {
+  background-color: #e0c7b0;
+}
+
+.dailybook7 {
+  background-color: #b0e0b4;
+}
+
+.dailybook8 {
+  background-color: #eba48e;
+}
+
+.dailybook9 {
+  background-color: #7c7baf;
+}
+
+.dailybook10 {
+  background-color: #a75490;
 }
