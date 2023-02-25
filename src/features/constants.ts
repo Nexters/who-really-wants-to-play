@@ -11,10 +11,12 @@ export const ACTIVE_INDEX_MAP = {
   8: 'DAILY_BOOK',
   9: 'GALLERY',
   10: 'ABOUT',
+  11: 'DETAIL',
 };
 export const PAGE_NAME = {
   LANDING: 0,
   DAILY_BOOK: [1, 2, 3, 4, 5, 6, 7, 8],
   GALLERY: 9,
   ABOUT: 10,
+  DETAIL: 11,
 };
