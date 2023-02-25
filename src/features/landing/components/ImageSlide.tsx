@@ -8,7 +8,6 @@ import {
   TRANSITION_SPEED,
 } from '~/features/landing/constants';
 import { imageSlideElementList } from '~/features/landing/mocks';
-import { resizeCanvasToCoverWindow } from '~/features/shared/utils/canvasUtil';
 
 const ImageSlide: FunctionComponent = () => {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -37,17 +36,6 @@ const ImageSlide: FunctionComponent = () => {
 
     drawAnimationFrame(0);
   };
-
-  useEffect(() => {
-    const canvas = ref.current;
-    if (canvas === null) return;
-    resizeCanvasToCoverWindow(canvas);
-
-    const resizeHandler = () => resizeCanvasToCoverWindow(canvas);
-    // TODO: debounce
-    window.addEventListener('resize', resizeHandler);
-    return () => window.removeEventListener('resize', resizeHandler);
-  }, []);
 
   useEffect(() => {
     if (images) startSlide();
