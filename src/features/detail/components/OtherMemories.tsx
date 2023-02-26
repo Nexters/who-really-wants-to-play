@@ -5,13 +5,39 @@ type Props = {
 };
 const OtherMemories: FunctionComponent<Props> = ({ keywordIds }) => {
   return (
-    <section className="detail-block scroll-snap">
-      <div>
+    <section className="detail-memories-container detail-block scroll-snap">
+      <div className="title-wrapper">
         <hr />
         <h4>Other Memories.</h4>
-        {/*  TODO: hover 인터랙션, 누르면 그 id 상세페이지로 */}
+      </div>
+      <div className="keyword-wrapper">
+        <div className="marquee">
+          {keywordIds.map((id) => (
+            <span key={id} className="keyword">
+              {`Other Keyword (${id})`}
+            </span>
+          ))}
+        </div>
+        <div className="marquee marquee2">
+          {keywordIds.map((id) => (
+            <span key={id} className="keyword">
+              {`Other Keyword (${id})`}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="keyword-wrapper">
         {keywordIds.map((id) => (
-          <div key={id}>id에 맞는 키워드</div>
+          <span key={id} className="keyword">
+            {`Other Keyword (${id})`}
+          </span>
+        ))}
+      </div>{' '}
+      <div className="keyword-wrapper">
+        {keywordIds.map((id) => (
+          <span key={id} className="keyword">
+            {`Other Keyword (${id})`}
+          </span>
         ))}
       </div>
     </section>
