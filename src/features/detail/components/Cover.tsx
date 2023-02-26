@@ -20,7 +20,9 @@ const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
       <CloseButton onClick={() => console.log('close')} />
       <img className="cover-image" src={imgSrc} alt={title} />
       <div className="contents-wrapper">
-        <div className="date">{date}</div>
+        <div className="date" style={{ backgroundColor: bgColor }}>
+          {date}
+        </div>
         <h1 className="title">{title}</h1>
         <div className="scroll-down">
           <img src="./svg/detail-scroll-down.svg" />

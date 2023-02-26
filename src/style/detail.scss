@@ -53,7 +53,6 @@ hr.short-line {
     .date {
       display: inline;
       padding: 5px 20px;
-      background-color: #bbb;
       border-radius: 50px;
     }
 
@@ -207,44 +206,27 @@ hr.short-line {
 
   .keyword-wrapper {
     display: flex;
+    animation: keyword-slide 8s linear infinite;
+    font-size: 8vw;
+    margin-top: 3vh;
 
-    .marquee {
-      top: 0;
-      left: 100%;
-      width: max-content;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      animation: marquee 10s linear infinite;
+    &.reverse {
+      animation-direction: reverse;
     }
 
-    .marquee2 {
-      background: blue;
-      animation-delay: 5s;
-    }
-
-    b {
-      padding-left: 10px;
-    }
-  }
-
-  @keyframes marquee {
-    0% {
-      left: 100%;
-    }
-
-    100% {
-      left: -100%;
+    .keyword {
+      margin-right: 8vw;
+      cursor: pointer;
     }
   }
 
   @keyframes keyword-slide {
     0% {
-      transform: translateX(0%);
+      transform: translateX(0);
     }
 
     100% {
-      transform: translateX(-100%);
+      transform: translateX(50%);
     }
   }
 }
