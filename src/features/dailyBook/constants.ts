@@ -10,7 +10,8 @@ export const data = [
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.07',
     customClass: 'dailybook0',
-    coverImage: './images/23.01.07.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
   },
   {
     id: 1,
@@ -18,47 +19,53 @@ export const data = [
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.12',
     customClass: 'dailybook1',
-    coverImage: './images/23.01.12.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
   },
   {
     id: 2,
-    title: 'Recreation',
+    title: 'Team',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    date: '01.28',
+    date: '01.14',
     customClass: 'dailybook2',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
   },
   {
     id: 3,
-    title: 'Climbing',
+    title: 'Recreation',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    date: '02.04',
+    date: '01.28',
     customClass: 'dailybook3',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
   },
   {
     id: 4,
-    title: 'Online-Meeting',
+    title: 'Climbing',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    date: '02.09',
+    date: '02.04',
     customClass: 'dailybook4',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
   },
   {
     id: 5,
-    title: 'Climbing',
+    title: 'Online-Meeting',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    date: '02.11',
+    date: '02.09',
     customClass: 'dailybook5',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
   },
   {
     id: 6,
-    title: 'Zion-Coffee',
+    title: 'Climbing',
     description: 'Gallery of our memories that we met at Nexters 22nd',
-    date: '02.14',
+    date: '02.11',
     customClass: 'dailybook6',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
   },
   {
     id: 7,
@@ -66,7 +73,8 @@ export const data = [
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.16',
     customClass: 'dailybook7',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
   },
   {
     id: 8,
@@ -74,7 +82,8 @@ export const data = [
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.18',
     customClass: 'dailybook8',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
   },
   {
     id: 9,
@@ -82,7 +91,8 @@ export const data = [
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.19',
     customClass: 'dailybook9',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
   },
   {
     id: 10,
@@ -90,6 +100,7 @@ export const data = [
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.25',
     customClass: 'dailybook10',
-    coverImage: './images/23.01.14.webp',
+    coverImage:
+      'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
   },
 ];
