@@ -1,35 +1,35 @@
 .about {
   width: 100%;
-  height: 100%;
+  height: fit-content;
   background-color: #f584f1;
 
+  &-title-box {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+  }
+
   &-title {
-    position: absolute;
     font-size: 250px;
     color: #fff;
-    text-align: center;
-    width: 100%;
-    z-index: -1;
+    position: relative;
+    letter-spacing: 100px;
+    left: 100%;
+    margin-left: -200%;
+    margin-top: 70px;
   }
 
   &-profile-box {
     display: flex;
     flex-direction: column;
     margin-left: 125px;
-    height: 100vh;
-    overflow: auto;
-    scroll-snap-type: y mandatory;
-    padding-top: 75px;
-
-    // & > div {
-    //   scroll-snap-align: start;
-    // }
+    overflow: hidden;
   }
 
   &-name-box {
-    border: 1px solid black;
     height: 150px;
-    scroll-snap-align: center;
+    opacity: 0;
   }
 
   &-name {

@@ -40,10 +40,10 @@ const BLANK_LIST = [
     name: '',
     job: '',
   },
-]
+];
 
 export const PROFILES_REPEAT = [
-  ...BLANK_LIST,
+  // ...BLANK_LIST,
   ...PROFILES_LIST,
   ...PROFILES_LIST,
   ...PROFILES_LIST,
