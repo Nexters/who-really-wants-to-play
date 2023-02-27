@@ -1,7 +1,11 @@
+.container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+}
+
 .scroll-snap-container {
   scroll-snap-type: y mandatory;
-  overflow: auto;
-  height: 100vh;
 }
 
 .scroll-snap {
