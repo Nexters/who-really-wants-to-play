@@ -5,17 +5,22 @@ $max-column-width: calc((100% - $gallery-padding * 2) / $max-columns);
 $column-width: max($grid-item-min-width, $max-column-width);
 
 .gallery {
-  overflow: hidden;
+  position: relative;
   background-color: $gallery-background;
+
+  &-title {
+    position: sticky;
+    top: $title-top;
+  }
 }
 
 .title-animation {
-  transition: transform 3s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 .grid-container {
   position: relative;
-  top: calc(-63px - 80px);
+  top: -80px;
   max-width: $desktop-breakpoint;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax($column-width, 1fr));

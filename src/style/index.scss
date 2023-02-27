@@ -7,12 +7,13 @@
 @import './shared';
 
 body {
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: Rantera, 'Noto Sans KR', sans-serif;
 }
 
 .sub-title {
-  position: relative;
-  top: -63px;
+  top: $title-top;
   text-align: center;
   font-weight: 400;
   font-size: 400px;
