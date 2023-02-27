@@ -14,9 +14,11 @@ const AppContainer: FunctionComponent = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollValue, setScrollValue] = useState<number>(0);
 
+  const notBottomPage = activeIndex !== PAGE_NAME.BOTTOM;
+
   useEffect(() => {
     if (!containerRef.current) return;
-    if (activeIndex !== PAGE_NAME.BOTTOM) return;
+    if (notBottomPage) return;
 
     const handleScroll = (e: Event) => {
       const containerDiv = e.target as HTMLDivElement;
@@ -33,7 +35,7 @@ const AppContainer: FunctionComponent = () => {
     <div
       ref={containerRef}
       className={classnames('container', {
-        'scroll-snap-container': activeIndex !== PAGE_NAME.BOTTOM,
+        'scroll-snap-container': notBottomPage,
       })}
     >
       <LandingContainer {...appData} />

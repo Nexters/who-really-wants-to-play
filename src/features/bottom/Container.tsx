@@ -19,7 +19,6 @@ const BottomContainer: FunctionComponent<BottomContainerProps> = ({
   useEffect(() => {
     setAboveContainersHeight(window.innerHeight * PAGE_NAME.BOTTOM - 1);
   }, []);
-  console.log(scrollValue);
 
   return (
     <div

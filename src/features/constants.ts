@@ -15,10 +15,7 @@ export const ACTIVE_INDEX_MAP = {
 };
 
 const MAP_LENGTH = Object.keys(ACTIVE_INDEX_MAP).length;
-const DAILY_BOOK_ARRAY = [];
-for (let i = 1; i < MAP_LENGTH - 1; i++) {
-  DAILY_BOOK_ARRAY.push(i);
-}
+const DAILY_BOOK_ARRAY = Array.from({ length: MAP_LENGTH - 2 }, (_, idx) => idx + 1);
 
 export const PAGE_NAME = {
   LANDING: 0,

@@ -23,9 +23,9 @@ const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
       className="gallery scroll-snap"
       ref={(ef) => {
         if (!ef) return;
-        refList.current[PAGE_NAME.GALLERY] = ef;
+        refList.current[PAGE_NAME.BOTTOM] = ef;
       }}
-      data-id={PAGE_NAME.GALLERY}
+      data-id={PAGE_NAME.BOTTOM}
     >
       <SubTitle
         ref={titleRef}
