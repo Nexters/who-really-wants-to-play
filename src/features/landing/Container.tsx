@@ -1,7 +1,7 @@
 import { FunctionComponent, useState } from 'react';
 
 import { AppData } from '../types';
-import { PAGE_NAME } from '../constants';
+import { PAGE_NAME } from '../shared/constants';
 
 import BackgroundGraphicSvg from '~/features/landing/components/svg/BackgroundGraphicSvg';
 import ScrollToEnter from '~/features/landing/components/ScrollToEnter';

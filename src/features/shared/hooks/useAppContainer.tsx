@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { AppData, RefList } from '../types';
+import { AppData, RefList } from '../../types';
 
 const useAppContainer = (): AppData => {
   const refList = useRef<RefList>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const useAppContainer = (): AppData => {
     };
   }, [refList]);
 
-  return { refList, activeIndex };
+  return { refList, activeIndex, containerRef };
 };
 
 export default useAppContainer;

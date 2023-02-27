@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import { PAGE_NAME } from '../constants';
+import { PAGE_NAME } from '../shared/constants';
 import { AppData } from '../types';
 
 import ContentContainer from './components/Container';
