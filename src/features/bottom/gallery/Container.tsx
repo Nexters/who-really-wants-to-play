@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  FunctionComponent,
-  SetStateAction,
-  useEffect,
-  useRef,
-} from 'react';
+import { FunctionComponent } from 'react';
 
 import SubTitle from '../../shared/components/SubTitle';
 
@@ -15,23 +9,11 @@ import { getTranslateX } from './helpers';
 
 import { GalleryMockImgList } from '~/features/gallery/mocks/gallery';
 
-type GalleryContainerProps = {
-  setGalleryContainerHeight: Dispatch<SetStateAction<number>>;
-};
-
-const GalleryContainer: FunctionComponent<GalleryContainerProps> = ({
-  setGalleryContainerHeight,
-}) => {
+const GalleryContainer: FunctionComponent = () => {
   const { titleRef, overflowedWidth } = useTitleAnimation(200);
 
-  const galleryRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (!galleryRef.current) return;
-    setGalleryContainerHeight(galleryRef.current?.clientHeight);
-  }, [galleryRef.current?.clientHeight]);
-
   return (
-    <section className="gallery" ref={galleryRef}>
+    <section className="gallery">
       <SubTitle
         ref={titleRef}
         title="Our Archive"

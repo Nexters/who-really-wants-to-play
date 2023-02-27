@@ -1,22 +1,20 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useRef, useState } from 'react';
 
 import { PROFILES_REPEAT, TITLE } from './constants';
 
 type AboutContainerProps = {
   scrollValue: number | undefined;
-  aboveContainersHeight: number | undefined;
-  galleryContainerHeight: number | undefined;
 };
 
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
-  aboveContainersHeight,
-  galleryContainerHeight,
 }) => {
   const [selectedNameNum, setSelectedNameNum] = useState<number>(0);
 
   const [titleOpacity, setTitleOpacity] = useState<number>(0);
   const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(100);
+
+  const aboutContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     aboutInLayout();
@@ -32,7 +30,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   };
 
   return (
-    <>
+    <div ref={aboutContainerRef}>
       <section className="about">
         <div
           className="about-title-box"
@@ -98,7 +96,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
           ))} */}
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
