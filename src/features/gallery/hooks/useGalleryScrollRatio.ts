@@ -35,5 +35,5 @@ export const useGalleryScrollRatio = (
     setAnimationRatio(galleryMovedScrollRatio);
   }, [galleryRef, scrollY]);
 
-  return animationRatio;
+  return animationRatio > 0 ? animationRatio : 0;
 };
