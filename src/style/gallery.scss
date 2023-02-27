@@ -36,7 +36,7 @@ $column-width: max($grid-item-min-width, $max-column-width);
     text-align: center;
 
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.2);
       box-shadow: 0 0 0.5rem rgba(0 0 0 / 50%);
     }
   }

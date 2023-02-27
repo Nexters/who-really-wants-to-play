@@ -16,6 +16,7 @@ type DailyBookContainerProps = AppData;
 const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
   refList,
   containerRef,
+  activeIndex,
 }) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const titleWidth = titleRef.current?.scrollWidth || 0;
@@ -43,7 +44,11 @@ const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
           transform: getMinusTranslateX(titleMustMoveDist, 'px'),
         }}
       />
-      <MasonryLayout imgList={GalleryMockImgList} gap={GRID_GAP} />
+      <MasonryLayout
+        imgList={GalleryMockImgList}
+        gap={GRID_GAP}
+        activeIndex={activeIndex}
+      />
     </section>
   );
 };
