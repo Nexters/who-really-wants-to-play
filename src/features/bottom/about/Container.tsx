@@ -1,62 +1,35 @@
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 
-import { PROFILES_REPEAT, TITLE } from './constants';
-
-type AboutContainerProps = {
-  scrollValue: number | undefined;
-};
+import Title from './components/Title';
+import { PROFILES_REPEAT } from './constants';
+import { useIntroInteraction } from './hooks/useIntroInteraction';
+import { AboutContainerProps } from './types';
 
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
 }) => {
   const [selectedNameNum, setSelectedNameNum] = useState<number>(0);
 
-  const [titleOpacity, setTitleOpacity] = useState<number>(0);
-  const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(100);
-
   const aboutContainerRef = useRef<HTMLDivElement>(null);
+  const aboutContainerHeight = aboutContainerRef.current?.offsetHeight || 0;
 
-  useEffect(() => {
-    aboutInLayout();
-  }, []);
-
-  const aboutInLayout = () => {
-    setTitleOpacity(1);
-    setTitleLetterSpacing(0);
-  };
-  const aboutOutLayout = () => {
-    setTitleOpacity(0);
-    setTitleLetterSpacing(100);
-  };
+  const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
+  const { introInfo } = useIntroInteraction(scrollValue, aboutContainerScrollY);
 
   return (
     <div ref={aboutContainerRef}>
       <section className="about">
-        <div
-          className="about-title-box"
-          style={{
-            opacity: `${titleOpacity}`,
-            transition: 'opacity 3s',
-          }}
-        >
-          <div
-            className="about-title"
-            style={{
-              letterSpacing: `${titleLetterSpacing}px`,
-              transition: 'letter-spacing 2s',
-            }}
-          >
-            {TITLE}
-          </div>
-        </div>
+        <Title
+          titleOpacity={introInfo.titleOpacity}
+          titleLetterSpacing={introInfo.titleLetterSpacing}
+        />
         <div className="about-profile-box">
           {PROFILES_REPEAT.map((profile, index) => (
             <div
               className="about-name-box"
               key={index}
               style={{
-                opacity: `${titleOpacity}`,
-                transition: 'opacity 3s',
+                opacity: `${introInfo.titleOpacity}`,
               }}
             >
               <div
