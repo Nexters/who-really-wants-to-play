@@ -14,9 +14,6 @@ export const fetchImage = (src: string) => {
   });
 };
 
-const scaleToImagePx = (px: number, imgSize: number, canvasSize: number) =>
-  (px / canvasSize) * imgSize;
-
 const calcYDistance = (dt: number, a: number): number => {
   return Math.floor((a * dt * dt) / 2);
 };
@@ -29,20 +26,24 @@ const drawImageFrame = (
   { width, height }: CanvasSize,
 ) => {
   if (dt - delay < 0) return;
-  const dy = height - calcYDistance(dt - delay, IMAGE_SLIDE_ACC);
-  if (dy > height) return;
+  const dy = calcYDistance(dt - delay, IMAGE_SLIDE_ACC);
+  if (dy > width + 3000) return;
   ctx.shadowColor = 'black';
   ctx.shadowBlur = 15;
+
+  const scaledH = (height / width) * img.width;
+  const scaledDy = (dy / height) * scaledH;
+
   ctx.drawImage(
     img,
     0,
-    scaleToImagePx(dy, img.height, height),
+    (img.height + scaledH) / 2 - scaledDy,
     img.width,
-    scaleToImagePx(img.height, img.height, height),
+    scaledH,
     0,
-    dy,
+    height - dy,
     width,
-    img.height,
+    height,
   );
 };
 
