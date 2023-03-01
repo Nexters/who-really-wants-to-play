@@ -2,7 +2,7 @@ export type AboutContainerProps = {
   scrollValue: number;
 };
 
-type IntroKeys = 'titleOpacity' | 'titleLetterSpacing';
+type IntroKeys = 'titleOpacity' | 'titleLetterSpacing' | 'titleTop';
 export type IntroInfoValues = Record<IntroKeys, number>;
 export type IntroInfoSettings = Record<IntroKeys, IntroProperty>;
 export type IntroProperty = {
