@@ -8,6 +8,6 @@ export type IntroInfoSettings = Record<IntroKeys, IntroProperty>;
 export type IntroProperty = {
   startValue: number;
   endValue: number;
-  startScroll: number;
-  endScroll: number;
+  startScroll?: number;
+  endScroll?: number;
 };

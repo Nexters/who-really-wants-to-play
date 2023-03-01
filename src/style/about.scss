@@ -30,6 +30,7 @@
     padding-top: 500px;
     position: fixed;
     top: 0;
+    transition: top 1s;
   }
 
   &-name-box {
@@ -41,21 +42,23 @@
     font-size: 100px;
     letter-spacing: -0.02em;
     color: #fff;
-    transition: color 1s;
+    transition: color 3s;
   }
 
   &-selected-name {
     font-size: 100px;
     letter-spacing: -0.02em;
     color: #000;
-    transition: color 1s;
+    transition: color 3s;
   }
 
   &-selected-job {
-    margin-top: -30px;
     font-family: 'Noto Sans KR', sans-serif;
     opacity: 1;
-    transition: opacity 2s;
+    transition: opacity 1s;
+    position: fixed;
+    top: 610px;
+    left: 130px;
   }
 
   &-job {

@@ -1,34 +1,21 @@
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { FunctionComponent, useRef, useState } from 'react';
 
-// import Title from './components/Title';
 import { PROFILES_REPEAT, TITLE } from './constants';
-import { useIntroInteraction } from './hooks/useIntroInteraction';
+import { useIntroInteraction } from './hooks/useInteraction';
 import { AboutContainerProps } from './types';
 
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
 }) => {
-  const [selectedNameNum, setSelectedNameNum] = useState<number>(0);
-
   const [titleOpacity, setTitleOpacity] = useState<number>(0);
   const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(100);
-
   const aboutContainerRef = useRef<HTMLDivElement>(null);
+  const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
+
   const titleBoxRef = useRef<HTMLDivElement>(null);
-  // const titleBoxHeight = titleBoxRef.current?.offsetHeight || 0;
 
-  useEffect(() => {
-    aboutInLayout();
-  }, []);
-
-  const aboutInLayout = () => {
-    setTitleOpacity(1);
-    setTitleLetterSpacing(0);
-  };
-  const aboutOutLayout = () => {
-    setTitleOpacity(0);
-    setTitleLetterSpacing(100);
-  };
+  const { introInfo, selectedName, selectedTop, selectedJob } =
+    useIntroInteraction(scrollValue, aboutContainerScrollY);
 
   return (
     <div ref={aboutContainerRef}>
@@ -50,7 +37,13 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
             {TITLE}
           </div>
         </div>
-        <div className="about-profile-box">
+        <div
+          className="about-profile-box"
+          style={{
+            paddingTop: `${introInfo.boxPaddingTop}px`,
+            top: `${selectedTop}px`,
+          }}
+        >
           {PROFILES_REPEAT.map((profile, index) => (
             <div
               className="about-name-box"
@@ -62,22 +55,23 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
             >
               <div
                 className={
-                  selectedNameNum === index
-                    ? 'about-selected-name'
-                    : 'about-name'
+                  selectedName === index ? 'about-selected-name' : 'about-name'
                 }
+                style={{ transition: `color ${selectedName ? 1 : 3}s` }}
               >
                 {profile.name}
               </div>
-              <div
-                className={
-                  selectedNameNum === index ? 'about-selected-job' : 'about-job'
-                }
-              >
-                {profile.job}
-              </div>
             </div>
           ))}
+          <div
+            className="about-selected-job"
+            style={{
+              opacity: `${introInfo.titleOpacity}`,
+              top: `${introInfo.boxPaddingTop + 110}px`,
+            }}
+          >
+            {selectedJob}
+          </div>
         </div>
         {/* {PROFILES_REPEAT.map((profile, index) => (
             <div className="about-image-box">
