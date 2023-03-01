@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 
 import CloseButton from '~/features/detail/components/CloseButton';
 
@@ -16,8 +17,12 @@ const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
       className="detail-cover-container detail-block scroll-snap"
       style={{ backgroundColor: bgColor }}
     >
-      <div className="logo">Jjin-Nolsa</div>
-      <CloseButton onClick={() => console.log('close')} />
+      <Link to="/" preventScrollReset>
+        <div className="logo">Jjin-Nolsa</div>
+      </Link>
+      <Link to="/" preventScrollReset>
+        <CloseButton />
+      </Link>
       <img className="cover-image" src={imgSrc} alt={title} />
       <div className="contents-wrapper">
         <div className="date" style={{ backgroundColor: bgColor }}>

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 type Props = {
-  onClick: () => void;
+  onClick?: () => void;
 };
 const CloseButton: FunctionComponent<Props> = ({ onClick }) => {
   return (

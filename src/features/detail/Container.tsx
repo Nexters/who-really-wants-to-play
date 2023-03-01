@@ -1,36 +1,27 @@
 import { FunctionComponent } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { AppData } from '~/features/types';
 import Cover from '~/features/detail/components/Cover';
 import KeywordList from '~/features/detail/components/KeywordList';
 import Description from '~/features/detail/components/Description';
 import OtherMemories from '~/features/detail/components/OtherMemories';
-import { data } from '~/features/detail/constants';
-import { DetailData } from '~/features/detail/types';
+import { data } from '~/features/dailyBook/constants';
 
-type DetailContainerProps = AppData;
+const DetailContainer: FunctionComponent = () => {
+  const { id } = useParams<{ id: string }>();
 
-const DetailContainer: FunctionComponent<DetailContainerProps> = ({
-  refList,
-}) => {
+  const foundData = data.find((d) => d.id.toString() === id);
+  if (!foundData) return <div>not found :(</div>;
+
   const {
-    coverTitle,
-    descriptionTitle,
-    description,
-    bgColor,
+    title,
     date,
-    imgSrcs,
-    keywords,
-  }: DetailData = data.get('0')!;
+    detail: { descriptionTitle, description, bgColor, imgSrcs, keywords },
+  } = foundData;
 
   return (
-    <>
-      <Cover
-        date={date}
-        title={coverTitle}
-        imgSrc={imgSrcs[0]}
-        bgColor={bgColor}
-      />
+    <div className="container scroll-snap-container">
+      <Cover date={date} title={title} imgSrc={imgSrcs[0]} bgColor={bgColor} />
       <KeywordList bgColor={bgColor} keywords={keywords} />
       <Description
         title={descriptionTitle}
@@ -41,7 +32,7 @@ const DetailContainer: FunctionComponent<DetailContainerProps> = ({
       <OtherMemories
         keywordIds={['1', '2', '3', '4', '5', '6', '7', '8', '9', '10']}
       />
-    </>
+    </div>
   );
 };
 
