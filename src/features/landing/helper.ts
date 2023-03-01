@@ -2,6 +2,7 @@ import {
   IMAGE_SLIDE_ACC,
   IMAGE_SLIDE_DELAY,
   IMAGE_SLIDE_SPEED,
+  IMAGE_STAY_TERM,
 } from '~/features/landing/constants';
 import { CanvasSize } from '~/features/landing/types';
 
@@ -18,6 +19,12 @@ const calcYDistance = (dt: number, a: number): number => {
   return Math.floor((a * dt * dt) / 2);
 };
 
+const makeDelay = (now: number, target: number, term: number) => {
+  if (now > target) return now;
+  if (now > target - term) return target;
+  else return now + term;
+};
+
 const drawImageFrame = (
   ctx: CanvasRenderingContext2D,
   img: HTMLImageElement,
@@ -26,22 +33,21 @@ const drawImageFrame = (
   { width, height }: CanvasSize,
 ) => {
   if (dt - delay < 0) return;
-  const dy = calcYDistance(dt - delay, IMAGE_SLIDE_ACC);
+  const dy = height - calcYDistance(dt - delay, IMAGE_SLIDE_ACC);
   if (dy > width + 3000) return;
   ctx.shadowColor = 'black';
   ctx.shadowBlur = 15;
 
-  const scaledH = (height / width) * img.width;
-  const scaledDy = (dy / height) * scaledH;
+  const scale = img.width / width;
 
   ctx.drawImage(
     img,
     0,
-    (img.height + scaledH) / 2 - scaledDy,
+    makeDelay(dy * scale, 0, IMAGE_STAY_TERM * scale),
     img.width,
-    scaledH,
+    height * scale,
     0,
-    height - dy,
+    makeDelay(dy, 0, IMAGE_STAY_TERM),
     width,
     height,
   );
