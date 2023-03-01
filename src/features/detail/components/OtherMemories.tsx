@@ -1,15 +1,18 @@
 import { FunctionComponent } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+
+import { DailyBookData } from '~/features/dailyBook/types';
 
 type Props = {
-  keywordIds: string[];
+  keywordDataList: DailyBookData[];
 };
 
-const OtherMemories: FunctionComponent<Props> = ({ keywordIds }) => {
+const OtherMemories: FunctionComponent<Props> = ({ keywordDataList }) => {
   const rows = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
+    keywordDataList.slice(0, 3),
+    keywordDataList.slice(3, 6),
+    keywordDataList.slice(6, 9),
   ];
   return (
     <section className="detail-memories-container detail-block scroll-snap">
@@ -22,10 +25,10 @@ const OtherMemories: FunctionComponent<Props> = ({ keywordIds }) => {
           className={classNames('keyword-wrapper', idx % 2 === 1 && 'reverse')}
           key={idx}
         >
-          {row.map((id) => (
-            <span key={id} className="keyword">
-              {`Other Keyword (${id})`}
-            </span>
+          {row.map(({ id, title }: DailyBookData) => (
+            <Link key={id} to={`/detail/${id}`}>
+              <span className="keyword">{title}</span>
+            </Link>
           ))}
         </div>
       ))}

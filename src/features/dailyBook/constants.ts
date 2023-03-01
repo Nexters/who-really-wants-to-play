@@ -1,9 +1,11 @@
+import { DailyBookData } from '~/features/dailyBook/types';
+
 export const LANDING_INDEX_COUNT = 1;
 export const MAX_DIAL_COUNT = 6;
 export const START_DIAL_DEGREE = 90;
 export const ROTATE_DEGREE = 45;
 
-export const data = [
+export const data: DailyBookData[] = [
   {
     id: 0,
     title: 'First-Meeting',
