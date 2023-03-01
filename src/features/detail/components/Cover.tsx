@@ -30,7 +30,7 @@ const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
         </div>
         <h1 className="title">{title}</h1>
         <div className="scroll-down">
-          <img src="./svg/detail-scroll-down.svg" />
+          <img src="/svg/detail-scroll-down.svg" />
         </div>
       </div>
     </section>
