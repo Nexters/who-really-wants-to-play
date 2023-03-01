@@ -4,7 +4,7 @@ import { AppData } from '../types';
 import { PAGE_NAME } from '../constants';
 
 import ImageSlide from '~/features/landing/components/ImageSlide';
-import Cover from '~/features/landing/components/Cover';
+import LandingTitle from '~/features/landing/components/LandingTitle';
 import { imageSlideElementList } from '~/features/landing/mocks';
 
 type LandingContainerProps = AppData;
@@ -30,7 +30,7 @@ const LandingContainer: FunctionComponent<LandingContainerProps> = ({
       className="landing-container scroll-snap"
     >
       <ImageSlide onStartImageSlide={onStartImageSlide} />
-      {canShowLanding && <Cover />}
+      {canShowLanding && <LandingTitle />}
     </div>
   );
 };

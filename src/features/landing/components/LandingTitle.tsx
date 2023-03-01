@@ -3,9 +3,9 @@ import { FunctionComponent } from 'react';
 import ScrollToEnter from '~/features/landing/components/ScrollToEnter';
 import { CIRCLE_COLORS } from '~/features/landing/constants';
 
-const Cover: FunctionComponent = () => {
+const LandingTitle: FunctionComponent = () => {
   return (
-    <div className="landing-cover-container">
+    <div className="landing-title-container">
       <div className="logo">Jjin Nolsa</div>
       <div className="cover-title">
         Gallery of our memories
@@ -28,4 +28,4 @@ const Cover: FunctionComponent = () => {
   );
 };
 
-export default Cover;
+export default LandingTitle;
