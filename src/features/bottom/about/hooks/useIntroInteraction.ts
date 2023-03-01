@@ -26,9 +26,10 @@ export const useIntroInteraction = (scrollValue: number, aboutContainerScrollY: 
   const introScrollRatio =
     (startIntroScrollY - scrollValue) /
     (startIntroScrollY - aboutContainerScrollY);
-  const calcValues = (settings: IntroProperty) => {
+
+  const calcValue = (settings: IntroProperty) => {
     let rv = 0;
-    if (!settings.startScroll) {
+    if (typeof settings.startScroll === 'undefined' || typeof settings.endScroll === 'undefined') {
       rv =
         introScrollRatio * (settings.endValue - settings.startValue) +
         settings.startValue;
@@ -58,10 +59,10 @@ export const useIntroInteraction = (scrollValue: number, aboutContainerScrollY: 
 
   const playIntroInteraction = () => {
     setIntroInfo({
-      titleOpacity: calcValues(INTRO_SETTINGS.titleOpacity),
-      titleLetterSpacing: calcValues(INTRO_SETTINGS.titleLetterSpacing),
-      titleTop: calcValues(INTRO_SETTINGS.titleTop),
-      boxPaddingTop: calcValues(INTRO_SETTINGS.boxPaddingTop),
+      titleOpacity: calcValue(INTRO_SETTINGS.titleOpacity),
+      titleLetterSpacing: calcValue(INTRO_SETTINGS.titleLetterSpacing),
+      titleTop: calcValue(INTRO_SETTINGS.titleTop),
+      boxPaddingTop: calcValue(INTRO_SETTINGS.boxPaddingTop),
     });
   };
   
