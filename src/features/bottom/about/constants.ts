@@ -55,7 +55,7 @@ export const INTRO_SETTINGS: IntroInfoSettings = {
     endScroll: 1,
   },
   boxPaddingTop: {
-    startValue: 0,
+    startValue: 800,
     endValue: 500,
     startScroll: 0,
     endScroll: 1,
