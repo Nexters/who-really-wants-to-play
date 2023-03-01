@@ -6,7 +6,11 @@ import { PHOTO_PATH_PREFIX } from '~/features/landing/constants';
 import { imageSlideElementList } from '~/features/landing/mocks';
 import { resizeCanvasToCoverWindow } from '~/features/shared/utils/canvas';
 
-const ImageSlide: FunctionComponent = () => {
+type Props = {
+  onStartImageSlide: (image: HTMLImageElement, idx: number) => void;
+};
+
+const ImageSlide: FunctionComponent<Props> = ({ onStartImageSlide }) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const { data: images } = usePromises<HTMLImageElement>(
     imageSlideElementList.map((imageId) =>
@@ -22,14 +26,22 @@ const ImageSlide: FunctionComponent = () => {
 
   useEffect(() => {
     if (images && ref.current) {
-      startSlide(images, ref?.current);
+      const ctx = ref.current.getContext('2d');
+      if (ctx) ctx.fillStyle = 'transparent';
+
+      startSlide(images, ref?.current, onStartImageSlide);
     }
   }, [images]);
 
   return (
     <>
       {!images && <p className="landing-loading">loading</p>}
-      <canvas className="image-slider" ref={ref} width="1920" height="1080" />
+      <canvas
+        className="landing-image-slider"
+        ref={ref}
+        width="1920"
+        height="1080"
+      />
     </>
   );
 };

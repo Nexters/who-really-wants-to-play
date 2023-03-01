@@ -31,8 +31,11 @@ const drawImageFrame = (
   dt: number,
   delay: number,
   { width, height }: CanvasSize,
+  onStartImageSlide?: (image: HTMLImageElement) => void,
 ) => {
   if (dt - delay < 0) return;
+  if (dt - delay < IMAGE_SLIDE_SPEED) onStartImageSlide?.(img);
+
   const dy = height - calcYDistance(dt - delay, IMAGE_SLIDE_ACC);
   if (dy > width + 3000) return;
   ctx.shadowColor = 'black';
@@ -56,6 +59,7 @@ const drawImageFrame = (
 export const startSlide = (
   images: HTMLImageElement[],
   canvas: HTMLCanvasElement,
+  onStartImageSlide?: (image: HTMLImageElement, idx: number) => void,
 ) => {
   const ctx = canvas?.getContext('2d', { alpha: false });
   if (!canvas || !ctx || !images) return;
@@ -67,7 +71,14 @@ export const startSlide = (
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     images.forEach((image, idx) =>
-      drawImageFrame(ctx, image, dy, IMAGE_SLIDE_DELAY * idx, canvasSize),
+      drawImageFrame(
+        ctx,
+        image,
+        dy,
+        IMAGE_SLIDE_DELAY * idx,
+        canvasSize,
+        (img: HTMLImageElement) => onStartImageSlide?.(img, idx),
+      ),
     );
     requestAnimationFrame(() => drawAnimationFrame(dy + IMAGE_SLIDE_SPEED));
   };
