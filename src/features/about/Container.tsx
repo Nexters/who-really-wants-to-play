@@ -1,10 +1,9 @@
 import { FunctionComponent, useEffect, useRef, useState } from 'react';
 
+// import Title from './components/Title';
 import { PROFILES_REPEAT, TITLE } from './constants';
-
-type AboutContainerProps = {
-  scrollValue: number | undefined;
-};
+import { useIntroInteraction } from './hooks/useIntroInteraction';
+import { AboutContainerProps } from './types';
 
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
@@ -15,6 +14,8 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(100);
 
   const aboutContainerRef = useRef<HTMLDivElement>(null);
+  const titleBoxRef = useRef<HTMLDivElement>(null);
+  // const titleBoxHeight = titleBoxRef.current?.offsetHeight || 0;
 
   useEffect(() => {
     aboutInLayout();
@@ -77,7 +78,8 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               </div>
             </div>
           ))}
-          {/* {PROFILES_REPEAT.map((profile, index) => (
+        </div>
+        {/* {PROFILES_REPEAT.map((profile, index) => (
             <div className="about-image-box">
               {index > 7 && index < 14 && (
                 <img
@@ -94,7 +96,6 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               )}
             </div>
           ))} */}
-        </div>
       </section>
     </div>
   );
