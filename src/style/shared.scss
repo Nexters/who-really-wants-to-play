@@ -1,9 +1,26 @@
-.scroll-snap-container {
-  scroll-snap-type: y mandatory;
+.container {
   overflow: auto;
   height: 100vh;
 }
 
+.scroll-snap-container {
+  scroll-snap-type: y mandatory;
+}
+
 .scroll-snap {
   scroll-snap-align: start;
+}
+
+.floating {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+
+  &-center {
+    position: relative;
+    height: 160px;
+    margin: auto;
+    width: 127px;
+  }
 }

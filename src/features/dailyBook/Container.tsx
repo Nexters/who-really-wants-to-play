@@ -1,10 +1,13 @@
 import { FunctionComponent } from 'react';
 
 import { PAGE_NAME } from '../constants';
+import ScrollToEnter from '../landing/components/ScrollToEnter';
+import Floating from '../shared/components/Floating';
 import { AppData } from '../types';
 
 import ContentContainer from './components/Container';
-import { data } from './constants';
+import DateDial from './components/DateDial';
+import { data, LANDING_INDEX_COUNT } from './constants';
 
 type DailyBookContainerProps = AppData;
 
@@ -12,14 +15,15 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
   refList,
   activeIndex,
 }) => {
-  const { LANDING, GALLERY, DAILY_BOOK } = PAGE_NAME;
-  const isDailyBook = activeIndex > LANDING && activeIndex < GALLERY;
+  const { LANDING, BOTTOM, DAILY_BOOK } = PAGE_NAME;
+  const isDailyBook = activeIndex > LANDING && activeIndex < BOTTOM;
+  const dailyBookIndex = activeIndex - LANDING_INDEX_COUNT;
 
   return (
     <>
       {data.map((item, index) => (
         <ContentContainer
-          key={item.customClass}
+          key={item.id}
           ref={(ef) => {
             if (!ef) return;
             const targetIndex = DAILY_BOOK[index];
@@ -61,43 +65,11 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
         </>
       )}
 
-      {/**
-       * TODO:
-       * 1. 다이얼 돌아가게 해야함.
-       * 2. svg로 해야할까?
-       * 3. active index 방어로직 대충 만들어놓음 처리 필요
-       */}
+      {isDailyBook && <DateDial dailyBookIndex={dailyBookIndex} />}
       {isDailyBook && (
-        <div className="dailybook-date-dialog">
-          {activeIndex > 1 && (
-            <div className="dailybook-date-dialog-prev">
-              {data[activeIndex - 2].date}
-            </div>
-          )}
-          <div className="dailybook-date-dialog-cur">
-            {data[activeIndex - 1].date}
-          </div>
-          {activeIndex < data.length && (
-            <div className="dailybook-date-dialog-next">
-              {data[activeIndex].date}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/**
-       * TODO:
-       * 1. 스크롤 중에는 안보이도록
-       * 2. 이미지로 처리되어 있는데 에바임
-       *  */}
-      {isDailyBook && (
-        <img
-          className="dailybook-scroll-down-floating"
-          src="./images/scroll-down.webp"
-          alt="scroll down"
-          width={49}
-          height={104}
-        />
+        <Floating>
+          <ScrollToEnter />
+        </Floating>
       )}
     </>
   );
