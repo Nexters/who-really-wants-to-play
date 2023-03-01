@@ -1,7 +1,7 @@
 import { FunctionComponent, useRef, useState } from 'react';
 
-import Title from './components/Title';
-import { PROFILES_REPEAT } from './constants';
+// import Title from './components/Title';
+import { PROFILES_REPEAT, TITLE } from './constants';
 import { useIntroInteraction } from './hooks/useIntroInteraction';
 import { AboutContainerProps } from './types';
 
@@ -11,7 +11,8 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   const [selectedNameNum, setSelectedNameNum] = useState<number>(0);
 
   const aboutContainerRef = useRef<HTMLDivElement>(null);
-  const aboutContainerHeight = aboutContainerRef.current?.offsetHeight || 0;
+  const titleBoxRef = useRef<HTMLDivElement>(null);
+  // const titleBoxHeight = titleBoxRef.current?.offsetHeight || 0;
 
   const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
   const { introInfo } = useIntroInteraction(scrollValue, aboutContainerScrollY);
@@ -19,12 +20,29 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   return (
     <div ref={aboutContainerRef}>
       <section className="about">
-        <Title
-          titleOpacity={introInfo.titleOpacity}
-          titleLetterSpacing={introInfo.titleLetterSpacing}
-          titleTop={introInfo.titleTop}
-        />
-        <div className="about-profile-box">
+        <div
+          className="about-title-box"
+          ref={titleBoxRef}
+          style={{
+            opacity: `${introInfo.titleOpacity}`,
+            top: `${introInfo.titleTop}px`,
+          }}
+        >
+          <div
+            className="about-title"
+            style={{
+              letterSpacing: `${introInfo.titleLetterSpacing}px`,
+            }}
+          >
+            {TITLE}
+          </div>
+        </div>
+        <div
+          className="about-profile-box"
+          style={{
+            paddingTop: `${introInfo.boxPaddingTop}px`,
+          }}
+        >
           {PROFILES_REPEAT.map((profile, index) => (
             <div
               className="about-name-box"
@@ -51,7 +69,8 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               </div>
             </div>
           ))}
-          {/* {PROFILES_REPEAT.map((profile, index) => (
+        </div>
+        {/* {PROFILES_REPEAT.map((profile, index) => (
             <div className="about-image-box">
               {index > 7 && index < 14 && (
                 <img
@@ -68,7 +87,6 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               )}
             </div>
           ))} */}
-        </div>
       </section>
     </div>
   );

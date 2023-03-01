@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 
-import { INTRO_SETTINGS } from '../helpers';
+import { INTRO_SETTINGS } from '../constants';
 import { IntroInfoValues, IntroProperty } from '../types';
 
 export const useIntroInteraction = (scrollValue: number, aboutContainerScrollY: number) => {
   const [startIntroScrollY, setStartIntroScrollY] = useState<number>(0);
   const [introInfo, setIntroInfo] = useState<IntroInfoValues>({
-    titleOpacity: 0,
-    titleLetterSpacing: 0,
-    titleTop: 0,
+    titleOpacity: INTRO_SETTINGS.titleOpacity.startValue,
+    titleLetterSpacing: INTRO_SETTINGS.titleLetterSpacing.startValue,
+    titleTop: INTRO_SETTINGS.titleTop.startValue,
+    boxPaddingTop: INTRO_SETTINGS.boxPaddingTop.startValue
   });
 
   useEffect(() => {
@@ -59,7 +60,8 @@ export const useIntroInteraction = (scrollValue: number, aboutContainerScrollY: 
     setIntroInfo({
       titleOpacity: calcValues(INTRO_SETTINGS.titleOpacity),
       titleLetterSpacing: calcValues(INTRO_SETTINGS.titleLetterSpacing),
-      titleTop: calcValues(INTRO_SETTINGS.titleTop)
+      titleTop: calcValues(INTRO_SETTINGS.titleTop),
+      boxPaddingTop: calcValues(INTRO_SETTINGS.boxPaddingTop),
     });
   };
   

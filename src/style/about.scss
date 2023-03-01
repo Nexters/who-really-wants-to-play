@@ -1,6 +1,6 @@
 .about {
   width: 100%;
-  height: fit-content;
+  height: 4396px;
   background-color: #bfe0b0;
 
   &-title-box {
@@ -9,7 +9,7 @@
     overflow: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 0;
+    top: 0;
     pointer-events: none;
   }
 
@@ -20,7 +20,6 @@
     letter-spacing: 100px;
     left: 100%;
     margin-left: -200%;
-    margin-top: 70px;
   }
 
   &-profile-box {
@@ -28,6 +27,9 @@
     flex-direction: column;
     margin-left: 125px;
     overflow: hidden;
+    padding-top: 500px;
+    position: fixed;
+    top: 0;
   }
 
   &-name-box {
