@@ -12,3 +12,12 @@ export const IMAGE_SLIDE_ACC = 0.8;
 export const IMAGE_SLIDE_DELAY = 12;
 
 export const IMAGE_STAY_TERM = 5000;
+
+export const CIRCLE_COLORS = [
+  '#B0C9E0',
+  '#E0C7B0',
+  '#BFB0E0',
+  '#B0E0D7',
+  '#D9E0B0',
+  '#E0B0B0',
+];

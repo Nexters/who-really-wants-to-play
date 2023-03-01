@@ -1,18 +1,26 @@
-import { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 
 import { AppData } from '../types';
 import { PAGE_NAME } from '../constants';
 
-import { LANDING_LAST_ANIMATION_NAME } from '~/features/landing/constants';
 import ImageSlide from '~/features/landing/components/ImageSlide';
+import { calcImageUpTime } from '~/features/landing/helper';
+import Cover from '~/features/landing/components/Cover';
 
 type LandingContainerProps = AppData;
 
 const LandingContainer: FunctionComponent<LandingContainerProps> = ({
   refList,
 }) => {
-  const [canMoveNext, setCanMoveNext] = useState(false);
-  const [isTriggeredTransition, setTriggeredTransition] = useState(false);
+  const [canShowLanding, setCanShowLanding] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(
+      () => setCanShowLanding(true),
+      calcImageUpTime(window.innerHeight) * 20,
+    );
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
@@ -22,12 +30,9 @@ const LandingContainer: FunctionComponent<LandingContainerProps> = ({
       }}
       data-id={PAGE_NAME.LANDING}
       className="landing-container scroll-snap"
-      onAnimationEnd={({ animationName }) => {
-        if (animationName === LANDING_LAST_ANIMATION_NAME) setCanMoveNext(true);
-      }}
-      onWheel={() => canMoveNext && setTriggeredTransition(true)}
     >
       <ImageSlide />
+      {canShowLanding && <Cover />}
     </div>
   );
 };
