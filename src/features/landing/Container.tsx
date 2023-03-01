@@ -1,20 +1,24 @@
-import { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 
 import { AppData } from '../types';
 import { PAGE_NAME } from '../constants';
 
-import BackgroundGraphicSvg from '~/features/landing/components/svg/BackgroundGraphicSvg';
-import ScrollToEnter from '~/features/landing/components/ScrollToEnter';
-import ExpandableCircle from '~/features/landing/components/ExpandableCircle';
-import { LANDING_LAST_ANIMATION_NAME } from '~/features/landing/constants';
+import ImageSlide from '~/features/landing/components/ImageSlide';
+import LandingTitle from '~/features/landing/components/LandingTitle';
+import { imageSlideElementList } from '~/features/landing/mocks';
 
 type LandingContainerProps = AppData;
 
 const LandingContainer: FunctionComponent<LandingContainerProps> = ({
   refList,
 }) => {
-  const [canMoveNext, setCanMoveNext] = useState(false);
-  const [isTriggeredTransition, setTriggeredTransition] = useState(false);
+  const [canShowLanding, setCanShowLanding] = useState(false);
+
+  const onStartImageSlide = (img: HTMLImageElement, idx: number) => {
+    if (idx === imageSlideElementList.length - 1) {
+      setCanShowLanding(true);
+    }
+  };
 
   return (
     <div
@@ -24,15 +28,9 @@ const LandingContainer: FunctionComponent<LandingContainerProps> = ({
       }}
       data-id={PAGE_NAME.LANDING}
       className="landing-container scroll-snap"
-      onAnimationEnd={({ animationName }) => {
-        if (animationName === LANDING_LAST_ANIMATION_NAME) setCanMoveNext(true);
-      }}
-      onWheel={() => canMoveNext && setTriggeredTransition(true)}
     >
-      <BackgroundGraphicSvg />
-      <h1 className="landing-title">Jjin-Nolsa</h1>
-      <ScrollToEnter />
-      <ExpandableCircle expand={isTriggeredTransition} />
+      <ImageSlide onStartImageSlide={onStartImageSlide} />
+      {canShowLanding && <LandingTitle />}
     </div>
   );
 };

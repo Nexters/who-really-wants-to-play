@@ -3,6 +3,8 @@ $title-slide-animation-duration: 0.8s;
 $scroll-slide-animation-duration: 1s;
 $title-animation-delay: $bg-slide-animation-duration;
 $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-animation-duration;
+$total-circle-count: 6;
+$circle-radius: 20vw;
 
 .landing-container {
   position: relative;
@@ -64,6 +66,9 @@ $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-anim
   }
 }
 
+$floating-base-bottom: 30px;
+$floating-amount: 25px;
+
 .landing-scroll-to-enter {
   &::before,
   &::after {
@@ -75,54 +80,31 @@ $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-anim
   }
 
   position: absolute;
-  bottom: 15px;
+  bottom: $floating-base-bottom;
   font-family: Rantera, 'Noto Sans KR', sans-serif;
   font-size: 20px;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation:
-    scroll-wait $scroll-animation-delay ease-out 1,
-    scroll-slide-top-in $scroll-slide-animation-duration cubic-bezier(0.42, 0, 0.22, 0.99) $scroll-animation-delay 1,
-    floating 3.5s ($scroll-animation-delay + $scroll-slide-animation-duration) infinite;
-
-  @keyframes scroll-wait {
-    from {
-      bottom: -150px;
-    }
-
-    to {
-      bottom: -150px;
-    }
-  }
-
-  @keyframes scroll-slide-top-in {
-    from {
-      bottom: -150px;
-    }
-
-    to {
-      bottom: 15px;
-    }
-  }
+  animation: floating 3.5s infinite;
 }
 
 @keyframes floating {
   10% {
-    bottom: 15px;
+    bottom: $floating-base-bottom;
   }
 
   40% {
-    bottom: 40px;
+    bottom: $floating-base-bottom + $floating-amount;
   }
 
   60% {
-    bottom: 40px;
+    bottom: $floating-base-bottom + $floating-amount;
   }
 
   90% {
-    bottom: 15px;
+    bottom: $floating-base-bottom;
   }
 }
 
@@ -140,5 +122,69 @@ $scroll-animation-delay: 0.3s + $bg-slide-animation-duration + $title-slide-anim
   &.expand {
     width: max(150vw, 150vh);
     height: max(150vw, 150vh);
+  }
+}
+
+.landing-image-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.landing-loading {
+  color: white;
+}
+
+.landing-title-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .logo {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 20px;
+    color: white;
+  }
+
+  .cover-title {
+    font-family: 'Noto Sans KR', sans-serif;
+    text-transform: uppercase;
+    color: white;
+    font-size: 6vw;
+    font-weight: bold;
+    text-align: center;
+    line-height: 124%;
+    z-index: 1;
+  }
+
+  .circle-wrapper {
+    position: absolute;
+    left: calc((100vw - $circle-radius * $total-circle-count / 2) / 2);
+    top: calc((100vh - $circle-radius * 2) / 2);
+
+    .circle {
+      position: absolute;
+      width: $circle-radius;
+      height: $circle-radius;
+      border-radius: 50%;
+
+      @for $i from 1 through $total-circle-count + 1 {
+        &:nth-child(#{$i}) {
+          left: calc(($i - 1) * $circle-radius + (14px * ($i - 2)));
+
+          @if $i > 3 {
+            left: calc(($i - 4) * $circle-radius + (14px * ($i - 5)));
+            top: $circle-radius;
+          }
+        }
+      }
+    }
   }
 }
