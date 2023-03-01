@@ -10,7 +10,7 @@ const ImageSlide: FunctionComponent = () => {
   const ref = useRef<HTMLCanvasElement>(null);
   const { data: images } = usePromises<HTMLImageElement>(
     imageSlideElementList.map((imageId) =>
-      fetchImage(`${PHOTO_PATH_PREFIX}${imageId}?fm=webp`),
+      fetchImage(`${PHOTO_PATH_PREFIX}${imageId}.webp`),
     ),
   );
 
