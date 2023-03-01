@@ -22,6 +22,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
         <Title
           titleOpacity={introInfo.titleOpacity}
           titleLetterSpacing={introInfo.titleLetterSpacing}
+          titleTop={introInfo.titleTop}
         />
         <div className="about-profile-box">
           {PROFILES_REPEAT.map((profile, index) => (

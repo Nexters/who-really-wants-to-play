@@ -6,12 +6,14 @@ import { IntroInfoValues } from '../types';
 const TitleContainer: FunctionComponent<IntroInfoValues> = ({
   titleOpacity,
   titleLetterSpacing,
+  titleTop,
 }) => {
   return (
     <div
       className="about-title-box"
       style={{
         opacity: `${titleOpacity}`,
+        bottom: `${titleTop}px`,
       }}
     >
       <div
