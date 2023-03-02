@@ -6,7 +6,7 @@ import KeywordList from '~/features/detail/components/KeywordList';
 import Description from '~/features/detail/components/Description';
 import OtherMemories from '~/features/detail/components/OtherMemories';
 import { data } from '~/features/dailyBook/constants';
-import useScrollToTop from '~/features/shared/components/helper/ScrollToTop';
+import useScrollToTop from '~/features/shared/hooks/useScrollToTop';
 
 const DetailContainer: FunctionComponent = () => {
   const containerRef = useRef<HTMLDivElement>(null);
