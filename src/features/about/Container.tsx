@@ -1,4 +1,4 @@
-import { FunctionComponent, useRef, useState } from 'react';
+import { FunctionComponent, useRef } from 'react';
 
 import { PROFILES_REPEAT, TITLE } from './constants';
 import { useIntroInteraction } from './hooks/useInteraction';
@@ -7,8 +7,6 @@ import { AboutContainerProps } from './types';
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
 }) => {
-  const [titleOpacity, setTitleOpacity] = useState<number>(0);
-  const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(100);
   const aboutContainerRef = useRef<HTMLDivElement>(null);
   const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
 
@@ -22,16 +20,16 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
       <section className="about">
         <div
           className="about-title-box"
+          ref={titleBoxRef}
           style={{
-            opacity: `${titleOpacity}`,
-            transition: 'opacity 3s',
+            opacity: `${introInfo.titleOpacity}`,
+            top: `${introInfo.titleTop}px`,
           }}
         >
           <div
             className="about-title"
             style={{
-              letterSpacing: `${titleLetterSpacing}px`,
-              transition: 'letter-spacing 2s',
+              letterSpacing: `${introInfo.titleLetterSpacing}px`,
             }}
           >
             {TITLE}
@@ -49,8 +47,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               className="about-name-box"
               key={index}
               style={{
-                opacity: `${titleOpacity}`,
-                transition: 'opacity 3s',
+                opacity: `${introInfo.titleOpacity}`,
               }}
             >
               <div

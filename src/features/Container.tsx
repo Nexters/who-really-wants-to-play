@@ -1,13 +1,13 @@
 import classnames from 'classnames';
 import { FunctionComponent } from 'react';
 
-import DailyBookContainer from './dailyBook/Container';
-import LandingContainer from './landing/Container';
 import { PAGE_NAME } from './shared/constants';
-import useAppContainer from './shared/hooks/useAppContainer';
 import { useScrollValue } from './shared/hooks/useScrollValue';
-import AboutContainer from './about/Container';
+import useAppContainer from './shared/hooks/useAppContainer';
+import LandingContainer from './landing/Container';
+import DailyBookContainer from './dailyBook/Container';
 import GalleryContainer from './gallery/Container';
+import AboutContainer from './about/Container';
 
 const AppContainer: FunctionComponent = () => {
   const appData = useAppContainer();
