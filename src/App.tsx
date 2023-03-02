@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 import AppContainer from './features/Container';
 
@@ -12,7 +12,7 @@ const App: FunctionComponent = () => {
   return <AppContainer />;
 };
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   { path: '/', element: <App /> },
   { path: '/detail/:id', element: <DetailContainer /> },
 ]);
