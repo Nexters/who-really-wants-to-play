@@ -5,7 +5,6 @@ import { PAGE_NAME } from './constants';
 import useAppContainer from './hooks/useAppContainer';
 import LandingContainer from './landing/Container';
 import DailyBookContainer from './dailyBook/Container';
-import BottomContainer from './bottom/Container';
 
 const AppContainer: FunctionComponent = () => {
   const appData = useAppContainer();
@@ -40,7 +39,6 @@ const AppContainer: FunctionComponent = () => {
     >
       <LandingContainer {...appData} />
       <DailyBookContainer {...appData} />
-      <BottomContainer {...appData} scrollValue={scrollValue} />
     </div>
   );
 };
