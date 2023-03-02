@@ -1,27 +1,10 @@
-import { RefObject, useEffect, useState } from 'react';
-
-import { throttle } from '~/features/shared/utils/throttle';
+import { useEffect, useState } from 'react';
 
 export const useGalleryScrollRatio = (
-  containerRef: RefObject<HTMLDivElement>,
   galleryRef: HTMLElement,
+  scrollY: number,
 ) => {
-  const [scrollY, setScrollY] = useState(0);
   const [animationRatio, setAnimationRatio] = useState(0);
-
-  useEffect(() => {
-    const scrollSnapContainer = containerRef.current;
-    if (!scrollSnapContainer) return;
-
-    const handleScroll = (e: Event) => {
-      const containerDiv = e.target as HTMLDivElement;
-      setScrollY(containerDiv.scrollTop);
-    };
-    scrollSnapContainer.addEventListener('scroll', throttle(handleScroll, 100));
-    return () => {
-      scrollSnapContainer.removeEventListener('scroll', handleScroll);
-    };
-  }, [containerRef]);
 
   useEffect(() => {
     if (!galleryRef) return;

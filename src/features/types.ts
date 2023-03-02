@@ -4,6 +4,6 @@ export type RefList = HTMLElement[];
 
 export type AppData = {
   refList: MutableRefObject<RefList>;
-  containerRef: MutableRefObject<HTMLDivElement | null>;
   activeIndex: number;
+  scrollValue?: number;
 };

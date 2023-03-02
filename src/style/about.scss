@@ -1,0 +1,87 @@
+.about {
+  width: 100%;
+  height: fit-content;
+  background-color: #f584f1;
+
+  &-title-box {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &-title {
+    font-size: 250px;
+    color: #fff;
+    position: relative;
+    letter-spacing: 100px;
+    left: 100%;
+    margin-left: -200%;
+    margin-top: 70px;
+  }
+
+  &-profile-box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 125px;
+    overflow: hidden;
+  }
+
+  &-name-box {
+    height: 150px;
+    opacity: 0;
+  }
+
+  &-name {
+    font-size: 100px;
+    letter-spacing: -0.02em;
+    color: #fff;
+    transition: color 1s;
+  }
+
+  &-selected-name {
+    font-size: 100px;
+    letter-spacing: -0.02em;
+    color: #000;
+    transition: color 1s;
+  }
+
+  &-selected-job {
+    margin-top: -30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    opacity: 1;
+    transition: opacity 2s;
+  }
+
+  &-job {
+    display: none;
+    opacity: 0;
+  }
+
+  &-image-box {
+    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transition: background-color 1s;
+  }
+
+  &-image-box:hover {
+    // opacity 쓰고 싶었는데 background-color랑 transition 같이 들어가면 이상하게 동작함..
+    background-color: #0003;
+    transition: all 1s;
+  }
+
+  &-selected-img {
+    // 초기 load 때는 transition 없애줘야함
+    opacity: 1;
+    transition: opacity 0.5s;
+    object-fit: cover;
+  }
+
+  &-img {
+    opacity: 0;
+    transition: opacity 0.5s;
+    object-fit: cover;
+  }
+}

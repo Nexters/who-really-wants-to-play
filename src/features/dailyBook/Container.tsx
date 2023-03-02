@@ -15,7 +15,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
   refList,
   activeIndex,
 }) => {
-  const { LANDING, GALLERY, DAILY_BOOK } = PAGE_NAME;
+  const { LANDING, DAILY_BOOK, GALLERY } = PAGE_NAME;
   const isDailyBook = activeIndex > LANDING && activeIndex < GALLERY;
   const dailyBookIndex = activeIndex - LANDING_INDEX_COUNT;
 
