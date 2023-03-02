@@ -9,8 +9,14 @@
   "author": "1ilsang <1ilsang@naver.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack serve --config ./webpack.dev.js",
-    "build": "rm -rf ./dist && webpack --config ./webpack.prod.js --progress",
+    "dev": "yarn build:dev && node ./dist/server.js",
+    "start": "yarn build && node ./dist/server.js",
+    "build:dev": "rm -rf dist/ && yarn build:client(dev) && yarn build:server(dev)",
+    "build:client(dev)": "webpack --env env=client --config ./webpack.dev.js --progress",
+    "build:server(dev)": "webpack --env env=server --config ./webpack.dev.js --progress",
+    "build": "rm -rf ./dist && yarn build:client && yarn build:server",
+    "build:client": "webpack --env env=client --config ./webpack.prod.js --progress",
+    "build:server": "webpack --env env=server --config ./webpack.prod.js --progress",
     "deploy": "yarn build && gh-pages -d dist",
     "lint:eslint": "eslint --ext .ts,.tsx \"src/**/*.{ts,tsx}\"",
     "lint:prettier": "prettier --list-different \"src/**/*.{json,html}\"",
@@ -34,6 +40,8 @@
     "@babel/preset-typescript": "^7.18.6",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
+    "@types/webpack-hot-middleware": "^2",
+    "@types/webpack-node-externals": "^3",
     "@yarnpkg/sdks": "^3.0.0-rc.35",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
@@ -55,7 +63,10 @@
     "typescript": "^4.9.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
+    "webpack-dev-middleware": "^6.0.1",
     "webpack-dev-server": "^4.11.1",
-    "webpack-merge": "^5.8.0"
+    "webpack-hot-middleware": "^2.25.3",
+    "webpack-merge": "^5.8.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }

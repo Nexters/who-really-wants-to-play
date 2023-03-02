@@ -1,23 +1,21 @@
-const path = require('path');
-
+const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 
-const common = require('./webpack.common.js');
+const hotMiddlewareScript = `webpack-hot-middleware/client?name=web&path=/__webpack_hmr&timeout=20000&reload=true`;
 
-module.exports = merge(common, {
-  mode: 'development',
-  devtool: 'inline-source-map',
-  devServer: {
-    static: {
-      directory: path.join(__dirname, './src/assets'),
-    },
-    port: 3000,
-    open: true,
-    historyApiFallback: true,
-    hot: true,
-  },
-  output: {
-    ...common.output,
-    publicPath: '/',
-  },
-});
+const developmentOption = function (env) {
+  const isClient = env === 'client';
+  const hotScript = isClient ? [hotMiddlewareScript] : [];
+  const hmrPlugin = isClient ? [new webpack.HotModuleReplacementPlugin()] : [];
+  return {
+    mode: 'development',
+    devtool: isClient ? 'inline-source-map' : undefined,
+    entry: [...hotScript],
+    plugins: [...hmrPlugin],
+  };
+};
+
+module.exports = async function ({ env }) {
+  const configs = await require(`./webpack.${env}.js`);
+  return configs.map((config) => merge(config, developmentOption(env)));
+};
