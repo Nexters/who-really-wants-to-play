@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { AppData, RefList } from '../types';
+import { AppData, RefList } from '../../types';
 
 const useAppContainer = (): AppData => {
   const refList = useRef<RefList>([]);

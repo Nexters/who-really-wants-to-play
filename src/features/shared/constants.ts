@@ -11,7 +11,8 @@ export const ACTIVE_INDEX_MAP = {
   9: 'DAILY_BOOK',
   10: 'DAILY_BOOK',
   11: 'DAILY_BOOK',
-  12: ['GALLERY', 'ABOUT'],
+  12: 'GALLERY',
+  13: 'ABOUT',
 };
 
 const MAP_LENGTH = Object.keys(ACTIVE_INDEX_MAP).length;
@@ -23,5 +24,6 @@ const DAILY_BOOK_ARRAY = Array.from(
 export const PAGE_NAME = {
   LANDING: 0,
   DAILY_BOOK: DAILY_BOOK_ARRAY,
-  BOTTOM: MAP_LENGTH - 1,
+  GALLERY: MAP_LENGTH - 2,
+  ABOUT: MAP_LENGTH - 1,
 };
