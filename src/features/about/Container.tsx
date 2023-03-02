@@ -1,20 +1,20 @@
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 
 import { PROFILES_REPEAT, TITLE } from './constants';
 
-type AboutContainerProps = {
-  scrollValue: number | undefined;
-};
+import { PAGE_NAME } from '~/features/shared/constants';
+import { AppData } from '~/features/types';
+
+type AboutContainerProps = AppData & { scrollValue: number };
 
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
+  refList,
 }) => {
   const [selectedNameNum, setSelectedNameNum] = useState<number>(0);
 
   const [titleOpacity, setTitleOpacity] = useState<number>(0);
   const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(100);
-
-  const aboutContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     aboutInLayout();
@@ -30,7 +30,14 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   };
 
   return (
-    <div ref={aboutContainerRef}>
+    <div
+      className="scroll-snap"
+      ref={(ef) => {
+        if (!ef) return;
+        refList.current[PAGE_NAME.ABOUT] = ef;
+      }}
+      data-id={PAGE_NAME.ABOUT}
+    >
       <section className="about">
         <div
           className="about-title-box"

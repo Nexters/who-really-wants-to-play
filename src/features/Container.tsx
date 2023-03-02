@@ -1,46 +1,34 @@
-import { FunctionComponent, useEffect, useRef, useState } from 'react';
 import classnames from 'classnames';
+import { FunctionComponent } from 'react';
 
-import { PAGE_NAME } from './constants';
-import useAppContainer from './hooks/useAppContainer';
-import LandingContainer from './landing/Container';
 import DailyBookContainer from './dailyBook/Container';
-import BottomContainer from './bottom/Container';
+import LandingContainer from './landing/Container';
+import { PAGE_NAME } from './shared/constants';
+import useAppContainer from './shared/hooks/useAppContainer';
+import { useScrollValue } from './shared/hooks/useScrollValue';
+import AboutContainer from './about/Container';
+import GalleryContainer from './gallery/Container';
 
 const AppContainer: FunctionComponent = () => {
   const appData = useAppContainer();
-  const activeIndex = appData.activeIndex;
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scrollValue, setScrollValue] = useState<number>(0);
-
-  const notBottomPage = activeIndex !== PAGE_NAME.BOTTOM;
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-    if (notBottomPage) return;
-
-    const handleScroll = (e: Event) => {
-      const containerDiv = e.target as HTMLDivElement;
-      setScrollValue(containerDiv.scrollTop);
-    };
-
-    containerRef.current.addEventListener('scroll', handleScroll);
-    return () => {
-      containerRef.current?.removeEventListener('scroll', handleScroll);
-    };
-  }, [activeIndex]);
+  const { activeIndex } = appData;
+  const { GALLERY, ABOUT } = PAGE_NAME;
+  const needScrollSnap = activeIndex !== GALLERY && activeIndex !== ABOUT;
+  const scrollSnapContainer = needScrollSnap ? 'scroll-snap-container' : '';
+  const { containerRef, scrollValue } = useScrollValue(
+    activeIndex,
+    needScrollSnap,
+  );
 
   return (
     <div
+      className={classnames('container', scrollSnapContainer)}
       ref={containerRef}
-      className={classnames('container', {
-        'scroll-snap-container': notBottomPage,
-      })}
     >
       <LandingContainer {...appData} />
       <DailyBookContainer {...appData} />
-      <BottomContainer {...appData} scrollValue={scrollValue} />
+      <GalleryContainer {...appData} scrollValue={scrollValue} />
+      <AboutContainer {...appData} scrollValue={scrollValue} />
     </div>
   );
 };

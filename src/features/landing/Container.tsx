@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 
 import { AppData } from '../types';
-import { PAGE_NAME } from '../constants';
+import { PAGE_NAME } from '../shared/constants';
 
 import ImageSlide from '~/features/landing/components/ImageSlide';
 import LandingTitle from '~/features/landing/components/LandingTitle';

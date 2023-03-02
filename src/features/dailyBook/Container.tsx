@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import { PAGE_NAME } from '../constants';
+import { PAGE_NAME } from '../shared/constants';
 import ScrollToEnter from '../landing/components/ScrollToEnter';
 import Floating from '../shared/components/Floating';
 import { AppData } from '../types';
@@ -15,8 +15,8 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
   refList,
   activeIndex,
 }) => {
-  const { LANDING, BOTTOM, DAILY_BOOK } = PAGE_NAME;
-  const isDailyBook = activeIndex > LANDING && activeIndex < BOTTOM;
+  const { LANDING, DAILY_BOOK, GALLERY } = PAGE_NAME;
+  const isDailyBook = activeIndex > LANDING && activeIndex < GALLERY;
   const dailyBookIndex = activeIndex - LANDING_INDEX_COUNT;
 
   return (

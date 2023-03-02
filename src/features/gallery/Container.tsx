@@ -1,39 +1,54 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useRef } from 'react';
 
 import SubTitle from '../shared/components/SubTitle';
-import { AppData } from '../types';
-import { PAGE_NAME } from '../constants';
 
 import MasonryLayout from './components/MasonryLayout';
 import { GRID_GAP } from './constants';
-import { useTitleAnimation } from './hooks/useTitleAnimation';
-import { getTranslateX } from './helpers';
+import { getMinusTranslateX } from './helpers';
+import { useGalleryScrollRatio } from './hooks/useGalleryScrollRatio';
 
 import { GalleryMockImgList } from '~/features/gallery/mocks/gallery';
+import { PAGE_NAME } from '~/features/shared/constants';
+import { AppData } from '~/features/types';
 
-type DailyBookContainerProps = AppData;
+type DailyBookContainerProps = AppData & { scrollValue: number };
 
 const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
   refList,
+  scrollValue,
+  activeIndex,
 }) => {
-  const { titleRef, overflowedWidth } = useTitleAnimation(200);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const titleWidth = titleRef.current?.scrollWidth || 0;
+  const animationRatio = useGalleryScrollRatio(
+    // TODO: 불필요한 상태 변경 최적화, useState대신 useRef로 스크롤 이벤트 사용 필요성
+    refList.current[PAGE_NAME.GALLERY],
+    scrollValue,
+  );
+  const titleMustMoveDist = titleWidth * animationRatio;
 
   return (
     <section
       className="gallery scroll-snap"
       ref={(ef) => {
         if (!ef) return;
-        refList.current[PAGE_NAME.BOTTOM] = ef;
+        refList.current[PAGE_NAME.GALLERY] = ef;
       }}
-      data-id={PAGE_NAME.BOTTOM}
+      data-id={PAGE_NAME.GALLERY}
     >
       <SubTitle
         ref={titleRef}
         title="Our Archive"
-        className="title-animation"
-        style={{ transform: getTranslateX(overflowedWidth) }}
+        className="gallery-title title-animation"
+        style={{
+          transform: getMinusTranslateX(titleMustMoveDist, 'px'),
+        }}
       />
-      <MasonryLayout imgList={GalleryMockImgList} gap={GRID_GAP} />
+      <MasonryLayout
+        imgList={GalleryMockImgList}
+        gap={GRID_GAP}
+        activeIndex={activeIndex}
+      />
     </section>
   );
 };
