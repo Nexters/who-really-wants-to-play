@@ -1,23 +1,25 @@
 .about {
   width: 100%;
-  height: fit-content;
-  background-color: #f584f1;
+  height: 4396px;
+  background-color: #bfe0b0;
 
   &-title-box {
     width: 100%;
     text-align: center;
     overflow: hidden;
     opacity: 0;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
   }
 
   &-title {
-    font-size: 250px;
+    font-size: 400px;
     color: #fff;
     position: relative;
     letter-spacing: 100px;
     left: 100%;
     margin-left: -200%;
-    margin-top: 70px;
   }
 
   &-profile-box {
@@ -25,6 +27,10 @@
     flex-direction: column;
     margin-left: 125px;
     overflow: hidden;
+    padding-top: 500px;
+    position: fixed;
+    top: 0;
+    transition: top 1s;
   }
 
   &-name-box {
@@ -36,21 +42,25 @@
     font-size: 100px;
     letter-spacing: -0.02em;
     color: #fff;
-    transition: color 1s;
+    transition: color 3s;
   }
 
   &-selected-name {
     font-size: 100px;
     letter-spacing: -0.02em;
     color: #000;
-    transition: color 1s;
+    transition: color 3s;
   }
 
   &-selected-job {
-    margin-top: -30px;
     font-family: 'Noto Sans KR', sans-serif;
     opacity: 1;
-    transition: opacity 2s;
+    transition: opacity 1s;
+    position: fixed;
+    top: 610px;
+    left: 130px;
+    font-weight: 100;
+    font-size: 20px;
   }
 
   &-job {

@@ -1,3 +1,5 @@
+import { IntroInfoSettings } from "./types";
+
 export const TITLE = 'About us';
 
 const PROFILES_LIST = [
@@ -27,26 +29,31 @@ const PROFILES_LIST = [
   },
 ];
 
-const BLANK_LIST = [
-  {
-    name: '',
-    job: '',
-  },
-  {
-    name: '',
-    job: '',
-  },
-  {
-    name: '',
-    job: '',
-  },
+export const PROFILES_REPEAT = [
+  ...PROFILES_LIST,
+  ...PROFILES_LIST,
+  ...PROFILES_LIST,
 ];
 
-export const PROFILES_REPEAT = [
-  // ...BLANK_LIST,
-  ...PROFILES_LIST,
-  ...PROFILES_LIST,
-  ...PROFILES_LIST,
-  ...BLANK_LIST,
-  ...BLANK_LIST,
-];
+const range = (start: number, stop: number, step: number) => {
+  return Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));}
+export const PROFILES_LIST_SCROLL = range(200, 200*PROFILES_REPEAT.length, 200);
+
+export const INTRO_SETTINGS: IntroInfoSettings = {
+  titleOpacity: {
+    startValue: 0,
+    endValue: 1,
+  },
+  titleLetterSpacing: {
+    startValue: 100,
+    endValue: 0,
+  },
+  titleTop: {
+    startValue: 400,
+    endValue: 10,
+  },
+  profileBoxPaddingTop: {
+    startValue: 800,
+    endValue: 500,
+  },
+};

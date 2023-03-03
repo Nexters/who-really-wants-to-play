@@ -1,90 +1,83 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent, useRef } from 'react';
 
 import { PROFILES_REPEAT, TITLE } from './constants';
-
-import { PAGE_NAME } from '~/features/shared/constants';
-import { AppData } from '~/features/types';
-
-type AboutContainerProps = AppData & { scrollValue: number };
+import { useIntroInteraction } from './hooks/useInteraction';
+import { AboutContainerProps } from './types';
 
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
-  refList,
 }) => {
-  const [selectedNameNum, setSelectedNameNum] = useState<number>(0);
+  const aboutContainerRef = useRef<HTMLDivElement>(null);
+  const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
 
-  const [titleOpacity, setTitleOpacity] = useState<number>(0);
-  const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(100);
+  const titleBoxRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    aboutInLayout();
-  }, []);
-
-  const aboutInLayout = () => {
-    setTitleOpacity(1);
-    setTitleLetterSpacing(0);
-  };
-  const aboutOutLayout = () => {
-    setTitleOpacity(0);
-    setTitleLetterSpacing(100);
-  };
+  const {
+    titleOpacity,
+    titleLetterSpacing,
+    titleTop,
+    profileBoxPaddingTop,
+    selectedName,
+    selectedTop,
+    selectedJob,
+  } = useIntroInteraction(scrollValue, aboutContainerScrollY);
 
   return (
-    <div
-      className="scroll-snap"
-      ref={(ef) => {
-        if (!ef) return;
-        refList.current[PAGE_NAME.ABOUT] = ef;
-      }}
-      data-id={PAGE_NAME.ABOUT}
-    >
+    <div ref={aboutContainerRef}>
       <section className="about">
         <div
           className="about-title-box"
+          ref={titleBoxRef}
           style={{
             opacity: `${titleOpacity}`,
-            transition: 'opacity 3s',
+            top: `${titleTop}px`,
           }}
         >
           <div
             className="about-title"
             style={{
               letterSpacing: `${titleLetterSpacing}px`,
-              transition: 'letter-spacing 2s',
             }}
           >
             {TITLE}
           </div>
         </div>
-        <div className="about-profile-box">
+        <div
+          className="about-profile-box"
+          style={{
+            paddingTop: `${profileBoxPaddingTop}px`,
+            top: `${selectedTop}px`,
+          }}
+        >
           {PROFILES_REPEAT.map((profile, index) => (
             <div
               className="about-name-box"
               key={index}
               style={{
                 opacity: `${titleOpacity}`,
-                transition: 'opacity 3s',
               }}
             >
               <div
                 className={
-                  selectedNameNum === index
-                    ? 'about-selected-name'
-                    : 'about-name'
+                  selectedName === index ? 'about-selected-name' : 'about-name'
                 }
+                style={{ transition: `color ${selectedName ? 1 : 3}s` }}
               >
                 {profile.name}
               </div>
-              <div
-                className={
-                  selectedNameNum === index ? 'about-selected-job' : 'about-job'
-                }
-              >
-                {profile.job}
-              </div>
             </div>
           ))}
-          {/* {PROFILES_REPEAT.map((profile, index) => (
+          <div
+            className="about-selected-job"
+            style={{
+              opacity: `${titleOpacity}`,
+              top: `${profileBoxPaddingTop + 110}px`,
+            }}
+          >
+            {selectedJob}
+          </div>
+        </div>
+        {/* {PROFILES_REPEAT.map((profile, index) => (
             <div className="about-image-box">
               {index > 7 && index < 14 && (
                 <img
@@ -101,7 +94,6 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               )}
             </div>
           ))} */}
-        </div>
       </section>
     </div>
   );
