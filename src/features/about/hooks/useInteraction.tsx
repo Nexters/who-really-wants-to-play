@@ -33,6 +33,8 @@ export const useIntroInteraction = (
     INTRO_SETTINGS.titleOpacity.startValue,
   );
 
+  const [nameMarginLeft, setNameMarginLeft] = useState<number>(100);
+
   const [selectedTop, setSelectedTop] = useState<number>(0);
   const [selectedName, setSelectedName] = useState<number>(-1);
   const [selectedJob, setSelectedJob] = useState<string>(
@@ -70,6 +72,7 @@ export const useIntroInteraction = (
     setProfileBoxOpacity(
       calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacity),
     );
+    setNameMarginLeft(0);
   };
 
   const playInteraction = () => {
@@ -149,6 +152,7 @@ export const useIntroInteraction = (
     lineTop,
     lineTextTop,
     endTextBottom,
+    nameMarginLeft,
   };
   return { ...interactionData };
 };

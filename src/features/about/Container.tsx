@@ -32,6 +32,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
     lineTop,
     lineTextTop,
     endTextBottom,
+    nameMarginLeft,
   } = useIntroInteraction(
     scrollValue,
     startIntroScrollY,
@@ -101,7 +102,10 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                         ? 'about-selected-name'
                         : 'about-name'
                     }
-                    style={{ transition: `color ${selectedName ? 1 : 3}s` }}
+                    style={{
+                      transition: `color ${selectedName ? 1 : 3}s, margin 2s`,
+                      marginLeft: `${nameMarginLeft * index}px`,
+                    }}
                   >
                     {profile.name}
                   </div>
