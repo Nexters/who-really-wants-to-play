@@ -28,5 +28,7 @@ export const PAGE_NAME = {
   ABOUT: MAP_LENGTH - 1,
 };
 
-export const PHOTO_PATH_PREFIX =
+export const PREV_PHOTO_PATH_PREFIX =
   'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images';
+
+export const PHOTO_PATH_PREFIX = 'https://jjinn-nolsa.imgix.net';
