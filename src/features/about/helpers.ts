@@ -11,24 +11,5 @@ export const calcValue = (scrollRatio: number, settings: IntroProperty) => {
       settings.startValue;
     return rv;
   }
-
-  // const partScrollStart = settings.startScroll * scrollValue;
-  // const partScrollEnd = settings.endScroll * scrollValue;
-  // const partScrollHeight = partScrollEnd - partScrollStart;
-  // if (scrollValue >= partScrollStart && scrollValue <= partScrollEnd) {
-  //   rv =
-  //     ((scrollValue - partScrollStart) / partScrollHeight) *
-  //       (settings.endValue - settings.startValue) +
-  //     settings.startValue;
-  //   return rv;
-  // }
-  // if (scrollValue < partScrollStart) {
-  //   rv = settings.startValue;
-  //   return rv;
-  // }
-  // if (scrollValue > partScrollEnd) {
-  //   rv = settings.endValue;
-  //   return rv;
-  // }
   return rv;
 };
