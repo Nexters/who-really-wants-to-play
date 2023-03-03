@@ -3,19 +3,31 @@ import { Link } from 'react-router-dom';
 
 import Image from '~/features/shared/components/Image';
 import CloseButton from '~/features/detail/components/CloseButton';
-import { PHOTO_PATH_PREFIX } from '~/features/shared/constants';
+import { PAGE_NAME, PHOTO_PATH_PREFIX } from '~/features/shared/constants';
+import { AppData } from '~/features/types';
 
-type Props = {
+type Props = AppData & {
   bgColor: string;
   date: string;
   title: string;
   imgSrc: string;
 };
 
-const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
+const Cover: FunctionComponent<Props> = ({
+  refList,
+  bgColor,
+  date,
+  title,
+  imgSrc,
+}) => {
   // TODO: 배경에 사진 흐리게 넣기
   return (
     <section
+      ref={(ef) => {
+        if (!ef) return;
+        refList.current[PAGE_NAME.DETAIL_COVER] = ef;
+      }}
+      data-id={PAGE_NAME.DETAIL_COVER}
       className="detail-cover-container detail-block scroll-snap"
       style={{ backgroundColor: bgColor }}
     >

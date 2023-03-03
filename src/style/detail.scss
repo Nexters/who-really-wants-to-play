@@ -89,10 +89,28 @@ hr.short-line {
     justify-content: center;
     padding-left: 7vw;
     z-index: 1;
+    width: max-content;
+    transform: translate(-100%);
+
+    &.animate {
+      animation: slide-left-in 1.5s ease-out;
+      transform: translate(0);
+    }
 
     .keyword {
       color: white;
       font-size: 10vh;
+      width: 100%;
+    }
+  }
+
+  @keyframes slide-left-in {
+    from {
+      transform: translate(-100%, 0);
+    }
+
+    to {
+      transform: translate(0);
     }
   }
 }
