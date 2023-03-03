@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
+import Image from '~/features/shared/components/Image';
 import CloseButton from '~/features/detail/components/CloseButton';
 import { PHOTO_PATH_PREFIX } from '~/features/shared/constants';
 
@@ -24,14 +25,17 @@ const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
       <Link to="/" preventScrollReset>
         <CloseButton />
       </Link>
-      <img className="cover-image" src={imgSrc} alt={title} />
+      <Image className="cover-image" src={imgSrc} alt={title} />
       <div className="contents-wrapper">
         <div className="date" style={{ backgroundColor: bgColor }}>
           {date}
         </div>
         <h1 className="title">{title}</h1>
         <div className="scroll-down">
-          <img src={`${PHOTO_PATH_PREFIX}/svg/detail-scroll-down.svg`} />
+          <Image
+            src={`${PHOTO_PATH_PREFIX}/svg/detail-scroll-down.svg`}
+            alt="스크롤 다운 이미지"
+          />
         </div>
       </div>
     </section>

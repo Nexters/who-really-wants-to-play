@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 
 import CloseButton from '~/features/detail/components/CloseButton';
+import Image from '~/features/shared/components/Image';
 
 type Props = {
   show: boolean;
@@ -15,7 +16,7 @@ const ImageModal: FunctionComponent<Props> = ({ show, src, alt, onClose }) => {
       {show && (
         <div className="modal">
           <div className="image-wrapper">
-            <img src={src} alt={alt} />
+            <Image src={src} alt={alt} />
             <CloseButton onClick={onClose} />
           </div>
         </div>

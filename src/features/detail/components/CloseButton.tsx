@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 
+import Image from '~/features/shared/components/Image';
 import { PHOTO_PATH_PREFIX } from '~/features/shared/constants';
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 const CloseButton: FunctionComponent<Props> = ({ onClick }) => {
   return (
     <button className="close-button" onClick={onClick}>
-      <img src={`${PHOTO_PATH_PREFIX}/svg/close.svg`} />
+      <Image src={`${PHOTO_PATH_PREFIX}/svg/close.svg`} alt="닫기 버튼" />
     </button>
   );
 };
