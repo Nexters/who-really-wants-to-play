@@ -1,6 +1,7 @@
 import { FunctionComponent, useRef } from 'react';
 
 import { PROFILES_REPEAT, TITLE } from './constants';
+import { useGetStartScrollY } from './hooks/\buseGetStartScrollY';
 import { useIntroInteraction } from './hooks/useInteraction';
 import { AboutContainerProps } from './types';
 
@@ -11,73 +12,82 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
 
   const titleBoxRef = useRef<HTMLDivElement>(null);
-
+  const { startIntroScrollY } = useGetStartScrollY(aboutContainerScrollY);
   const {
     titleOpacity,
     titleLetterSpacing,
     titleTop,
     profileBoxPaddingTop,
+    profileBoxOpacity,
     selectedName,
     selectedTop,
     selectedJob,
-  } = useIntroInteraction(scrollValue, aboutContainerScrollY);
+  } = useIntroInteraction(
+    scrollValue,
+    startIntroScrollY,
+    aboutContainerScrollY,
+  );
 
   return (
     <div ref={aboutContainerRef}>
       <section className="about">
-        <div
-          className="about-title-box"
-          ref={titleBoxRef}
-          style={{
-            opacity: `${titleOpacity}`,
-            top: `${titleTop}px`,
-          }}
-        >
-          <div
-            className="about-title"
-            style={{
-              letterSpacing: `${titleLetterSpacing}px`,
-            }}
-          >
-            {TITLE}
-          </div>
-        </div>
-        <div
-          className="about-profile-box"
-          style={{
-            paddingTop: `${profileBoxPaddingTop}px`,
-            top: `${selectedTop}px`,
-          }}
-        >
-          {PROFILES_REPEAT.map((profile, index) => (
+        {scrollValue >= startIntroScrollY && (
+          <>
             <div
-              className="about-name-box"
-              key={index}
+              className="about-title-box"
+              ref={titleBoxRef}
               style={{
                 opacity: `${titleOpacity}`,
+                top: `${titleTop}px`,
               }}
             >
               <div
-                className={
-                  selectedName === index ? 'about-selected-name' : 'about-name'
-                }
-                style={{ transition: `color ${selectedName ? 1 : 3}s` }}
+                className="about-title"
+                style={{
+                  letterSpacing: `${titleLetterSpacing}px`,
+                }}
               >
-                {profile.name}
+                {TITLE}
               </div>
             </div>
-          ))}
-          <div
-            className="about-selected-job"
-            style={{
-              opacity: `${titleOpacity}`,
-              top: `${profileBoxPaddingTop + 110}px`,
-            }}
-          >
-            {selectedJob}
-          </div>
-        </div>
-        {/* {PROFILES_REPEAT.map((profile, index) => (
+            <div
+              className="about-profile-box"
+              style={{
+                paddingTop: `${profileBoxPaddingTop}px`,
+                top: `${selectedTop}px`,
+              }}
+            >
+              {PROFILES_REPEAT.map((profile, index) => (
+                <div
+                  className="about-name-box"
+                  key={index}
+                  style={{
+                    opacity: `${profileBoxOpacity}`,
+                  }}
+                >
+                  <div
+                    className={
+                      selectedName === index
+                        ? 'about-selected-name'
+                        : 'about-name'
+                    }
+                    style={{ transition: `color ${selectedName ? 1 : 3}s` }}
+                  >
+                    {profile.name}
+                  </div>
+                </div>
+              ))}
+              <div
+                className="about-selected-job"
+                style={{
+                  opacity: `${profileBoxOpacity}`,
+                  top: `${profileBoxPaddingTop + 110}px`,
+                }}
+              >
+                {selectedJob}
+              </div>
+            </div>
+            {/* {PROFILES_REPEAT.map((profile, index) => (
             <div className="about-image-box">
               {index > 7 && index < 14 && (
                 <img
@@ -94,6 +104,8 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               )}
             </div>
           ))} */}
+          </>
+        )}
       </section>
     </div>
   );

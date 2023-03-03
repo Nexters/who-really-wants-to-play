@@ -44,6 +44,10 @@ export const INTRO_SETTINGS: IntroInfoSettings = {
     startValue: 0,
     endValue: 1,
   },
+  titleOpacityOut: {
+    startValue: 1,
+    endValue: 0,
+  },
   titleLetterSpacing: {
     startValue: 100,
     endValue: 0,
