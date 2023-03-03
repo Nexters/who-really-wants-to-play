@@ -19,7 +19,7 @@ const DetailContainer: FunctionComponent = () => {
   const {
     title,
     date,
-    detail: { descriptionTitle, description, bgColor, imgSrcs, keywords },
+    detail: { description, bgColor, imgSrcs, keywords },
   } = foundData;
 
   return (
@@ -27,7 +27,7 @@ const DetailContainer: FunctionComponent = () => {
       <Cover date={date} title={title} imgSrc={imgSrcs[0]} bgColor={bgColor} />
       <KeywordList bgColor={bgColor} keywords={keywords} />
       <Description
-        title={descriptionTitle}
+        title={title}
         description={description}
         imgSrcs={imgSrcs}
         bgColor={bgColor}
