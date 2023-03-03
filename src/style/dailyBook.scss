@@ -1,40 +1,60 @@
+@mixin gradient {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  height: 92vh;
+}
+
+@mixin image-cover-background {
+  object-fit: cover;
+  background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
+  box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+}
+
 .dailybook-image {
-  &-hover {
-    background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgba(0 0 0 / 45%));
-    box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
-  }
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 
-  &-cover {
-    object-fit: cover;
-    position: absolute;
+  &-box {
+    padding-bottom: 100px;
+    pointer-events: auto;
     z-index: 3;
-    top: 20%;
-    left: 35%;
-    background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
-    box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
-
-    &:hover {
-      filter: grayscale(90%);
-    }
+    position: absolute;
 
     &-second {
-      object-fit: cover;
-      position: absolute;
+      padding-top: 40px;
       z-index: 2;
-      top: 22%;
-      left: 37%;
-      background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
-      box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+      position: absolute;
     }
 
     &-third {
-      object-fit: cover;
-      position: absolute;
+      padding-top: 180px;
       z-index: 1;
-      top: 24%;
-      left: 39%;
-      background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
-      box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+      position: absolute;
+    }
+  }
+
+  &-cover {
+    @include image-cover-background;
+
+    transform: rotate(0deg);
+    transition-duration: 1s;
+
+    &:hover {
+      filter: grayscale(90%);
+      transform: rotate(20deg);
+      transition-duration: 1s;
+    }
+
+    &-background {
+      @include image-cover-background;
     }
   }
 }
@@ -42,19 +62,23 @@
 .dailybook-content {
   &-container {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   &-title {
+    white-space: nowrap;
     position: absolute;
     top: -110px;
     left: 5%;
     z-index: 1;
     user-select: none;
     font-family: Rantera, sans-serif;
-    font-size: 25vw;
+    font-size: 20vw;
     line-height: 386px;
     text-align: center;
     letter-spacing: -0.01em;
@@ -84,25 +108,24 @@
 
 .dailybook-date-dialog {
   position: fixed;
-  left: 0;
+  left: -100px;
   top: 35%;
   color: #fff;
   font-family: Rantera, sans-serif;
-  font-size: 2.5em;
-  padding-left: 15px;
+  font-size: 2.2em;
+  width: 250px;
+  height: 250px;
 
-  &-prev {
-    transform: rotate(0.8rad);
+  &-text {
+    visibility: hidden;
+    padding-bottom: 300px;
+    position: absolute;
+    transition: transform 1s;
   }
+}
 
-  &-cur {
-    padding-bottom: 70px;
-    transform: rotate(1.6rad);
-  }
-
-  &-next {
-    transform: rotate(2.3rad);
-  }
+.visible {
+  visibility: visible;
 }
 
 .dailybook-scroll-down-floating {
@@ -111,14 +134,112 @@
   left: 45%;
 }
 
-.dailybook-first {
-  background-color: #e0d0b0;
+.dailybook0 {
+  background: #e0b0b0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 70%) 51.04%, #e0b0b0 100%);
+  }
 }
 
-.dailybook-second {
+.dailybook1 {
   background-color: #b0c9e0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
-.dailybook-third {
-  background-color: #bcb0e0;
+.dailybook2 {
+  background-color: #e0c7b0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook3 {
+  background-color: #bfb0e0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook4 {
+  background-color: #b0e0d7;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook5 {
+  background-color: #67a6c0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook6 {
+  background-color: #b0e0b4;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook7 {
+  background-color: #a75490;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook8 {
+  background-color: #eba48e;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook9 {
+  background-color: #7c7baf;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
+}
+
+.dailybook10 {
+  background-color: #a75490;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }

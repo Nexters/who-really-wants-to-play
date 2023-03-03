@@ -1,8 +1,26 @@
 @import './global';
+@import './color';
+@import './variable';
 @import './landing';
 @import './dailyBook';
+@import './gallery';
+@import './detail';
 @import './shared';
+@import './about';
 
-h1 {
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: Rantera, 'Noto Sans KR', sans-serif;
+}
+
+.sub-title {
+  top: $title-top;
+  text-align: center;
+  font-weight: 400;
+  font-size: 400px;
+  line-height: 386px;
+  letter-spacing: -0.01rem;
+  color: $white-0;
+  white-space: nowrap;
 }

@@ -1,0 +1,51 @@
+$gallery-padding: 90px;
+
+.gallery {
+  position: relative;
+  background-color: $gallery-background;
+
+  &-title {
+    position: sticky;
+    top: $title-top;
+  }
+}
+
+.title-animation {
+  transition: transform 0.1s ease-in-out;
+}
+
+.grid-container {
+  position: relative;
+  top: -80px;
+  max-width: $desktop-breakpoint;
+  margin: 0 auto;
+  padding: 0 $gallery-padding;
+
+  .grid-item {
+    height: fit-content;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    animation-name: gallery-parallax;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+    text-align: center;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+  }
+
+  @keyframes gallery-parallax {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    100% {
+      opacity: 0.99;
+      transform: translateY(0);
+    }
+  }
+}
