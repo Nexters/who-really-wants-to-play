@@ -1,7 +1,15 @@
 .about {
   width: 100%;
   height: 4396px;
-  background-color: #bfe0b0;
+
+  &-bg-image-box {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #bfe0b0;
+    background-blend-mode: multiply;
+  }
 
   &-title-box {
     width: 100%;
@@ -77,13 +85,11 @@
   }
 
   &-image-box:hover {
-    // opacity 쓰고 싶었는데 background-color랑 transition 같이 들어가면 이상하게 동작함..
     background-color: #0003;
     transition: all 1s;
   }
 
   &-selected-img {
-    // 초기 load 때는 transition 없애줘야함
     opacity: 1;
     transition: opacity 0.5s;
     object-fit: cover;

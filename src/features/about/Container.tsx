@@ -17,6 +17,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
     titleOpacity,
     titleLetterSpacing,
     titleTop,
+    imageOpacity,
     profileBoxPaddingTop,
     profileBoxOpacity,
     selectedName,
@@ -32,7 +33,20 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
     <div ref={aboutContainerRef}>
       <section className="about">
         {scrollValue >= startIntroScrollY && (
-          <>
+          <div
+            className="about-bg-image-box"
+            style={{
+              backgroundColor: `${
+                selectedName >= 0
+                  ? PROFILES_REPEAT[selectedName].color
+                  : '#bfe0b0'
+              }`,
+              backgroundImage: `url(${
+                selectedName >= 0 ? PROFILES_REPEAT[selectedName].src : ''
+              })`,
+            }}
+            // style={{ opacity: `${imageOpacity}` }}
+          >
             <div
               className="about-title-box"
               ref={titleBoxRef}
@@ -87,24 +101,24 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                 {selectedJob}
               </div>
             </div>
-            {/* {PROFILES_REPEAT.map((profile, index) => (
-            <div className="about-image-box">
-              {index > 7 && index < 14 && (
+            {PROFILES_REPEAT.map((profile, index) => (
+              <div
+                className="about-image-box"
+                key={index}
+                style={{ opacity: `${imageOpacity}` }}
+              >
                 <img
                   className={
-                    selectedNameNum === index
-                      ? 'about-selected-img'
-                      : 'about-img'
+                    selectedName === index ? 'about-selected-img' : 'about-img'
                   }
-                  src={`./images/about/image${index}.png`}
+                  src={profile.src}
                   alt="basicImage"
                   width={603}
                   height={603}
                 />
-              )}
-            </div>
-          ))} */}
-          </>
+              </div>
+            ))}
+          </div>
         )}
       </section>
     </div>
