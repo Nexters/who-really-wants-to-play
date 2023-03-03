@@ -15,7 +15,9 @@ export const useGalleryScrollRatio = (
     const heightWithScrollbarRemoved = galleryHeight - scrollbarHeight;
     const galleryMovedScrollRatio =
       galleryMovedDist / heightWithScrollbarRemoved;
-    setAnimationRatio(galleryMovedScrollRatio);
+    const candidateState =
+      galleryMovedScrollRatio > 1 ? 1 : galleryMovedScrollRatio;
+    setAnimationRatio(candidateState);
   }, [galleryRef, scrollY]);
 
   return animationRatio > 0 ? animationRatio : 0;

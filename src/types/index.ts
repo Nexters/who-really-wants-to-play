@@ -13,4 +13,7 @@ export type ImgProps = {
   id?: number;
   width?: number;
   height?: number;
+  aspectRatio?: number;
 } & StyleProps;
+
+export type ImgListWithId = (ImgProps & { id: number })[];

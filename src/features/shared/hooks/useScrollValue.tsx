@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
+import { throttle } from '../utils/throttle';
+
 export const useScrollValue = (
   activeIndex: number,
   needScrollSnap: boolean,
@@ -17,7 +19,7 @@ export const useScrollValue = (
       setScrollValue(containerDiv.scrollTop);
     };
 
-    container.addEventListener('scroll', handleScroll);
+    container.addEventListener('scroll', throttle(handleScroll, 100));
     return () => {
       container.removeEventListener('scroll', handleScroll);
     };

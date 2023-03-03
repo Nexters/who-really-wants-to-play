@@ -1,4 +1,13 @@
-type UnitType = 'px' | 'rem' | 'em' | 'vw' | 'vh' | '%';
+import { ZIGZAG_VALUE } from '../constants';
 
-export const getMinusTranslateX = (overflowedWidth: number, unit: UnitType) =>
-  `translateX(-${overflowedWidth}${unit})`;
+type UnitType = 'px' | 'rem' | 'em' | 'vw' | 'vh' | '%';
+type Direction = 'X' | 'Y';
+
+export const getMinusTranslateValue = (
+  dir: Direction,
+  overflowedWidth: number,
+  unit: UnitType,
+) => `translate${dir}(-${overflowedWidth}${unit})`;
+
+export const getZigzagAnimationValue = (condition: boolean) =>
+  condition ? ZIGZAG_VALUE : 0;

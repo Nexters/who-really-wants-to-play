@@ -2,9 +2,9 @@ import { FunctionComponent, useEffect, useRef } from 'react';
 
 import usePromises from '~/features/landing/hooks/usePromises';
 import { fetchImage, startSlide } from '~/features/landing/helper';
-import { PHOTO_PATH_PREFIX } from '~/features/landing/constants';
 import { imageSlideElementList } from '~/features/landing/mocks';
 import { resizeCanvasToCoverWindow } from '~/features/shared/utils/canvas';
+import { getFullImgUrl } from '~/features/shared/helpers';
 
 type Props = {
   onStartImageSlide: (image: HTMLImageElement, idx: number) => void;
@@ -13,9 +13,7 @@ type Props = {
 const ImageSlide: FunctionComponent<Props> = ({ onStartImageSlide }) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const { data: images } = usePromises<HTMLImageElement>(
-    imageSlideElementList.map((imageId) =>
-      fetchImage(`${PHOTO_PATH_PREFIX}${imageId}.webp`),
-    ),
+    imageSlideElementList.map((imageId) => fetchImage(getFullImgUrl(imageId))),
   );
 
   useEffect(() => {
