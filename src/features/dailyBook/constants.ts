@@ -8,7 +8,7 @@ export const ROTATE_DEGREE = 45;
 export const data: DailyBookData[] = [
   {
     id: 0,
-    title: 'First-Meeting',
+    title: 'FirstMeeting',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.07',
     customClass: 'dailybook0',
@@ -56,7 +56,7 @@ export const data: DailyBookData[] = [
   },
   {
     id: 2,
-    title: 'Team',
+    title: 'Networking',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '01.14',
     customClass: 'dailybook2',
@@ -141,7 +141,7 @@ export const data: DailyBookData[] = [
   },
   {
     id: 5,
-    title: 'Online-Meeting',
+    title: 'Zoom meet',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.09',
     customClass: 'dailybook5',
@@ -165,7 +165,7 @@ export const data: DailyBookData[] = [
   },
   {
     id: 6,
-    title: 'Climbing',
+    title: 'Mid-term ck',
     description: 'Gallery of our memories that we met at Nexters 22nd',
     date: '02.11',
     customClass: 'dailybook6',

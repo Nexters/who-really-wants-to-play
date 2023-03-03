@@ -30,6 +30,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
             const targetIndex = DAILY_BOOK[index];
             refList.current[targetIndex] = ef;
           }}
+          active={dailyBookIndex === index}
           {...item}
         />
       ))}

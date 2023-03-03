@@ -96,10 +96,9 @@
   }
 
   &-title {
+    pointer-events: none;
     white-space: nowrap;
-    position: absolute;
-    top: -110px;
-    left: 5%;
+    position: relative;
     z-index: 1;
     user-select: none;
     font-family: Rantera, sans-serif;
@@ -107,20 +106,16 @@
     line-height: 386px;
     text-align: center;
     letter-spacing: -0.01em;
-    background: linear-gradient(180deg, #fff 0%, #ebebeb 100%);
-    background-clip: text;
-    /* stylelint-disable */
-    -webkit-background-clip: text;
-    /* stylelint-enable */
-    -webkit-text-fill-color: transparent;
+    color: #fff;
+    transition: all 1s;
+    padding-bottom: 60px;
   }
 
   &-description {
     position: absolute;
     width: 245px;
     height: 60px;
-    left: 60%;
-    top: 50%;
+    right: 7%;
     user-select: none;
     font-family: 'Noto Sans KR', sans-serif;
     font-weight: 400;
