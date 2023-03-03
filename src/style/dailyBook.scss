@@ -11,6 +11,17 @@
   box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
 }
 
+@mixin image-box {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+}
+
+@mixin active {
+  visibility: visible;
+  opacity: 1;
+}
+
 .dailybook-image {
   position: fixed;
   width: 100vw;
@@ -23,21 +34,35 @@
   pointer-events: none;
 
   &-box {
-    padding-bottom: 100px;
-    pointer-events: auto;
-    z-index: 3;
-    position: absolute;
+    @include image-box;
 
-    &-second {
-      padding-top: 40px;
-      z-index: 2;
-      position: absolute;
+    transition: all 1s;
+
+    &.view {
+      z-index: 3;
     }
 
-    &-third {
+    &.first {
+      @include active;
+
+      padding-bottom: 100px;
+      z-index: 3;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+
+    &.second {
+      @include active;
+
+      padding-top: 40px;
+      z-index: 2;
+    }
+
+    &.third {
+      @include active;
+
       padding-top: 180px;
       z-index: 1;
-      position: absolute;
     }
   }
 

@@ -35,7 +35,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
       ))}
       {isDailyBook && (
         <>
-          <DailyBookCoverImage activeIndex={activeIndex} />
+          <DailyBookCoverImage dailyBookIndex={dailyBookIndex} />
           <DateDial dailyBookIndex={dailyBookIndex} />
           <Floating>
             <ScrollToEnter />
