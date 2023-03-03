@@ -49,9 +49,9 @@ const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
         imgList={GalleryMockImgList}
         gap={GRID_GAP}
         columnCount={4}
-        rerenderCondition={isGallery}
         animationRatio={animationRatio}
         isHorizontalLayout
+        key={`gallery-rerender-${isGallery}`}
       />
     </section>
   );
