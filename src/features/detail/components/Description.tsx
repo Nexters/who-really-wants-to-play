@@ -27,18 +27,31 @@ const Description: FunctionComponent<Props> = ({
         <hr className="short-line" />
         <p className="description">{description}</p>
       </div>
-      <ImageSlider
-        imgSrcs={imgSrcs}
-        paused={!!selectedImg}
-        direction="up"
-        onClickImage={setSelectedImg}
-      />
-      <ImageSlider
-        imgSrcs={imgSrcs}
-        paused={!!selectedImg}
-        direction="down"
-        onClickImage={setSelectedImg}
-      />
+      {imgSrcs.length > 2 ? (
+        <>
+          <ImageSlider
+            imgSrcs={imgSrcs}
+            paused={!!selectedImg}
+            direction="up"
+            onClickImage={setSelectedImg}
+          />
+          <ImageSlider
+            imgSrcs={imgSrcs}
+            paused={!!selectedImg}
+            direction="down"
+            onClickImage={setSelectedImg}
+          />
+        </>
+      ) : (
+        <div className="image-wrapper">
+          <ImageSlider
+            imgSrcs={imgSrcs}
+            paused={!!selectedImg}
+            direction="down"
+            onClickImage={setSelectedImg}
+          />
+        </div>
+      )}
       <ImageModal
         show={!!selectedImg}
         src={selectedImg}

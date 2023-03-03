@@ -146,6 +146,21 @@ hr.short-line {
     }
   }
 
+  .image-wrapper {
+    .image-slide {
+      left: 10vw;
+      height: 100vh;
+      animation: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .image-slide-element {
+        width: 30vw;
+      }
+    }
+  }
+
   @keyframes image-slide {
     0% {
       transform: translateY(0);

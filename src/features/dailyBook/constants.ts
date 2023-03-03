@@ -15,8 +15,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#e0b0b0',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -24,21 +23,10 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
       ],
     },
   },
@@ -51,8 +39,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#b0c9e0',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -60,21 +47,10 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
       ],
     },
   },
@@ -87,8 +63,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#e0c7b0',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -96,21 +71,13 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_01.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_02.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_03.webp',
       ],
     },
   },
@@ -123,8 +90,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#bfb0e0',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -132,21 +98,13 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_01.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_02.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_03.webp',
       ],
     },
   },
@@ -159,8 +117,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#b0e0d7',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -168,21 +125,17 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_01.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_02.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_04.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_05.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_06.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_07.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_08.webp',
       ],
     },
   },
@@ -195,8 +148,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#67a6c0',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -204,21 +156,10 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
       ],
     },
   },
@@ -231,8 +172,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#b0e0b4',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -240,21 +180,22 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_01.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_02.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_03.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_04.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_05.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_06.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_07.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_08.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_09.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_10.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_11.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_12.webp',
       ],
     },
   },
@@ -267,8 +208,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#a75490',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -276,21 +216,10 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
       ],
     },
   },
@@ -303,8 +232,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#eba48e',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -312,21 +240,10 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
       ],
     },
   },
@@ -339,8 +256,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#7c7baf',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -348,21 +264,19 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_01.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_02.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_03.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_04.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_05.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_06.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_07.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_08.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_09.webp',
       ],
     },
   },
@@ -375,8 +289,7 @@ export const data: DailyBookData[] = [
     coverImage:
       'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
     detail: {
-      bgColor: 'rgb(167,188,217)',
-      date: '02.01',
+      bgColor: '#a75490',
       keywords: [
         'Haru Firm',
         'First Picture',
@@ -384,21 +297,11 @@ export const data: DailyBookData[] = [
         'Picture Keyword 1',
         'How We Play',
       ],
-      descriptionTitle: 'First Meet',
       description:
         'We met for the first time at the orientation of the 22nd generation of Nexters. Young-hwan was absent due to work, but the others gathered together to greet each other.',
       imgSrcs: [
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230107/230107_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230112/230112_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230114/230114_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230128/230128_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230204/230204_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230209/230209_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230211/230211_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230216/230216_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230218/230218_00.webp',
-        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230219/230219_00.webp',
         'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_00.webp',
+        'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/230225/230225_01.webp',
       ],
     },
   },
