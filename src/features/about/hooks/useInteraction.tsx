@@ -38,6 +38,12 @@ export const useIntroInteraction = (
   const [selectedJob, setSelectedJob] = useState<string>(
     PROFILES_REPEAT[0].job,
   );
+  const [profileJobTop, setProfileJobTop] = useState<number>(1);
+  const [imageTop, setImageTop] = useState<number>(50);
+  const [endOpacity, setEndOpacity] = useState<number>(0);
+  const [lineTop, setLineTop] = useState<number>(80);
+  const [lineTextTop, setLineTextTop] = useState<number>(90);
+  const [endTextBottom, setEndTextBottom] = useState<number>(-500);
 
   useEffect(() => {
     if (scrollValue < startIntroScrollY) return;
@@ -66,7 +72,6 @@ export const useIntroInteraction = (
     );
   };
 
-  console.log(scrollValue, startIntroScrollY, aboutContainerScrollY);
   const playInteraction = () => {
     setSelectedName(-1);
     if (scrollValue > startIntroScrollY + 150) {
@@ -107,8 +112,24 @@ export const useIntroInteraction = (
 
   const playEndInteraction = () => {
     setSelectedName(PROFILES_REPEAT.length - 1);
-    if (scrollValue > lastProfileScrollY + 400) {
-      // TODO
+    if (scrollValue <= lastProfileScrollY + 50) {
+      setSelectedTop(-1650);
+      setProfileJobTop(1);
+      setImageTop(50);
+      setEndOpacity(0);
+      setLineTop(80);
+      setLineTextTop(90);
+      setEndTextBottom(-500);
+      return;
+    }
+    if (scrollValue > lastProfileScrollY + 200) {
+      setSelectedTop(-2550);
+      setProfileJobTop(0);
+      setImageTop(-50);
+      setEndOpacity(1);
+      setLineTop(0);
+      setLineTextTop(40);
+      setEndTextBottom(-100);
     }
   };
 
@@ -122,6 +143,12 @@ export const useIntroInteraction = (
     selectedName,
     selectedTop,
     selectedJob,
+    profileJobTop,
+    imageTop,
+    endOpacity,
+    lineTop,
+    lineTextTop,
+    endTextBottom,
   };
   return { ...interactionData };
 };

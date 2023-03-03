@@ -26,12 +26,23 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
     selectedName,
     selectedTop,
     selectedJob,
+    profileJobTop,
+    imageTop,
+    endOpacity,
+    lineTop,
+    lineTextTop,
+    endTextBottom,
   } = useIntroInteraction(
     scrollValue,
     startIntroScrollY,
     aboutContainerScrollY,
     lastProfileScrollY,
   );
+
+  const handleScrollTopClick = () => {
+    console.log(window.innerHeight);
+    window.scrollTo({ top: aboutContainerScrollY, behavior: 'smooth' });
+  };
 
   return (
     <div ref={aboutContainerRef}>
@@ -99,7 +110,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               <div
                 className="about-selected-job"
                 style={{
-                  opacity: `${profileBoxOpacity}`,
+                  opacity: `${profileJobTop}`,
                   top: `${profileBoxPaddingTop + 110}px`,
                 }}
               >
@@ -111,7 +122,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                 <div
                   className="about-image-box"
                   key={index}
-                  style={{ opacity: `${imageOpacity}` }}
+                  style={{ opacity: `${imageOpacity}`, top: `${imageTop}%` }}
                 >
                   <img
                     className={
@@ -128,6 +139,27 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               ))}
           </div>
         )}
+        <section
+          className="about-end-container"
+          style={{ opacity: `${endOpacity}` }}
+        >
+          <div className="about-line" style={{ top: `${lineTop}%` }}></div>
+          <div
+            className="about-line-text"
+            style={{ top: `${lineTextTop}%` }}
+            onClick={handleScrollTopClick}
+          >
+            Want to go to the top?
+          </div>
+          <div className="about-end-text-box">
+            <div
+              className="about-end-text"
+              style={{ bottom: `${endTextBottom}px` }}
+            >
+              End
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   );
