@@ -1,13 +1,18 @@
 import { useEffect, useState } from 'react';
 
 import { INTRO_SETTINGS, PROFILES_REPEAT } from '../constants';
-import { IntroProperty } from '../types';
+import { calcValue } from '../helpers';
 
 export const useIntroInteraction = (
   scrollValue: number,
   startIntroScrollY: number,
   aboutContainerScrollY: number,
 ) => {
+  const introScrollRatio =
+    (startIntroScrollY - scrollValue) /
+    (startIntroScrollY - aboutContainerScrollY);
+  const introOutScrollRatio = (aboutContainerScrollY - scrollValue) / -200;
+
   const [titleOpacity, setTitleOpacity] = useState<number>(
     INTRO_SETTINGS.titleOpacity.startValue,
   );
@@ -33,94 +38,13 @@ export const useIntroInteraction = (
   useEffect(() => {
     if (scrollValue < startIntroScrollY) return;
     if (scrollValue < aboutContainerScrollY) {
-      playIntroInteraction();
+      playBeforeEnterInteraction();
+      return;
     }
+    playInteraction();
   }, [scrollValue]);
 
-  const useProfileBox = () => {
-    useEffect(() => {
-      console.log(aboutContainerScrollY, startIntroScrollY, scrollValue);
-      if (!scrollValue) return;
-      if (!(scrollValue > startIntroScrollY + 200)) {
-        setSelectedName(-1);
-        return;
-      }
-
-      if (
-        scrollValue > aboutContainerScrollY &&
-        scrollValue < aboutContainerScrollY + 200
-      ) {
-        setTitleOpacity(
-          calcValue(introOutScrollRatio, INTRO_SETTINGS.titleOpacityOut),
-        );
-        setSelectedName(0);
-        setSelectedTop(0);
-        return;
-      }
-
-      if (scrollValue > aboutContainerScrollY + 200) {
-        setTitleOpacity(0);
-      }
-
-      for (let i = 0; i < PROFILES_REPEAT.length + 1; i++) {
-        let flag = 0;
-        if (scrollValue < aboutContainerScrollY + i * 200 + 200) {
-          console.log(
-            scrollValue < aboutContainerScrollY + i * 200 + 200,
-            aboutContainerScrollY + i * 200 + 200,
-            '수식값이?',
-          );
-          setSelectedName(i);
-          setSelectedTop(-150 * i);
-          setSelectedJob(PROFILES_REPEAT[i].job);
-          flag = 1;
-        }
-        if (flag) return;
-      }
-      return;
-    }, [scrollValue]);
-  };
-  useProfileBox();
-
-  const introScrollRatio =
-    (startIntroScrollY - scrollValue) /
-    (startIntroScrollY - aboutContainerScrollY);
-  const introOutScrollRatio = (aboutContainerScrollY - scrollValue) / -200;
-
-  const calcValue = (scrollRatio: number, settings: IntroProperty) => {
-    let rv = 0;
-    if (
-      typeof settings.startScroll === 'undefined' ||
-      typeof settings.endScroll === 'undefined'
-    ) {
-      rv =
-        scrollRatio * (settings.endValue - settings.startValue) +
-        settings.startValue;
-      return rv;
-    }
-
-    // const partScrollStart = settings.startScroll * scrollValue;
-    // const partScrollEnd = settings.endScroll * scrollValue;
-    // const partScrollHeight = partScrollEnd - partScrollStart;
-    // if (scrollValue >= partScrollStart && scrollValue <= partScrollEnd) {
-    //   rv =
-    //     ((scrollValue - partScrollStart) / partScrollHeight) *
-    //       (settings.endValue - settings.startValue) +
-    //     settings.startValue;
-    //   return rv;
-    // }
-    // if (scrollValue < partScrollStart) {
-    //   rv = settings.startValue;
-    //   return rv;
-    // }
-    // if (scrollValue > partScrollEnd) {
-    //   rv = settings.endValue;
-    //   return rv;
-    // }
-    return rv;
-  };
-
-  const playIntroInteraction = () => {
+  const playBeforeEnterInteraction = () => {
     setTitleOpacity(calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacity));
     setTitleLetterSpacing(
       calcValue(introScrollRatio, INTRO_SETTINGS.titleLetterSpacing),
@@ -132,6 +56,45 @@ export const useIntroInteraction = (
     setProfileBoxOpacity(
       calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacity),
     );
+  };
+
+  const playInteraction = () => {
+    console.log(aboutContainerScrollY, startIntroScrollY, scrollValue);
+    if (!scrollValue) return;
+    if (!(scrollValue > startIntroScrollY + 200)) {
+      setSelectedName(-1);
+      return;
+    }
+
+    if (
+      scrollValue > aboutContainerScrollY &&
+      scrollValue < aboutContainerScrollY + 200
+    ) {
+      setTitleOpacity(
+        calcValue(introOutScrollRatio, INTRO_SETTINGS.titleOpacityOut),
+      );
+      setSelectedName(0);
+      setSelectedTop(0);
+      return;
+    }
+
+    if (scrollValue > aboutContainerScrollY + 200) {
+      setTitleOpacity(
+        calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacityOut),
+      );
+    }
+
+    for (let i = 0; i < PROFILES_REPEAT.length + 1; i++) {
+      let flag = 0;
+      if (scrollValue < aboutContainerScrollY + i * 200 + 200) {
+        setSelectedName(i);
+        setSelectedTop(-150 * i);
+        setSelectedJob(PROFILES_REPEAT[i].job);
+        flag = 1;
+      }
+      if (flag) return;
+    }
+    return;
   };
 
   const interactionData = {
