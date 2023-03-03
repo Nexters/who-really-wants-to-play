@@ -1,35 +1,48 @@
-import { useMasonryLayout } from '../../hooks/useMasonryLayout';
 import { ANIMATION_DURATION } from '../../constants';
 import MasonryItem from '../MasonryItem';
+import { masonryHorizontalOrder } from '../../utils/masonryHorizontalOrder';
+import { getMinusTranslateValue, getZigzagAnimationValue } from '../../helpers';
 
-import { ImgProps } from '~/types';
-import { PAGE_NAME } from '~/features/shared/constants';
+import { ImgListWithId } from '~/types';
 
 type Props = {
-  imgList: ImgProps[];
+  imgList: ImgListWithId;
   gap: string;
-  activeIndex: number;
+  columnCount: number;
+  rerenderCondition: boolean;
+  animationRatio: number;
+  isHorizontalLayout?: boolean;
 };
 
 const MasonryLayout = (props: Props) => {
-  const { gap, imgList, activeIndex } = props;
+  const { gap, imgList, rerenderCondition } = props;
+  const { animationRatio, columnCount, isHorizontalLayout } = props;
   const animationPartTime = ANIMATION_DURATION / imgList.length;
-  const { containerRef, itemRefs, gridRowEnds } = useMasonryLayout(100);
-  const isGallery = activeIndex === PAGE_NAME.GALLERY;
+  const orderedImgList: ImgListWithId = isHorizontalLayout
+    ? masonryHorizontalOrder(imgList, columnCount)
+    : imgList;
+  const ratioNumValue = Math.floor(animationRatio / 0.02);
+  const zigzagTurn = ratioNumValue % 2 === 0 ? 1 : 0;
 
   return (
-    <div className="grid-container" style={{ gap: gap }} ref={containerRef}>
-      {imgList.map((img, idx) => {
+    <div
+      className="grid-container"
+      style={{ gap, columnCount }}
+      key={`gallery-${rerenderCondition}`}
+    >
+      {orderedImgList.map((img, idx) => {
         const animationDurationPerImg = animationPartTime * (idx + 1);
+        const isAnimationTurn =
+          ratioNumValue && zigzagTurn === img.id % 2 ? true : false;
+        const zigzagPx = getZigzagAnimationValue(isAnimationTurn);
+
         return (
           <MasonryItem
             {...img}
-            key={`${img.id ?? img.alt}` + isGallery}
+            key={img.id ?? img.alt}
             animationDuration={`${animationDurationPerImg}s`}
-            style={{ gridRowEnd: gridRowEnds[idx] ?? 'auto' }}
-            ref={(elem) => {
-              if (!elem) return;
-              itemRefs.current[idx] = elem;
+            style={{
+              transform: getMinusTranslateValue('Y', zigzagPx, 'px'),
             }}
           />
         );
