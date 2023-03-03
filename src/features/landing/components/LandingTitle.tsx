@@ -10,7 +10,7 @@ const LandingTitle: FunctionComponent = () => {
       <div className="cover-title">
         Gallery of our memories
         <br />
-        that we met at Nexter 22nd
+        that we met at Nexters 22nd
         <br />
         jjinn-nolsa
       </div>

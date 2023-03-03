@@ -15,7 +15,7 @@ export const fetchImage = (src: string) => {
   });
 };
 
-const calcYDistance = (dt: number, a: number): number => {
+export const calcYDistance = (dt: number, a: number): number => {
   return Math.floor((a * dt * dt) / 2);
 };
 
@@ -32,12 +32,16 @@ const drawImageFrame = (
   delay: number,
   { width, height }: CanvasSize,
   onStartImageSlide?: (image: HTMLImageElement) => void,
+  onEndImageSlide?: (image: HTMLImageElement) => void,
 ) => {
-  if (dt - delay < 0) return;
+  if (dt - delay < 0) return true;
   if (dt - delay < IMAGE_SLIDE_SPEED) onStartImageSlide?.(img);
 
   const dy = height - calcYDistance(dt - delay, IMAGE_SLIDE_ACC);
-  if (dy > width + 3000) return;
+  if (dy < -height - IMAGE_STAY_TERM) {
+    onEndImageSlide?.(img);
+    return false;
+  }
   ctx.shadowColor = 'black';
   ctx.shadowBlur = 15;
 
@@ -54,12 +58,15 @@ const drawImageFrame = (
     width,
     height,
   );
+
+  return true;
 };
 
 export const startSlide = (
   images: HTMLImageElement[],
   canvas: HTMLCanvasElement,
   onStartImageSlide?: (image: HTMLImageElement, idx: number) => void,
+  onEndImageSlide?: (image: HTMLImageElement, idx: number) => void,
 ) => {
   const ctx = canvas?.getContext('2d', { alpha: false });
   if (!canvas || !ctx || !images) return;
@@ -70,7 +77,7 @@ export const startSlide = (
     if (dy > canvas.height) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    images.forEach((image, idx) =>
+    const results = images.map((image, idx) =>
       drawImageFrame(
         ctx,
         image,
@@ -78,8 +85,11 @@ export const startSlide = (
         IMAGE_SLIDE_DELAY * idx,
         canvasSize,
         (img: HTMLImageElement) => onStartImageSlide?.(img, idx),
+        (img: HTMLImageElement) => onEndImageSlide?.(img, idx),
       ),
     );
+    if (results.every((result) => !result)) return;
+
     requestAnimationFrame(() => drawAnimationFrame(dy + IMAGE_SLIDE_SPEED));
   };
 

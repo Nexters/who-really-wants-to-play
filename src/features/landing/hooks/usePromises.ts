@@ -39,7 +39,10 @@ const usePromises = <T>(promises: Promise<T>[]): State<T> => {
     dispatch({ type: 'loading' });
     (async () => {
       try {
-        const result = await Promise.all(promises);
+        const result = [];
+        for (const p of promises) {
+          result.push(await p);
+        }
         dispatch({ type: 'fetched', payload: result });
       } catch (e) {
         dispatch({ type: 'error', payload: e as Error });
