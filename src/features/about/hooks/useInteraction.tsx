@@ -7,6 +7,7 @@ export const useIntroInteraction = (
   scrollValue: number,
   startIntroScrollY: number,
   aboutContainerScrollY: number,
+  lastProfileScrollY: number,
 ) => {
   const introScrollRatio =
     (startIntroScrollY - scrollValue) /
@@ -42,9 +43,13 @@ export const useIntroInteraction = (
     if (scrollValue < startIntroScrollY) return;
     if (scrollValue < aboutContainerScrollY) {
       playIntroInteraction();
-      return;
     }
-    playInteraction();
+    if (scrollValue > startIntroScrollY + 200) {
+      playInteraction();
+    }
+    if (scrollValue > lastProfileScrollY) {
+      playEndInteraction();
+    }
   }, [scrollValue]);
 
   const playIntroInteraction = () => {
@@ -61,11 +66,11 @@ export const useIntroInteraction = (
     );
   };
 
+  console.log(scrollValue, startIntroScrollY, aboutContainerScrollY);
   const playInteraction = () => {
-    if (!scrollValue) return;
-    if (!(scrollValue > startIntroScrollY + 200)) {
-      setSelectedName(-1);
-      return;
+    setSelectedName(-1);
+    if (scrollValue > startIntroScrollY + 150) {
+      setSelectedName(0);
     }
 
     if (
@@ -75,19 +80,19 @@ export const useIntroInteraction = (
       setTitleOpacity(
         calcValue(introOutScrollRatio, INTRO_SETTINGS.titleOpacityOut),
       );
-      setImageOpacity(calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacity));
-      setSelectedName(0);
+      setImageOpacity(
+        calcValue(introOutScrollRatio, INTRO_SETTINGS.titleOpacity),
+      );
       setSelectedTop(0);
       return;
     }
 
     if (scrollValue > aboutContainerScrollY + 200) {
-      setTitleOpacity(
-        calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacityOut),
-      );
+      setTitleOpacity(0);
+      setImageOpacity(1);
     }
 
-    for (let i = 0; i < PROFILES_REPEAT.length + 1; i++) {
+    for (let i = 0; i < PROFILES_REPEAT.length; i++) {
       let flag = 0;
       if (scrollValue < aboutContainerScrollY + i * 200 + 200) {
         setSelectedName(i);
@@ -98,6 +103,13 @@ export const useIntroInteraction = (
       if (flag) return;
     }
     return;
+  };
+
+  const playEndInteraction = () => {
+    setSelectedName(PROFILES_REPEAT.length - 1);
+    if (scrollValue > lastProfileScrollY + 400) {
+      // TODO
+    }
   };
 
   const interactionData = {

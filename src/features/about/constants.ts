@@ -13,7 +13,7 @@ const PROFILES_LIST = [
     name: 'An Yulim',
     job: 'Developer',
     color: '#C8B0E0',
-    src: 'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/profile/yr.webp',
+    src: 'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/profile/yl.webp',
   },
   {
     name: 'Kim Dongyong',
@@ -65,8 +65,8 @@ export const INTRO_SETTINGS: IntroInfoSettings = {
     endValue: 0,
   },
   titleTop: {
-    startValue: 400,
-    endValue: 10,
+    startValue: -400,
+    endValue: 0,
   },
   profileBoxPaddingTop: {
     startValue: 800,

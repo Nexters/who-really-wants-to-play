@@ -9,10 +9,13 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
 }) => {
   const aboutContainerRef = useRef<HTMLDivElement>(null);
-  const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
-
   const titleBoxRef = useRef<HTMLDivElement>(null);
+
+  const aboutContainerScrollY = aboutContainerRef.current?.offsetTop || 0;
   const { startIntroScrollY } = useGetStartScrollY(aboutContainerScrollY);
+  const lastProfileScrollY =
+    aboutContainerScrollY + (PROFILES_REPEAT.length - 1) * 200 + 200;
+
   const {
     titleOpacity,
     titleLetterSpacing,
@@ -27,6 +30,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
     scrollValue,
     startIntroScrollY,
     aboutContainerScrollY,
+    lastProfileScrollY,
   );
 
   return (
@@ -42,10 +46,11 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                   : '#bfe0b0'
               }`,
               backgroundImage: `url(${
-                selectedName >= 0 ? PROFILES_REPEAT[selectedName].src : ''
+                selectedName >= 0
+                  ? PROFILES_REPEAT[selectedName].src
+                  : 'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/profile/sc.webp'
               })`,
             }}
-            // style={{ opacity: `${imageOpacity}` }}
           >
             <div
               className="about-title-box"
@@ -101,23 +106,26 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                 {selectedJob}
               </div>
             </div>
-            {PROFILES_REPEAT.map((profile, index) => (
-              <div
-                className="about-image-box"
-                key={index}
-                style={{ opacity: `${imageOpacity}` }}
-              >
-                <img
-                  className={
-                    selectedName === index ? 'about-selected-img' : 'about-img'
-                  }
-                  src={profile.src}
-                  alt="basicImage"
-                  width={603}
-                  height={603}
-                />
-              </div>
-            ))}
+            {scrollValue >= aboutContainerScrollY &&
+              PROFILES_REPEAT.map((profile, index) => (
+                <div
+                  className="about-image-box"
+                  key={index}
+                  style={{ opacity: `${imageOpacity}` }}
+                >
+                  <img
+                    className={
+                      selectedName === index
+                        ? 'about-selected-img'
+                        : 'about-img'
+                    }
+                    src={profile.src}
+                    alt="basicImage"
+                    width={603}
+                    height={603}
+                  />
+                </div>
+              ))}
           </div>
         )}
       </section>

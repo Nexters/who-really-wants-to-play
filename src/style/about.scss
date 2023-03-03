@@ -1,6 +1,7 @@
 .about {
   width: 100%;
-  height: 4396px;
+  height: 5396px;
+  position: relative;
 
   &-bg-image-box {
     height: 100vh;
@@ -8,7 +9,10 @@
     top: 0;
     left: 0;
     background-color: #bfe0b0;
+    background-image: url('https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/profile/sc.webp');
     background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
   }
 
   &-title-box {
@@ -81,7 +85,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transition: background-color 1s;
+    transition: background-color 1s, opacity 1s;
   }
 
   &-image-box:hover {
