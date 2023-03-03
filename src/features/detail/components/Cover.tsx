@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 
 import CloseButton from '~/features/detail/components/CloseButton';
+import { PHOTO_PATH_PREFIX } from '~/features/shared/constants';
 
 type Props = {
   bgColor: string;
@@ -30,7 +31,7 @@ const Cover: FunctionComponent<Props> = ({ bgColor, date, title, imgSrc }) => {
         </div>
         <h1 className="title">{title}</h1>
         <div className="scroll-down">
-          <img src="/svg/detail-scroll-down.svg" />
+          <img src={`${PHOTO_PATH_PREFIX}/svg/detail-scroll-down.svg}`} />
         </div>
       </div>
     </section>
