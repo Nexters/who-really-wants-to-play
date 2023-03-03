@@ -7,9 +7,9 @@ import { GRID_GAP } from './constants';
 import { getMinusTranslateValue } from './helpers';
 import { useGalleryScrollRatio } from './hooks/useGalleryScrollRatio';
 
-import { GalleryMockImgList } from '~/features/gallery/mocks/gallery';
 import { PAGE_NAME } from '~/features/shared/constants';
 import { AppData } from '~/features/types';
+import { imageDataListWithPrefix } from '~/datas/imgList';
 
 type DailyBookContainerProps = AppData & { scrollValue: number };
 
@@ -46,7 +46,7 @@ const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
         }}
       />
       <MasonryLayout
-        imgList={GalleryMockImgList}
+        imgList={imageDataListWithPrefix}
         gap={GRID_GAP}
         columnCount={4}
         animationRatio={animationRatio}

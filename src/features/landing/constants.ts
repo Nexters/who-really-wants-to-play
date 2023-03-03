@@ -1,6 +1,4 @@
 export const LANDING_LAST_ANIMATION_NAME = 'scroll-slide-top-in';
-export const PHOTO_PATH_PREFIX =
-  'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images';
 
 // 이미지 이동하는 기본 속도
 export const IMAGE_SLIDE_SPEED = 0.8;
