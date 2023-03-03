@@ -71,14 +71,25 @@ hr.short-line {
 
   .cover-image {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 0;
+    top: 0;
+    z-index: 0;
+    transition: filter, bottom, background-color;
+    transition-duration: 0.5s;
+    max-width: 200vw;
+    transform-origin: 0 0;
+
+    &.blur {
+      filter: blur(5px) brightness(100%);
+    }
+
+    &.show {
+      filter: blur(0) brightness(60%);
+    }
   }
 }
 
 .detail-keyword-container {
-  position: relative;
   overflow: hidden;
 
   .keywords-wrapper {
@@ -88,11 +99,29 @@ hr.short-line {
     flex-direction: column;
     justify-content: center;
     padding-left: 7vw;
-    z-index: 1;
+    z-index: 3;
+    width: max-content;
+    transform: translate(-100%);
+
+    &.animate {
+      animation: slide-left-in 1.5s ease-out;
+      transform: translate(0);
+    }
 
     .keyword {
       color: white;
       font-size: 10vh;
+      width: 100%;
+    }
+  }
+
+  @keyframes slide-left-in {
+    from {
+      transform: translate(-100%, 0);
+    }
+
+    to {
+      transform: translate(0);
     }
   }
 }
