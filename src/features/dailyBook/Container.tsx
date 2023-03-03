@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
 
 import { PAGE_NAME } from '../shared/constants';
 import ScrollToEnter from '../landing/components/ScrollToEnter';
@@ -41,13 +42,15 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
        */}
       {isDailyBook && (
         <>
-          <img
-            className="dailybook-image-cover"
-            src={data[activeIndex - 1].coverImage}
-            alt="cover"
-            width={420}
-            height={631}
-          />
+          <Link to={`/detail/${activeIndex - 1}`} preventScrollReset>
+            <img
+              className="dailybook-image-cover"
+              src={data[activeIndex - 1].coverImage}
+              alt="cover"
+              width={420}
+              height={631}
+            />
+          </Link>
           <img
             className="dailybook-image-cover-second"
             src={data[activeIndex % data.length].coverImage}
