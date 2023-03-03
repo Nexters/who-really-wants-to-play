@@ -1,4 +1,4 @@
-import { FunctionComponent, useLayoutEffect, useState } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
@@ -35,9 +35,9 @@ const Cover: FunctionComponent<Props> = ({
     setScale(scale);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     calcScale();
-  }, []);
+  }, [calcScale]);
 
   // TODO: 배경에 사진 흐리게 넣기
   return (

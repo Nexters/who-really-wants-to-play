@@ -76,7 +76,7 @@ hr.short-line {
     z-index: 0;
     transition: filter, bottom, background-color;
     transition-duration: 0.5s;
-    max-width: 200vw;
+    max-width: none;
     transform-origin: 0 0;
 
     &.blur {
