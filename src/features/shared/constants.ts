@@ -17,7 +17,7 @@ export const ACTIVE_INDEX_MAP = {
 
 const MAP_LENGTH = Object.keys(ACTIVE_INDEX_MAP).length;
 const DAILY_BOOK_ARRAY = Array.from(
-  { length: MAP_LENGTH - 2 },
+  { length: MAP_LENGTH - 3 },
   (_, idx) => idx + 1,
 );
 

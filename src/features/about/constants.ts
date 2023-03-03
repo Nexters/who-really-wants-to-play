@@ -52,7 +52,7 @@ export const INTRO_SETTINGS: IntroInfoSettings = {
     startValue: 400,
     endValue: 10,
   },
-  boxPaddingTop: {
+  profileBoxPaddingTop: {
     startValue: 800,
     endValue: 500,
   },

@@ -12,8 +12,15 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
 
   const titleBoxRef = useRef<HTMLDivElement>(null);
 
-  const { introInfo, selectedName, selectedTop, selectedJob } =
-    useIntroInteraction(scrollValue, aboutContainerScrollY);
+  const {
+    titleOpacity,
+    titleLetterSpacing,
+    titleTop,
+    profileBoxPaddingTop,
+    selectedName,
+    selectedTop,
+    selectedJob,
+  } = useIntroInteraction(scrollValue, aboutContainerScrollY);
 
   return (
     <div ref={aboutContainerRef}>
@@ -22,14 +29,14 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
           className="about-title-box"
           ref={titleBoxRef}
           style={{
-            opacity: `${introInfo.titleOpacity}`,
-            top: `${introInfo.titleTop}px`,
+            opacity: `${titleOpacity}`,
+            top: `${titleTop}px`,
           }}
         >
           <div
             className="about-title"
             style={{
-              letterSpacing: `${introInfo.titleLetterSpacing}px`,
+              letterSpacing: `${titleLetterSpacing}px`,
             }}
           >
             {TITLE}
@@ -38,7 +45,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
         <div
           className="about-profile-box"
           style={{
-            paddingTop: `${introInfo.boxPaddingTop}px`,
+            paddingTop: `${profileBoxPaddingTop}px`,
             top: `${selectedTop}px`,
           }}
         >
@@ -47,7 +54,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               className="about-name-box"
               key={index}
               style={{
-                opacity: `${introInfo.titleOpacity}`,
+                opacity: `${titleOpacity}`,
               }}
             >
               <div
@@ -63,8 +70,8 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
           <div
             className="about-selected-job"
             style={{
-              opacity: `${introInfo.titleOpacity}`,
-              top: `${introInfo.boxPaddingTop + 110}px`,
+              opacity: `${titleOpacity}`,
+              top: `${profileBoxPaddingTop + 110}px`,
             }}
           >
             {selectedJob}

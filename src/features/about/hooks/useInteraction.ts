@@ -1,21 +1,20 @@
 import { useEffect, useState } from 'react';
 
 import { INTRO_SETTINGS, PROFILES_REPEAT } from '../constants';
-import { IntroInfoValues, IntroProperty } from '../types';
+import { IntroProperty } from '../types';
 
 export const useIntroInteraction = (scrollValue: number, aboutContainerScrollY: number) => {
   const [startIntroScrollY, setStartIntroScrollY] = useState<number>(0);
+
+  const [titleOpacity, setTitleOpacity] = useState<number>(INTRO_SETTINGS.titleOpacity.startValue);
+  const [titleLetterSpacing, setTitleLetterSpacing] = useState<number>(INTRO_SETTINGS.titleLetterSpacing.startValue);
+  const [titleTop, setTitleTop] = useState<number>(INTRO_SETTINGS.titleTop.startValue);
+  const [profileBoxPaddingTop, setProfileBoxPaddingTop] = useState<number>(INTRO_SETTINGS.profileBoxPaddingTop.startValue);
+
   const [selectedName, setSelectedName] = useState<number>(-1);
   const [selectedTop, setSelectedTop] = useState<number>(0);
   const [selectedJob, setSelectedJob] = useState<string>(PROFILES_REPEAT[0].job);
   const viewHeight = window.innerHeight;
-  
-  const [introInfo, setIntroInfo] = useState<IntroInfoValues>({
-    titleOpacity: INTRO_SETTINGS.titleOpacity.startValue,
-    titleLetterSpacing: INTRO_SETTINGS.titleLetterSpacing.startValue,
-    titleTop: INTRO_SETTINGS.titleTop.startValue,
-    boxPaddingTop: INTRO_SETTINGS.boxPaddingTop.startValue,
-  });
   
   useEffect(() => {
     setStartIntroScrollY(aboutContainerScrollY - viewHeight);
@@ -90,13 +89,12 @@ export const useIntroInteraction = (scrollValue: number, aboutContainerScrollY: 
   };
 
   const playIntroInteraction = () => {
-    setIntroInfo({
-      titleOpacity: calcValue(INTRO_SETTINGS.titleOpacity),
-      titleLetterSpacing: calcValue(INTRO_SETTINGS.titleLetterSpacing),
-      titleTop: calcValue(INTRO_SETTINGS.titleTop),
-      boxPaddingTop: calcValue(INTRO_SETTINGS.boxPaddingTop),
-    });
+    setTitleOpacity(calcValue(INTRO_SETTINGS.titleOpacity))
+    setTitleLetterSpacing(calcValue(INTRO_SETTINGS.titleLetterSpacing))
+    setTitleTop(calcValue(INTRO_SETTINGS.titleTop))
+    setProfileBoxPaddingTop(calcValue(INTRO_SETTINGS.profileBoxPaddingTop))
   };
   
-  return { introInfo, selectedName, selectedTop, selectedJob };
+  const interactionData = { titleOpacity, titleLetterSpacing, titleTop, profileBoxPaddingTop, selectedName, selectedTop, selectedJob };
+  return interactionData;
 };
