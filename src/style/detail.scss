@@ -136,11 +136,12 @@ hr.short-line {
     flex-direction: column;
     justify-content: center;
     padding-left: 50vw;
-    padding-right: 5vw;
+    padding-right: 3vw;
     color: white;
 
     .title {
-      font-size: 10vw;
+      font-size: 9vw;
+      word-break: keep-all;
     }
 
     .description {
