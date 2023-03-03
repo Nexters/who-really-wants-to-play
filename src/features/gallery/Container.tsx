@@ -4,7 +4,7 @@ import SubTitle from '../shared/components/SubTitle';
 
 import MasonryLayout from './components/MasonryLayout';
 import { GRID_GAP } from './constants';
-import { getMinusTranslateValue } from './helpers';
+import { getTranslateValue } from './helpers';
 import { useGalleryScrollRatio } from './hooks/useGalleryScrollRatio';
 
 import { PAGE_NAME } from '~/features/shared/constants';
@@ -26,7 +26,7 @@ const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
     scrollValue,
   );
   const isGallery = activeIndex === PAGE_NAME.GALLERY;
-  const titleMustMoveDist = titleWidth * animationRatio;
+  const titleMustMoveDist = -titleWidth * animationRatio;
 
   return (
     <section
@@ -42,7 +42,7 @@ const GalleryContainer: FunctionComponent<DailyBookContainerProps> = ({
         title="Our Archive"
         className="gallery-title title-animation"
         style={{
-          transform: getMinusTranslateValue('X', titleMustMoveDist, 'px'),
+          transform: getTranslateValue('X', titleMustMoveDist, 'px'),
         }}
       />
       <MasonryLayout
