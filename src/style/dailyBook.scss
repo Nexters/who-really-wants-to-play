@@ -5,43 +5,56 @@
   height: 92vh;
 }
 
+@mixin image-cover-background {
+  object-fit: cover;
+  background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
+  box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+}
+
 .dailybook-image {
-  &-hover {
-    background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgba(0 0 0 / 45%));
-    box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
-  }
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
 
-  &-cover {
-    object-fit: cover;
-    position: absolute;
+  &-box {
+    padding-bottom: 100px;
+    pointer-events: auto;
     z-index: 3;
-    top: 20%;
-    left: 35%;
-    background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
-    box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
-
-    &:hover {
-      filter: grayscale(90%);
-    }
+    position: absolute;
 
     &-second {
-      object-fit: cover;
-      position: absolute;
+      padding-top: 40px;
       z-index: 2;
-      top: 22%;
-      left: 37%;
-      background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
-      box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+      position: absolute;
     }
 
     &-third {
-      object-fit: cover;
-      position: absolute;
+      padding-top: 180px;
       z-index: 1;
-      top: 24%;
-      left: 39%;
-      background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgb(0 0 0 / 45%));
-      box-shadow: 15px 15px 100px 5px rgb(0 0 0 / 45%);
+      position: absolute;
+    }
+  }
+
+  &-cover {
+    @include image-cover-background;
+
+    transform: rotate(0deg);
+    transition-duration: 1s;
+
+    &:hover {
+      filter: grayscale(90%);
+      transform: rotate(20deg);
+      transition-duration: 1s;
+    }
+
+    &-background {
+      @include image-cover-background;
     }
   }
 }
