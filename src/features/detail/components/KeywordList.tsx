@@ -12,7 +12,6 @@ const KeywordList: FunctionComponent<Props> = ({
   keywords,
 }) => {
   const isActive = activeIndex === PAGE_NAME.DETAIL_KEYWORD;
-  console.log(isActive);
   return (
     <section
       ref={(ef) => {

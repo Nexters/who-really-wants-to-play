@@ -1,10 +1,12 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
 import Image from '~/features/shared/components/Image';
 import CloseButton from '~/features/detail/components/CloseButton';
 import { PAGE_NAME, PHOTO_PATH_PREFIX } from '~/features/shared/constants';
 import { AppData } from '~/features/types';
+import { fetchImage } from '~/features/landing/helper';
 
 type Props = AppData & {
   bgColor: string;
@@ -14,12 +16,29 @@ type Props = AppData & {
 };
 
 const Cover: FunctionComponent<Props> = ({
+  activeIndex,
   refList,
   bgColor,
   date,
   title,
   imgSrc,
 }) => {
+  const [scale, setScale] = useState(1);
+
+  const calcScale = async () => {
+    const image = await fetchImage(imgSrc);
+    const w = image.width;
+    const h = image.height;
+    const scaleX = window.innerWidth / w;
+    const scaleY = (window.innerHeight / h) * 2;
+    const scale = w * scaleY < window.innerWidth ? scaleX : scaleY;
+    setScale(scale);
+  };
+
+  useLayoutEffect(() => {
+    calcScale();
+  }, []);
+
   // TODO: 배경에 사진 흐리게 넣기
   return (
     <section
@@ -29,7 +48,9 @@ const Cover: FunctionComponent<Props> = ({
       }}
       data-id={PAGE_NAME.DETAIL_COVER}
       className="detail-cover-container detail-block scroll-snap"
-      style={{ backgroundColor: bgColor }}
+      style={{
+        backgroundColor: bgColor,
+      }}
     >
       <Link to="/" preventScrollReset>
         <div className="logo">Jjin-Nolsa</div>
@@ -37,7 +58,18 @@ const Cover: FunctionComponent<Props> = ({
       <Link to="/" preventScrollReset>
         <CloseButton />
       </Link>
-      <Image className="cover-image" src={imgSrc} alt={title} />
+      <Image
+        className={classNames('cover-image', {
+          blur: activeIndex === PAGE_NAME.DETAIL_COVER,
+          show: activeIndex === PAGE_NAME.DETAIL_KEYWORD,
+          hidden: ![PAGE_NAME.DETAIL_COVER, PAGE_NAME.DETAIL_KEYWORD].includes(
+            activeIndex,
+          ),
+        })}
+        src={imgSrc}
+        alt={title}
+        style={{ transform: ` scale(${scale}) ` }}
+      />
       <div className="contents-wrapper">
         <div className="date" style={{ backgroundColor: bgColor }}>
           {date}
