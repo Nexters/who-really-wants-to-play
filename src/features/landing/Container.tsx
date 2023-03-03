@@ -16,10 +16,17 @@ const LandingContainer: FunctionComponent<LandingContainerProps> = ({
   showLandingAnimation,
 }) => {
   const [canShowLanding, setCanShowLanding] = useState(!showLandingAnimation);
+  const [isLandingAnimationEnded, setIsLandingAnimationEnded] =
+    useState(showLandingAnimation);
 
   const onStartImageSlide = (img: HTMLImageElement, idx: number) => {
     if (idx === imageSlideElementList.length - 1) {
       setCanShowLanding(true);
+    }
+  };
+  const onEndImageSlide = (img: HTMLImageElement, idx: number) => {
+    if (idx === imageSlideElementList.length - 1) {
+      setIsLandingAnimationEnded(false);
     }
   };
 
@@ -32,8 +39,11 @@ const LandingContainer: FunctionComponent<LandingContainerProps> = ({
       data-id={PAGE_NAME.LANDING}
       className="landing-container scroll-snap"
     >
-      {showLandingAnimation && (
-        <ImageSlide onStartImageSlide={onStartImageSlide} />
+      {showLandingAnimation && isLandingAnimationEnded && (
+        <ImageSlide
+          onStartImageSlide={onStartImageSlide}
+          onEndImageSlide={onEndImageSlide}
+        />
       )}
       {canShowLanding && <LandingTitle />}
     </div>

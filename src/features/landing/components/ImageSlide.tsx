@@ -8,9 +8,13 @@ import { getFullImgUrl } from '~/features/shared/helpers';
 
 type Props = {
   onStartImageSlide: (image: HTMLImageElement, idx: number) => void;
+  onEndImageSlide: (image: HTMLImageElement, idx: number) => void;
 };
 
-const ImageSlide: FunctionComponent<Props> = ({ onStartImageSlide }) => {
+const ImageSlide: FunctionComponent<Props> = ({
+  onStartImageSlide,
+  onEndImageSlide,
+}) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const { data: images } = usePromises<HTMLImageElement>(
     imageSlideElementList.map((imageId) => fetchImage(getFullImgUrl(imageId))),
@@ -27,12 +31,12 @@ const ImageSlide: FunctionComponent<Props> = ({ onStartImageSlide }) => {
       const ctx = ref.current.getContext('2d');
       if (ctx) ctx.fillStyle = 'transparent';
 
-      startSlide(images, ref?.current, onStartImageSlide);
+      startSlide(images, ref?.current, onStartImageSlide, onEndImageSlide);
     }
   }, [images]);
 
   return (
-    <>
+    <div className="landing-slider-container">
       {!images && <p className="landing-loading">loading</p>}
       <canvas
         className="landing-image-slider"
@@ -40,7 +44,7 @@ const ImageSlide: FunctionComponent<Props> = ({ onStartImageSlide }) => {
         width="1920"
         height="1080"
       />
-    </>
+    </div>
   );
 };
 
