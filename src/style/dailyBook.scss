@@ -1,3 +1,10 @@
+@mixin gradient {
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  height: 92vh;
+}
+
 .dailybook-image {
   &-hover {
     background: linear-gradient(0deg, rgb(0 0 0 / 45%), rgba(0 0 0 / 45%));
@@ -115,45 +122,111 @@
 }
 
 .dailybook0 {
-  background-color: #e0d0b0;
+  background: #e0b0b0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 70%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook1 {
   background-color: #b0c9e0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook2 {
-  background-color: #bcb0e0;
+  background-color: #e0c7b0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook3 {
-  background-color: #b0e0d7;
+  background-color: #bfb0e0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook4 {
-  background-color: #67a6c0;
+  background-color: #b0e0d7;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook5 {
-  background-color: #edb879;
+  background-color: #67a6c0;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook6 {
-  background-color: #e0c7b0;
+  background-color: #b0e0b4;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook7 {
-  background-color: #b0e0b4;
+  background-color: #a75490;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook8 {
   background-color: #eba48e;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook9 {
   background-color: #7c7baf;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
 
 .dailybook10 {
   background-color: #a75490;
+
+  &-gradient {
+    @include gradient;
+
+    background: linear-gradient(180deg, rgba(255 98 98 / 0%) 0%, rgba(255 90 90 / 65%) 51.04%, #e0b0b0 100%);
+  }
 }
