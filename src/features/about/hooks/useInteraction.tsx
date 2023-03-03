@@ -22,6 +22,9 @@ export const useIntroInteraction = (
   const [titleTop, setTitleTop] = useState<number>(
     INTRO_SETTINGS.titleTop.startValue,
   );
+  const [imageOpacity, setImageOpacity] = useState<number>(
+    INTRO_SETTINGS.titleOpacity.startValue,
+  );
   const [profileBoxPaddingTop, setProfileBoxPaddingTop] = useState<number>(
     INTRO_SETTINGS.profileBoxPaddingTop.startValue,
   );
@@ -38,13 +41,13 @@ export const useIntroInteraction = (
   useEffect(() => {
     if (scrollValue < startIntroScrollY) return;
     if (scrollValue < aboutContainerScrollY) {
-      playBeforeEnterInteraction();
+      playIntroInteraction();
       return;
     }
     playInteraction();
   }, [scrollValue]);
 
-  const playBeforeEnterInteraction = () => {
+  const playIntroInteraction = () => {
     setTitleOpacity(calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacity));
     setTitleLetterSpacing(
       calcValue(introScrollRatio, INTRO_SETTINGS.titleLetterSpacing),
@@ -59,7 +62,6 @@ export const useIntroInteraction = (
   };
 
   const playInteraction = () => {
-    console.log(aboutContainerScrollY, startIntroScrollY, scrollValue);
     if (!scrollValue) return;
     if (!(scrollValue > startIntroScrollY + 200)) {
       setSelectedName(-1);
@@ -73,6 +75,7 @@ export const useIntroInteraction = (
       setTitleOpacity(
         calcValue(introOutScrollRatio, INTRO_SETTINGS.titleOpacityOut),
       );
+      setImageOpacity(calcValue(introScrollRatio, INTRO_SETTINGS.titleOpacity));
       setSelectedName(0);
       setSelectedTop(0);
       return;
@@ -101,6 +104,7 @@ export const useIntroInteraction = (
     titleOpacity,
     titleLetterSpacing,
     titleTop,
+    imageOpacity,
     profileBoxPaddingTop,
     profileBoxOpacity,
     selectedName,
