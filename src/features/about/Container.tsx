@@ -33,6 +33,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
     lineTextTop,
     endTextBottom,
     nameMarginLeft,
+    endTextRotate,
   } = useIntroInteraction(
     scrollValue,
     startIntroScrollY,
@@ -41,7 +42,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   );
 
   const handleScrollTopClick = () => {
-    console.log(window.innerHeight);
+    // TODO
     window.scrollTo({ top: aboutContainerScrollY, behavior: 'smooth' });
   };
 
@@ -160,7 +161,13 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               className="about-end-text"
               style={{ bottom: `${endTextBottom}px` }}
             >
-              End
+              <span style={{ transform: `rotate(-${endTextRotate}deg)` }}>
+                E
+              </span>
+              <span>n</span>
+              <span style={{ transform: `rotate(${endTextRotate}deg)` }}>
+                d
+              </span>
             </div>
           </div>
         </section>

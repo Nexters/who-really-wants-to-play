@@ -33,8 +33,6 @@ export const useIntroInteraction = (
     INTRO_SETTINGS.titleOpacity.startValue,
   );
 
-  const [nameMarginLeft, setNameMarginLeft] = useState<number>(100);
-
   const [selectedTop, setSelectedTop] = useState<number>(0);
   const [selectedName, setSelectedName] = useState<number>(-1);
   const [selectedJob, setSelectedJob] = useState<string>(
@@ -46,6 +44,8 @@ export const useIntroInteraction = (
   const [lineTop, setLineTop] = useState<number>(80);
   const [lineTextTop, setLineTextTop] = useState<number>(90);
   const [endTextBottom, setEndTextBottom] = useState<number>(-500);
+  const [nameMarginLeft, setNameMarginLeft] = useState<number>(100);
+  const [endTextRotate, setEndTextRotate] = useState<number>(40);
 
   useEffect(() => {
     if (scrollValue < startIntroScrollY) return;
@@ -123,6 +123,7 @@ export const useIntroInteraction = (
       setLineTop(80);
       setLineTextTop(90);
       setEndTextBottom(-500);
+      setEndTextRotate(40);
       return;
     }
     if (scrollValue > lastProfileScrollY + 200) {
@@ -133,6 +134,7 @@ export const useIntroInteraction = (
       setLineTop(0);
       setLineTextTop(40);
       setEndTextBottom(-100);
+      setEndTextRotate(0);
     }
   };
 
@@ -153,6 +155,7 @@ export const useIntroInteraction = (
     lineTextTop,
     endTextBottom,
     nameMarginLeft,
+    endTextRotate,
   };
   return { ...interactionData };
 };

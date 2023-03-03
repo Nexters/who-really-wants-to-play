@@ -154,5 +154,10 @@
     position: absolute;
     bottom: -100px;
     transition: bottom 1s;
+
+    span {
+      display: inline-block;
+      transition: all 1s linear;
+    }
   }
 }
