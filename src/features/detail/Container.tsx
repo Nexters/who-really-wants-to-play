@@ -26,8 +26,6 @@ const DetailContainer: FunctionComponent = () => {
     detail: { description, bgColor, imgSrcs, keywords },
   } = foundData;
 
-  console.log(appData.activeIndex);
-
   return (
     <div className="container scroll-snap-container" ref={containerRef}>
       <Cover

@@ -76,7 +76,7 @@ hr.short-line {
     z-index: 0;
     transition: filter, bottom, background-color;
     transition-duration: 0.5s;
-    max-width: 200vw;
+    max-width: none;
     transform-origin: 0 0;
 
     &.blur {
@@ -136,11 +136,12 @@ hr.short-line {
     flex-direction: column;
     justify-content: center;
     padding-left: 50vw;
-    padding-right: 5vw;
+    padding-right: 3vw;
     color: white;
 
     .title {
-      font-size: 10vw;
+      font-size: 9vw;
+      word-break: keep-all;
     }
 
     .description {
@@ -251,16 +252,21 @@ hr.short-line {
   .keyword-wrapper {
     display: flex;
     animation: keyword-slide 8s linear infinite;
-    font-size: 8vw;
+    font-size: 6vw;
     margin-top: 3vh;
+    padding: 0;
+    width: 200%;
+    justify-content: space-around;
 
     &.reverse {
       animation-direction: reverse;
     }
 
     .keyword {
-      margin-right: 8vw;
+      box-sizing: border-box;
       cursor: pointer;
+      padding: 0;
+      margin: 0;
     }
   }
 
@@ -270,7 +276,7 @@ hr.short-line {
     }
 
     100% {
-      transform: translateX(50%);
+      transform: translateX(-50%);
     }
   }
 }

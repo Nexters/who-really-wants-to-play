@@ -1,8 +1,7 @@
 import { FunctionComponent } from 'react';
-import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 
 import { DailyBookData } from '~/features/dailyBook/types';
+import KeywordSliderRow from '~/features/detail/components/KeywordSliderRow';
 import { AppData } from '~/features/types';
 import { PAGE_NAME } from '~/features/shared/constants';
 
@@ -33,16 +32,7 @@ const OtherMemories: FunctionComponent<Props> = ({
         <h4>Other Memories.</h4>
       </div>
       {rows.map((row, idx) => (
-        <div
-          className={classNames('keyword-wrapper', idx % 2 === 1 && 'reverse')}
-          key={idx}
-        >
-          {row.map(({ id, title }: DailyBookData) => (
-            <Link key={id} to={`/detail/${id}`}>
-              <span className="keyword">{title}</span>
-            </Link>
-          ))}
-        </div>
+        <KeywordSliderRow row={row} key={idx} reverse={idx % 2 === 0} />
       ))}
     </section>
   );
