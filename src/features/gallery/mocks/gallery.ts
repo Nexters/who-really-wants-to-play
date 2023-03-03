@@ -1,6 +1,6 @@
-import { ImgProps } from '~/types/index';
+import { ImgListWithId } from '~/types';
 
-export const GalleryMockImgList: ImgProps[] = [
+export const GalleryMockImgList: ImgListWithId = [
   {
     id: 1,
     src: 'https://cdn.pixabay.com/photo/2015/02/02/11/09/office-620822__340.jpg',

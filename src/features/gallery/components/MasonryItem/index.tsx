@@ -1,19 +1,17 @@
-import { forwardRef, LegacyRef } from 'react';
 import classnames from 'classnames';
 
-import { ImgProps, StyleProps } from '~/types';
 import Image from '~/features/shared/components/Image';
+import { ImgProps, StyleProps } from '~/types';
 
 type Props = {
   animationDuration?: string;
 } & ImgProps &
   StyleProps;
 
-const MasonryItem = (props: Props, ref: LegacyRef<HTMLDivElement> | null) => {
+const MasonryItem = (props: Props) => {
   const { animationDuration, style, className, ...img } = props;
   return (
     <div
-      ref={ref}
       className={classnames('grid-item', className)}
       style={{
         animationDuration,
@@ -25,4 +23,4 @@ const MasonryItem = (props: Props, ref: LegacyRef<HTMLDivElement> | null) => {
   );
 };
 
-export default forwardRef(MasonryItem);
+export default MasonryItem;
