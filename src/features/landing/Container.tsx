@@ -7,12 +7,15 @@ import ImageSlide from '~/features/landing/components/ImageSlide';
 import LandingTitle from '~/features/landing/components/LandingTitle';
 import { imageSlideElementList } from '~/features/landing/mocks';
 
-type LandingContainerProps = AppData;
+type LandingContainerProps = AppData & {
+  showLandingAnimation: boolean;
+};
 
 const LandingContainer: FunctionComponent<LandingContainerProps> = ({
   refList,
+  showLandingAnimation,
 }) => {
-  const [canShowLanding, setCanShowLanding] = useState(false);
+  const [canShowLanding, setCanShowLanding] = useState(!showLandingAnimation);
 
   const onStartImageSlide = (img: HTMLImageElement, idx: number) => {
     if (idx === imageSlideElementList.length - 1) {
@@ -29,7 +32,9 @@ const LandingContainer: FunctionComponent<LandingContainerProps> = ({
       data-id={PAGE_NAME.LANDING}
       className="landing-container scroll-snap"
     >
-      <ImageSlide onStartImageSlide={onStartImageSlide} />
+      {showLandingAnimation && (
+        <ImageSlide onStartImageSlide={onStartImageSlide} />
+      )}
       {canShowLanding && <LandingTitle />}
     </div>
   );
