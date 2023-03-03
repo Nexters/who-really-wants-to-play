@@ -7,6 +7,7 @@ import AppContainer from './features/Container';
 import './style/index.scss';
 
 import DetailContainer from '~/features/detail/Container';
+import { YScrollProvider } from '~/features/shared/components/Context/YScrollContext';
 
 const App: FunctionComponent = () => {
   return <AppContainer />;
@@ -18,4 +19,8 @@ const router = createHashRouter([
 ]);
 
 const root = createRoot(document.getElementById('app') as Element);
-root.render(<RouterProvider router={router} />);
+root.render(
+  <YScrollProvider>
+    <RouterProvider router={router} />
+  </YScrollProvider>,
+);
