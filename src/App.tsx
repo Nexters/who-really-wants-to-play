@@ -2,9 +2,10 @@ import { FunctionComponent } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 
-import AppContainer from './features/Container';
-
 import './style/index.scss';
+
+import { YScrollProvider } from './features/shared/components/Context/YScrollContext';
+import AppContainer from './features/Container';
 
 import DetailContainer from '~/features/detail/Container';
 
@@ -19,7 +20,7 @@ const router = createHashRouter([
 
 const root = createRoot(document.getElementById('app') as Element);
 root.render(
-  // <YScrollProvider>
-  <RouterProvider router={router} />,
-  // </YScrollProvider>,
+  <YScrollProvider>
+    <RouterProvider router={router} />, //{' '}
+  </YScrollProvider>,
 );
