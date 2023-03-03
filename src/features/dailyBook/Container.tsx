@@ -5,6 +5,7 @@ import { PAGE_NAME } from '../shared/constants';
 import ScrollToEnter from '../landing/components/ScrollToEnter';
 import Floating from '../shared/components/Floating';
 import { AppData } from '../types';
+import Image from '../shared/components/Image';
 
 import ContentContainer from './components/Container';
 import DateDial from './components/DateDial';
@@ -43,7 +44,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
       {isDailyBook && (
         <>
           <Link to={`/detail/${activeIndex - 1}`} preventScrollReset>
-            <img
+            <Image
               className="dailybook-image-cover"
               src={data[activeIndex - 1].coverImage}
               alt="cover"
@@ -51,14 +52,14 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
               height={631}
             />
           </Link>
-          <img
+          <Image
             className="dailybook-image-cover-second"
             src={data[activeIndex % data.length].coverImage}
             alt="second cover"
             width={370}
             height={631}
           />
-          <img
+          <Image
             className="dailybook-image-cover-third"
             src={data[(activeIndex + 1) % data.length].coverImage}
             alt="second cover"

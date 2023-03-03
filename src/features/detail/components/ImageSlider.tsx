@@ -1,5 +1,7 @@
 import { FunctionComponent } from 'react';
 
+import Image from '~/features/shared/components/Image';
+
 type Props = {
   imgSrcs: string[];
   paused: boolean;
@@ -15,11 +17,12 @@ const ImageSlider: FunctionComponent<Props> = ({
 }) => {
   return (
     <div className={`image-slide ${direction} ${paused ? 'pause' : ''}`}>
-      {imgSrcs.map((src) => (
-        <img
+      {imgSrcs.map((src, idx) => (
+        <Image
           key={src}
           className="image-slide-element"
           src={src}
+          alt={`이미지 슬라이드 ${idx + 1}번째`}
           onClick={() => onClickImage(src)}
         />
       ))}
