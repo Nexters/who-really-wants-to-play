@@ -39,7 +39,7 @@ const DailyBookContainer: FunctionComponent<DailyBookContainerProps> = ({
           <DailyBookCoverImage dailyBookIndex={dailyBookIndex} />
           <DateDial dailyBookIndex={dailyBookIndex} />
           <Floating>
-            <ScrollToEnter />
+            <ScrollToEnter text="Scroll" />
           </Floating>
         </>
       )}
