@@ -220,7 +220,7 @@ hr.short-line {
 
       img {
         border-radius: 10px;
-        width: 40vw;
+        max-height: 90vh;
       }
 
       .close-button {
@@ -236,6 +236,8 @@ hr.short-line {
 
 .detail-memories-container {
   color: rgb(252 100 8);
+  position: relative;
+  background-color: white;
 
   .title-wrapper {
     padding-top: 80px;
