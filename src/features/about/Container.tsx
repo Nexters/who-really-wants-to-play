@@ -26,12 +26,25 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
     selectedName,
     selectedTop,
     selectedJob,
+    profileJobTop,
+    imageTop,
+    endOpacity,
+    lineTop,
+    lineTextTop,
+    endTextBottom,
+    nameMarginLeft,
+    endTextRotate,
   } = useIntroInteraction(
     scrollValue,
     startIntroScrollY,
     aboutContainerScrollY,
     lastProfileScrollY,
   );
+
+  const handleScrollTopClick = () => {
+    // TODO
+    window.scrollTo({ top: aboutContainerScrollY, behavior: 'smooth' });
+  };
 
   return (
     <div ref={aboutContainerRef}>
@@ -90,7 +103,10 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                         ? 'about-selected-name'
                         : 'about-name'
                     }
-                    style={{ transition: `color ${selectedName ? 1 : 3}s` }}
+                    style={{
+                      transition: `color ${selectedName ? 1 : 3}s, margin 2s`,
+                      marginLeft: `${nameMarginLeft * index}px`,
+                    }}
                   >
                     {profile.name}
                   </div>
@@ -99,7 +115,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               <div
                 className="about-selected-job"
                 style={{
-                  opacity: `${profileBoxOpacity}`,
+                  opacity: `${profileJobTop}`,
                   top: `${profileBoxPaddingTop + 110}px`,
                 }}
               >
@@ -111,7 +127,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                 <div
                   className="about-image-box"
                   key={index}
-                  style={{ opacity: `${imageOpacity}` }}
+                  style={{ opacity: `${imageOpacity}`, top: `${imageTop}%` }}
                 >
                   <img
                     className={
@@ -128,6 +144,33 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               ))}
           </div>
         )}
+        <section
+          className="about-end-container"
+          style={{ opacity: `${endOpacity}` }}
+        >
+          <div className="about-line" style={{ top: `${lineTop}%` }}></div>
+          <div
+            className="about-line-text"
+            style={{ top: `${lineTextTop}%` }}
+            onClick={handleScrollTopClick}
+          >
+            Want to go to the top?
+          </div>
+          <div className="about-end-text-box">
+            <div
+              className="about-end-text"
+              style={{ bottom: `${endTextBottom}px` }}
+            >
+              <span style={{ transform: `rotate(-${endTextRotate}deg)` }}>
+                E
+              </span>
+              <span>n</span>
+              <span style={{ transform: `rotate(${endTextRotate}deg)` }}>
+                d
+              </span>
+            </div>
+          </div>
+        </section>
       </section>
     </div>
   );
