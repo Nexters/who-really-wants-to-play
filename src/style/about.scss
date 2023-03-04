@@ -132,8 +132,11 @@
     height: 100vh;
     background-color: #a0a0a0;
     transition: opacity 1s;
-    position: sticky;
-    top: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
   }
 
   &-end-text-box {
