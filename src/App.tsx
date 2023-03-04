@@ -21,6 +21,6 @@ const router = createHashRouter([
 const root = createRoot(document.getElementById('app') as Element);
 root.render(
   <YScrollProvider>
-    <RouterProvider router={router} />, //{' '}
+    <RouterProvider router={router} />
   </YScrollProvider>,
 );
