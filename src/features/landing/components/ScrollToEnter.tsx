@@ -1,7 +1,13 @@
 import { FunctionComponent } from 'react';
 
-const ScrollToEnter: FunctionComponent = () => {
-  return <div className="landing-scroll-to-enter">Scroll to Enter</div>;
+type Props = {
+  text?: string;
+};
+
+const ScrollToEnter: FunctionComponent<Props> = ({
+  text = 'Scroll to Enter',
+}) => {
+  return <div className="landing-scroll-to-enter">{text}</div>;
 };
 
 export default ScrollToEnter;
