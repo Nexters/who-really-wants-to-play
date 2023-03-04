@@ -35,6 +35,7 @@
   }
 
   &-profile-box {
+    pointer-events: none;
     display: flex;
     flex-direction: column;
     margin-left: 125px;
@@ -78,6 +79,7 @@
   }
 
   &-image-box {
+    pointer-events: none;
     transform: translate(-50%, -50%);
     position: fixed;
     top: 50%;
