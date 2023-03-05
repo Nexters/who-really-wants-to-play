@@ -7,8 +7,10 @@ const useScrollMemory = (containerRef: MutableRefObject<Element | null>) => {
   const { yScroll, setYScroll } = useContext(YScrollContext);
 
   useEffect(() => {
-    containerScrollValue.current = containerRef.current?.scrollTop || 0;
-  }, [containerRef.current?.scrollTop]);
+    const containerRefCurrent = containerRef.current;
+    if (!containerRefCurrent) return;
+    containerScrollValue.current = containerRefCurrent.scrollTop || 0;
+  }, [containerRef, containerRef.current?.scrollTop]);
 
   useEffect(() => {
     if (yScroll > 0) {
