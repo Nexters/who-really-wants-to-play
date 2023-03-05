@@ -26,7 +26,8 @@
   }
 
   &-title {
-    font-size: 400px;
+    font-size: 20vw; // 400px
+    line-height: 19.965vw; // 386px
     color: #fff;
     position: relative;
     letter-spacing: 100px;
@@ -150,8 +151,8 @@
 
   &-end-text {
     font-weight: 400;
-    font-size: 400px;
-    line-height: 386px;
+    font-size: 20vw; // 400px
+    line-height: 19.965vw; // 386px
     letter-spacing: -0.01em;
     color: #fff;
     text-align: center;
