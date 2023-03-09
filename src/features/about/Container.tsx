@@ -5,6 +5,9 @@ import { useGetStartScrollY } from './hooks/\buseGetStartScrollY';
 import { useIntroInteraction } from './hooks/useInteraction';
 import { AboutContainerProps } from './types';
 
+import Image from '~/features/shared/components/Image';
+import { getImageUrlWithCdn } from '~/features/shared/utils/url';
+
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
 }) => {
@@ -58,11 +61,11 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                   ? PROFILES_REPEAT[selectedName].color
                   : '#bfe0b0'
               }`,
-              backgroundImage: `url(${
+              backgroundImage: `url(${getImageUrlWithCdn(
                 selectedName >= 0
                   ? PROFILES_REPEAT[selectedName].src
-                  : 'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/profile/sc.webp'
-              })`,
+                  : 'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/profile/sc.webp',
+              )})`,
             }}
           >
             <div
@@ -129,7 +132,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                   key={index}
                   style={{ opacity: `${imageOpacity}`, top: `${imageTop}%` }}
                 >
-                  <img
+                  <Image
                     className={
                       selectedName === index
                         ? 'about-selected-img'
