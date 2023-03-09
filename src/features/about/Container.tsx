@@ -142,6 +142,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
                     alt="basicImage"
                     width={603}
                     height={603}
+                    options={{ fit: 'crop' }}
                   />
                 </div>
               ))}

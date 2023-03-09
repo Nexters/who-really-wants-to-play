@@ -55,6 +55,7 @@ const BackgroundImage: FunctionComponent<
           alt="cover"
           width={600 - gradualDecline}
           height={600 - gradualDecline}
+          options={{ fit: 'crop' }}
         />
       )}
     </div>

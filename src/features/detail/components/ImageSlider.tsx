@@ -23,6 +23,7 @@ const ImageSlider: FunctionComponent<Props> = ({
           className="image-slide-element"
           src={src}
           alt={`이미지 슬라이드 ${idx + 1}번째`}
+          width={400}
           onClick={() => onClickImage(src)}
         />
       ))}
@@ -33,6 +34,7 @@ const ImageSlider: FunctionComponent<Props> = ({
             className="image-slide-element"
             src={src}
             alt={`이미지 슬라이드 ${idx + 1}번째`}
+            width={400}
             onClick={() => onClickImage(src)}
           />
         ))}
