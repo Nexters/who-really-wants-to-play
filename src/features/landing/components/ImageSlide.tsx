@@ -17,7 +17,11 @@ const ImageSlide: FunctionComponent<Props> = ({
 }) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const { data: images } = usePromises<HTMLImageElement>(
-    imageSlideElementList.map((imageId) => fetchImage(getFullImgUrl(imageId))),
+    imageSlideElementList.map((imageId) =>
+      fetchImage(getFullImgUrl(imageId), {
+        w: 1000,
+      }),
+    ),
   );
 
   useEffect(() => {

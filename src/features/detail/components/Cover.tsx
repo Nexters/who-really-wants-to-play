@@ -7,6 +7,7 @@ import CloseButton from '~/features/detail/components/CloseButton';
 import { PAGE_NAME, PHOTO_PATH_PREFIX } from '~/features/shared/constants';
 import { AppData } from '~/features/types';
 import { fetchImage } from '~/features/landing/helper';
+import { getImageUrlWithCdn } from '~/features/shared/utils/url';
 
 type Props = AppData & {
   bgColor: string;
@@ -26,7 +27,7 @@ const Cover: FunctionComponent<Props> = ({
   const [scale, setScale] = useState(1);
 
   const calcScale = async () => {
-    const image = await fetchImage(imgSrc);
+    const image = await fetchImage(getImageUrlWithCdn(imgSrc), { q: 1 });
     const w = image.width;
     const h = image.height;
     const scaleX = window.innerWidth / w;
@@ -79,6 +80,8 @@ const Cover: FunctionComponent<Props> = ({
           <Image
             src={`${PHOTO_PATH_PREFIX}/svg/detail-scroll-down.svg`}
             alt="스크롤 다운 이미지"
+            width={52.5}
+            height={69.5}
           />
         </div>
       </div>

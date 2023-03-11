@@ -5,11 +5,14 @@ import {
   IMAGE_STAY_TERM,
 } from '~/features/landing/constants';
 import { CanvasSize } from '~/features/landing/types';
+import { getUrlWithParam } from '~/features/shared/utils/url';
 
-export const fetchImage = (src: string) => {
+type ImageOption = { w?: number; h?: number; q?: number };
+
+export const fetchImage = (src: string, options: ImageOption = {}) => {
   return new Promise<HTMLImageElement>((resolve, reject) => {
     const img = new Image();
-    img.src = src;
+    img.src = getUrlWithParam(src, { ...options, fm: 'webp' });
     img.onload = () => resolve(img);
     img.onerror = () => reject(new Error('image load error'));
   });

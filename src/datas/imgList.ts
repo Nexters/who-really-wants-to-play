@@ -1,5 +1,6 @@
 import { getFullImgUrl } from '~/features/shared/helpers';
-import { ImgListWithId } from '~/types/index';
+import { ImgListWithId } from '~/types';
+
 const imageDataList: ImgListWithId = [
   {
     id: 1,
@@ -7,7 +8,6 @@ const imageDataList: ImgListWithId = [
     alt: '230107_00',
     width: 2736,
     height: 3648,
-    aspectRatio: 3 / 4,
   },
   {
     id: 2,
@@ -15,7 +15,6 @@ const imageDataList: ImgListWithId = [
     alt: '230112_00',
     width: 1200,
     height: 1800,
-    aspectRatio: 2 / 3,
   },
   {
     id: 3,
@@ -23,7 +22,6 @@ const imageDataList: ImgListWithId = [
     alt: '230112_01',
     width: 3024,
     height: 4032,
-    aspectRatio: 3 / 4,
   },
   {
     id: 4,
@@ -31,7 +29,6 @@ const imageDataList: ImgListWithId = [
     alt: '230114_00',
     width: 1080,
     height: 1920,
-    aspectRatio: 9 / 16,
   },
   {
     id: 5,
@@ -39,7 +36,6 @@ const imageDataList: ImgListWithId = [
     alt: '230114_01',
     width: 2992,
     height: 2992,
-    aspectRatio: 1 / 1,
   },
   {
     id: 6,
@@ -47,7 +43,6 @@ const imageDataList: ImgListWithId = [
     alt: '230114_02',
     width: 2736,
     height: 3648,
-    aspectRatio: 3 / 4,
   },
   {
     id: 7,
@@ -55,7 +50,6 @@ const imageDataList: ImgListWithId = [
     alt: '230114_03',
     width: 2992,
     height: 2992,
-    aspectRatio: 1 / 1,
   },
   {
     id: 8,
@@ -63,7 +57,6 @@ const imageDataList: ImgListWithId = [
     alt: '230128_00',
     width: 3000,
     height: 4000,
-    aspectRatio: 3 / 4,
   },
   {
     id: 9,
@@ -71,7 +64,6 @@ const imageDataList: ImgListWithId = [
     alt: '230128_01',
     width: 3000,
     height: 4000,
-    aspectRatio: 3 / 4,
   },
   {
     id: 10,
@@ -79,7 +71,6 @@ const imageDataList: ImgListWithId = [
     alt: '230128_02',
     width: 3000,
     height: 4000,
-    aspectRatio: 3 / 4,
   },
   {
     id: 11,
@@ -87,7 +78,6 @@ const imageDataList: ImgListWithId = [
     alt: '230128_03',
     width: 3000,
     height: 4000,
-    aspectRatio: 3 / 4,
   },
   {
     id: 12,
@@ -95,7 +85,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_00',
     width: 2736,
     height: 3648,
-    aspectRatio: 3 / 4,
   },
   {
     id: 13,
@@ -103,7 +92,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_01',
     width: 3088,
     height: 2320,
-    aspectRatio: 30 / 23,
   },
   {
     id: 14,
@@ -111,7 +99,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_02',
     width: 2232,
     height: 3968,
-    aspectRatio: 22 / 39,
   },
   {
     id: 15,
@@ -119,7 +106,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_04',
     width: 2252,
     height: 4000,
-    aspectRatio: 22 / 40,
   },
   {
     id: 16,
@@ -127,7 +113,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_05',
     width: 2252,
     height: 4000,
-    aspectRatio: 22 / 40,
   },
   {
     id: 17,
@@ -135,7 +120,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_06',
     width: 4032,
     height: 3024,
-    aspectRatio: 4 / 3,
   },
   {
     id: 18,
@@ -143,7 +127,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_07',
     width: 3024,
     height: 4032,
-    aspectRatio: 3 / 4,
   },
   {
     id: 19,
@@ -151,7 +134,6 @@ const imageDataList: ImgListWithId = [
     alt: '230204_08',
     width: 3024,
     height: 4032,
-    aspectRatio: 3 / 4,
   },
   {
     id: 20,
@@ -159,7 +141,6 @@ const imageDataList: ImgListWithId = [
     alt: '230209_00',
     width: 1988,
     height: 1192,
-    aspectRatio: 5 / 3,
   },
   {
     id: 21,
@@ -167,7 +148,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_00',
     width: 2232,
     height: 3968,
-    aspectRatio: 22 / 39,
   },
   {
     id: 22,
@@ -175,7 +155,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_01',
     width: 4000,
     height: 3000,
-    aspectRatio: 4 / 3,
   },
   {
     id: 23,
@@ -183,7 +162,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_02',
     width: 4000,
     height: 3000,
-    aspectRatio: 4 / 3,
   },
   {
     id: 24,
@@ -191,7 +169,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_03',
     width: 4000,
     height: 3000,
-    aspectRatio: 4 / 3,
   },
   {
     id: 25,
@@ -199,7 +176,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_05',
     width: 2252,
     height: 4000,
-    aspectRatio: 11 / 20,
   },
   {
     id: 26,
@@ -207,7 +183,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_06',
     width: 2252,
     height: 4000,
-    aspectRatio: 11 / 20,
   },
   {
     id: 27,
@@ -215,7 +190,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_07',
     width: 2252,
     height: 4000,
-    aspectRatio: 11 / 20,
   },
   {
     id: 28,
@@ -223,7 +197,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_08',
     width: 2252,
     height: 4000,
-    aspectRatio: 11 / 20,
   },
   {
     id: 29,
@@ -231,7 +204,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_09',
     width: 3024,
     height: 3024,
-    aspectRatio: 1 / 1,
   },
   {
     id: 30,
@@ -239,7 +211,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_10',
     width: 2252,
     height: 4000,
-    aspectRatio: 11 / 20,
   },
   {
     id: 31,
@@ -247,7 +218,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_11',
     width: 3024,
     height: 3024,
-    aspectRatio: 1 / 1,
   },
   {
     id: 32,
@@ -255,7 +225,6 @@ const imageDataList: ImgListWithId = [
     alt: '230211_12',
     width: 2160,
     height: 2880,
-    aspectRatio: 3 / 4,
   },
   {
     id: 33,
@@ -263,7 +232,6 @@ const imageDataList: ImgListWithId = [
     alt: '230216_00',
     width: 1200,
     height: 1800,
-    aspectRatio: 2 / 3,
   },
   {
     id: 34,
@@ -271,7 +239,6 @@ const imageDataList: ImgListWithId = [
     alt: '230218_00',
     width: 1278,
     height: 828,
-    aspectRatio: 3 / 2,
   },
   {
     id: 35,
@@ -279,7 +246,6 @@ const imageDataList: ImgListWithId = [
     alt: '230218_01',
     width: 822,
     height: 630,
-    aspectRatio: 4 / 3,
   },
   {
     id: 36,
@@ -287,7 +253,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_00',
     width: 2138,
     height: 3207,
-    aspectRatio: 21 / 32,
   },
   {
     id: 37,
@@ -295,7 +260,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_01',
     width: 2138,
     height: 3207,
-    aspectRatio: 21 / 32,
   },
   {
     id: 38,
@@ -303,7 +267,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_02',
     width: 2138,
     height: 3207,
-    aspectRatio: 21 / 32,
   },
   {
     id: 39,
@@ -311,7 +274,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_03',
     width: 2138,
     height: 3207,
-    aspectRatio: 21 / 32,
   },
   {
     id: 40,
@@ -319,7 +281,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_04',
     width: 2138,
     height: 3207,
-    aspectRatio: 21 / 32,
   },
   {
     id: 41,
@@ -327,7 +288,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_05',
     width: 2138,
     height: 3207,
-    aspectRatio: 21 / 32,
   },
   {
     id: 42,
@@ -335,7 +295,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_06',
     width: 3000,
     height: 4000,
-    aspectRatio: 3 / 4,
   },
   {
     id: 43,
@@ -343,7 +302,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_07',
     width: 2160,
     height: 2880,
-    aspectRatio: 3 / 4,
   },
   {
     id: 44,
@@ -351,7 +309,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_08',
     width: 3024,
     height: 3024,
-    aspectRatio: 1 / 1,
   },
   {
     id: 45,
@@ -359,7 +316,6 @@ const imageDataList: ImgListWithId = [
     alt: '230219_09',
     width: 3024,
     height: 3024,
-    aspectRatio: 1 / 1,
   },
   {
     id: 46,
@@ -367,7 +323,6 @@ const imageDataList: ImgListWithId = [
     alt: '230225_00',
     width: 3088,
     height: 2100,
-    aspectRatio: 10 / 7,
   },
   {
     id: 47,
@@ -375,7 +330,6 @@ const imageDataList: ImgListWithId = [
     alt: '230225_01',
     width: 500,
     height: 500,
-    aspectRatio: 1 / 1,
   },
   {
     id: 48,
@@ -383,7 +337,6 @@ const imageDataList: ImgListWithId = [
     alt: 'last',
     width: 1690,
     height: 1350,
-    aspectRatio: 169 / 135,
   },
   {
     id: 49,
@@ -391,13 +344,13 @@ const imageDataList: ImgListWithId = [
     alt: '230211_04',
     width: 4000,
     height: 3000,
-    aspectRatio: 4 / 3,
   },
 ];
 
 export const imageDataListWithPrefix: ImgListWithId = imageDataList.map(
   ({ src, ...rest }) => ({
     src: getFullImgUrl(src),
+    aspectRatio: rest.width && rest.height ? rest.width / rest.height : 1,
     ...rest,
   }),
 );

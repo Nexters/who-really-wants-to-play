@@ -9,7 +9,12 @@ type Props = {
 const CloseButton: FunctionComponent<Props> = ({ onClick }) => {
   return (
     <button className="close-button" onClick={onClick}>
-      <Image src={`${PHOTO_PATH_PREFIX}/svg/close.svg`} alt="닫기 버튼" />
+      <Image
+        src={`${PHOTO_PATH_PREFIX}/svg/close.svg`}
+        alt="닫기 버튼"
+        width={40}
+        height={40}
+      />
     </button>
   );
 };
