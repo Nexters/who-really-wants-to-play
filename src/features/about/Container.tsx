@@ -7,6 +7,7 @@ import { AboutContainerProps } from './types';
 
 import Image from '~/features/shared/components/Image';
 import { getImageUrlWithCdn } from '~/features/shared/utils/url';
+import { PHOTO_PATH_PREFIX } from '~/features/shared/constants';
 
 const AboutContainer: FunctionComponent<AboutContainerProps> = ({
   scrollValue,
@@ -64,7 +65,7 @@ const AboutContainer: FunctionComponent<AboutContainerProps> = ({
               backgroundImage: `url(${getImageUrlWithCdn(
                 selectedName >= 0
                   ? PROFILES_REPEAT[selectedName].src
-                  : 'https://raw.githubusercontent.com/Nexters/who-really-wants-to-play/images/images/profile/sc.webp',
+                  : PHOTO_PATH_PREFIX + '/profile/sc.webp',
               )})`,
             }}
           >
