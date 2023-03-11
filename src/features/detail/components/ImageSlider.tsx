@@ -1,4 +1,4 @@
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent } from 'react';
 
 import Image from '~/features/shared/components/Image';
 
@@ -15,8 +15,6 @@ const ImageSlider: FunctionComponent<Props> = ({
   paused,
   onClickImage,
 }) => {
-  const imageWidth = useMemo(() => window.innerWidth * 0.18, []);
-
   return (
     <div className={`image-slide ${direction} ${paused ? 'pause' : ''}`}>
       {imgSrcs.map((src, idx) => (
@@ -25,7 +23,7 @@ const ImageSlider: FunctionComponent<Props> = ({
           className="image-slide-element"
           src={src}
           alt={`이미지 슬라이드 ${idx + 1}번째`}
-          width={imageWidth}
+          width={600}
           onClick={() => onClickImage(src)}
         />
       ))}
@@ -36,7 +34,7 @@ const ImageSlider: FunctionComponent<Props> = ({
             className="image-slide-element"
             src={src}
             alt={`이미지 슬라이드 ${idx + 1}번째`}
-            width={imageWidth}
+            width={600}
             onClick={() => onClickImage(src)}
           />
         ))}
