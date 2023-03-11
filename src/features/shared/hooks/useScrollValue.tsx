@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { throttle } from '../utils/throttle';
+import { eventOptimization } from '../utils/eventOptimization';
 
 export const useScrollValue = (
   activeIndex: number,
@@ -19,9 +19,14 @@ export const useScrollValue = (
       setScrollValue(containerDiv.scrollTop);
     };
 
-    container.addEventListener('scroll', throttle(handleScroll, 100));
+    const onScroll = (e: Event) => {
+      const optimizedEvent = eventOptimization(() => handleScroll(e));
+      optimizedEvent();
+    };
+
+    container.addEventListener('scroll', onScroll);
     return () => {
-      container.removeEventListener('scroll', handleScroll);
+      container.removeEventListener('scroll', onScroll);
     };
   }, [activeIndex, containerRef, needScrollSnap]);
 

@@ -23,25 +23,24 @@ const ContentContainer = forwardRef<HTMLDivElement, ContentContainerProps>(
       >
         <div className={`${customClass}-gradient`} />
         <span className="dailybook-content-title">
-          {Array.from(title, (str, index) => {
-            return (
-              <div
-                style={
-                  active
-                    ? {
-                        display: 'inline-block',
-                        transform: `translate3d(0, -${yTitle}px, 0)`,
-                        transition: `all 1s`,
-                        transitionDelay: `calc(.1s * ${index})`,
-                        opacity: 1,
-                      }
-                    : { opacity: 0 }
-                }
-              >
-                {str}
-              </div>
-            );
-          })}
+          {Array.from(title, (str, index) => (
+            <div
+              key={title + index + str}
+              style={
+                active
+                  ? {
+                      display: 'inline-block',
+                      transform: `translate3d(0, -${yTitle}px, 0)`,
+                      transition: `all 1s`,
+                      transitionDelay: `calc(.1s * ${index})`,
+                      opacity: 1,
+                    }
+                  : { opacity: 0 }
+              }
+            >
+              {str}
+            </div>
+          ))}
         </span>
         <span className="dailybook-content-description">{description}</span>
       </div>

@@ -17,7 +17,10 @@ const AppContainer: FunctionComponent = () => {
   const { GALLERY, ABOUT } = PAGE_NAME;
   const needScrollSnap = activeIndex !== GALLERY && activeIndex !== ABOUT;
   const scrollSnapContainer = needScrollSnap ? 'scroll-snap-container' : '';
-  const { containerRef, scrollValue } = useScrollValue(activeIndex, false);
+  const { containerRef, scrollValue } = useScrollValue(
+    activeIndex,
+    needScrollSnap,
+  );
 
   const { yScroll } = useScrollMemory(containerRef);
 

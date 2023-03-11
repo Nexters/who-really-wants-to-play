@@ -25,3 +25,14 @@
     width: 127px;
   }
 }
+
+.sub-title {
+  top: $title-top;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20vw; // 400px
+  line-height: 19.965vw; // 386px
+  letter-spacing: -0.01rem;
+  color: $white-0;
+  white-space: nowrap;
+}

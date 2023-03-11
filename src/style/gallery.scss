@@ -16,7 +16,7 @@ $gallery-padding: 90px;
 
 .grid-container {
   position: relative;
-  top: -80px;
+  top: -4vw; // 80px
   max-width: $desktop-breakpoint;
   margin: 0 auto;
   padding: 0 $gallery-padding;
