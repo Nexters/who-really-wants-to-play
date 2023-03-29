@@ -4,7 +4,7 @@ type Options = {
 };
 
 export const eventOptimization = (
-  callback: () => void,
+  callback: (e: Event) => void,
   options: Options = {},
 ) => {
   const { dismissCondition, triggerCondition } = options;
@@ -13,21 +13,23 @@ export const eventOptimization = (
   let tick = false;
   let prevTimeStamp: DOMHighResTimeStamp | null = null;
 
-  return () => {
+  return (e: Event) => {
     if (tick) return;
     tick = true;
 
-    return requestAnimationFrame((timestamp) => {
-      const isSameTimeStamp = prevTimeStamp === timestamp;
-      if ((dismissCondition && dismissCondition()) || isSameTimeStamp) {
+    const eventHandler = (timestamp: DOMHighResTimeStamp) => {
+      if (dismissCondition && dismissCondition()) {
         tick = false;
         return;
       }
       if ((triggerCondition && triggerCondition()) || !triggerCondition) {
         tick = false;
+        if (prevTimeStamp === timestamp) return;
         prevTimeStamp = timestamp;
-        return callback();
+        callback(e);
       }
-    });
+    };
+
+    return requestAnimationFrame(eventHandler);
   };
 };

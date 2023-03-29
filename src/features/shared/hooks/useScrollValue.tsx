@@ -19,14 +19,9 @@ export const useScrollValue = (
       setScrollValue(containerDiv.scrollTop);
     };
 
-    const onScroll = (e: Event) => {
-      const optimizedEvent = eventOptimization(() => handleScroll(e));
-      optimizedEvent();
-    };
-
-    container.addEventListener('scroll', onScroll);
+    container.addEventListener('scroll', eventOptimization(handleScroll));
     return () => {
-      container.removeEventListener('scroll', onScroll);
+      container.removeEventListener('scroll', handleScroll);
     };
   }, [activeIndex, containerRef, needScrollSnap]);
 
